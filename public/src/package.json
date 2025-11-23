@@ -1,0 +1,9 @@
+{
+  "name": "el-rincon-del-conocimiento",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "vercel dev",
+    "build": "",
+    "dev": ""
+  }
+}

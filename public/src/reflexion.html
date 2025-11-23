@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reflexión</title>
+  <style>
+    body { background: #111; color: #fff; font-family: sans-serif; padding: 25px; }
+    .titulo { font-size: 26px; color: gold; margin-bottom: 10px; }
+    audio { width: 100%; margin: 20px 0; }
+    .categorias span { margin-right: 10px; padding: 5px 10px; background: #333; border-radius: 8px; }
+  </style>
+</head>
+<body>
+
+<div id="contenido">Cargando…</div>
+
+<script>
+const params = new URLSearchParams(location.search);
+const id = params.get("id");
+
+fetch("/src/reflexiones.json")
+  .then(r => r.json())
+  .then(data => {
+    const ref = data.find(x => x.id == id);
+    if (!ref) {
+      document.getElementById("contenido").innerHTML = "No encontrado";
+      return;
+    }
+
+    document.title = ref.titulo;
+
+    document.getElementById("contenido").innerHTML = `
+      <div class="titulo">${ref.titulo}</div>
+      <audio controls src="${ref.audio}"></audio>
+      <div class="categorias">${ref.categorias.map(c => `<span>${c}</span>`).join("")}</div>
+      <p>${ref.contenido}</p>
+      <br><br>
+      <a href="/index.html">← Volver</a>
+    `;
+  });
+</script>
+
+</body>
+</html>

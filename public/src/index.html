@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reflexiones</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; background: #111; color: #fff; }
+    .card { padding: 20px; background: #222; margin-bottom: 15px; border-radius: 10px; }
+    a { color: gold; text-decoration: none; }
+  </style>
+</head>
+<body>
+
+<h1>Reflexiones</h1>
+<div id="lista"></div>
+
+<script>
+fetch("/src/reflexiones.json")
+  .then(r => r.json())
+  .then(data => {
+    const cont = document.getElementById("lista");
+
+    data.forEach(r => {
+      cont.innerHTML += `
+        <div class="card">
+          <h2>${r.titulo}</h2>
+          <p>${r.descripcion}</p>
+          <a href="/src/reflexion.html?id=${r.id}">Leer más →</a>
+        </div>
+      `;
+    });
+  });
+</script>
+
+</body>
+</html>
