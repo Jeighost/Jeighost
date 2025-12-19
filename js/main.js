@@ -8,7 +8,33 @@ document.addEventListener('DOMContentLoaded', function() {
     initMusicPlayer();
     initLazyLoading();
     initScrollAnimations();
+    initResetButton();
 });
+
+// =================================
+// BOTÓN RESET AL TRACK DESTACADO
+// =================================
+function initResetButton() {
+    const resetBtn = document.getElementById('reset-featured');
+    const audioPlayer = document.getElementById('audio-player');
+    
+    if (resetBtn && audioPlayer) {
+        resetBtn.addEventListener('click', () => {
+            const originalSrc = audioPlayer.getAttribute('data-original-src');
+            const originalTitle = audioPlayer.getAttribute('data-original-title');
+            const originalArtist = audioPlayer.getAttribute('data-original-artist');
+            const originalImage = audioPlayer.getAttribute('data-original-image');
+            
+            loadTrack(originalSrc, originalTitle, originalArtist, originalImage);
+            
+            // Scroll suave hacia el reproductor
+            const player = document.querySelector('.music-player');
+            if (player && window.innerWidth < 768) {
+                player.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        });
+    }
+}
 
 // =================================
 // SISTEMA DE PARTÍCULAS ANIMADAS
@@ -165,7 +191,7 @@ function initMusicPlayer() {
     const volumeSlider = document.getElementById('volume-slider');
     const musicPlayer = document.querySelector('.music-player');
 
-    let isPlaying = false;
+    window.isPlaying = false;
 
     // Play/Pause
     if (playBtn) {
@@ -173,7 +199,7 @@ function initMusicPlayer() {
     }
 
     function togglePlay() {
-        if (isPlaying) {
+        if (window.isPlaying) {
             audioPlayer.pause();
             playBtn.textContent = '▶';
             musicPlayer.classList.remove('playing');
@@ -182,7 +208,7 @@ function initMusicPlayer() {
             playBtn.textContent = '⏸';
             musicPlayer.classList.add('playing');
         }
-        isPlaying = !isPlaying;
+        window.isPlaying = !window.isPlaying;
     }
 
     // Actualizar tiempo
@@ -223,7 +249,7 @@ function initMusicPlayer() {
         return `${mins}:${secs.toString().padStart(2, '0')}`;
     }
 
-    // Controles prev/next (placeholder para playlist futura)
+    // Controles prev/next
     if (prevBtn) {
         prevBtn.addEventListener('click', () => {
             audioPlayer.currentTime = 0;
@@ -232,18 +258,43 @@ function initMusicPlayer() {
 
     if (nextBtn) {
         nextBtn.addEventListener('click', () => {
-            // Placeholder: aquí se implementaría cambio de track
-            console.log('Next track');
+            // Obtener el siguiente track
+            const allTracks = document.querySelectorAll('.track-card[data-audio]');
+            const currentSrc = audioPlayer.src.split('/').pop();
+            
+            let currentIndex = -1;
+            allTracks.forEach((track, index) => {
+                const trackSrc = track.getAttribute('data-audio').split('/').pop();
+                if (trackSrc === currentSrc) {
+                    currentIndex = index;
+                }
+            });
+            
+            const nextIndex = (currentIndex + 1) % allTracks.length;
+            const nextTrack = allTracks[nextIndex];
+            
+            if (nextTrack) {
+                const audioSrc = nextTrack.getAttribute('data-audio');
+                const trackTitle = nextTrack.getAttribute('data-title');
+                const trackArtist = nextTrack.getAttribute('data-artist');
+                const trackImage = nextTrack.getAttribute('data-image');
+                loadTrack(audioSrc, trackTitle, trackArtist, trackImage);
+            }
         });
     }
 
-    // Finalización de audio
+    // Finalización de audio - auto-next
     audioPlayer.addEventListener('ended', () => {
-        isPlaying = false;
-        playBtn.textContent = '▶';
-        musicPlayer.classList.remove('playing');
-        progressFill.style.width = '0%';
-        audioPlayer.currentTime = 0;
+        // Auto play next track
+        if (nextBtn) {
+            nextBtn.click();
+        } else {
+            window.isPlaying = false;
+            playBtn.textContent = '▶';
+            musicPlayer.classList.remove('playing');
+            progressFill.style.width = '0%';
+            audioPlayer.currentTime = 0;
+        }
     });
 }
 
@@ -305,26 +356,91 @@ function initScrollAnimations() {
 }
 
 // =================================
-// CLICK EN VIDEOS THUMBNAILS
+// CLICK EN TRACK CARDS - CAMBIAR REPRODUCCIÓN
 // =================================
 document.addEventListener('click', (e) => {
     const videoCard = e.target.closest('.video-card:not(.featured-video)');
     if (videoCard) {
         const thumbnail = videoCard.querySelector('.video-thumbnail');
         if (thumbnail && thumbnail.contains(e.target)) {
-            // Placeholder: aquí se podría abrir un modal o reproducir el video
             console.log('Video clicked');
             animateClick(e.target);
         }
     }
     
+    // Sistema de cambio de track en el reproductor
     const trackCard = e.target.closest('.track-card');
     if (trackCard) {
-        // Placeholder: aquí se podría reproducir el track
-        console.log('Track clicked');
-        animateClick(trackCard);
+        const audioSrc = trackCard.getAttribute('data-audio');
+        const trackTitle = trackCard.getAttribute('data-title');
+        const trackArtist = trackCard.getAttribute('data-artist');
+        const trackImage = trackCard.getAttribute('data-image');
+        
+        if (audioSrc) {
+            loadTrack(audioSrc, trackTitle, trackArtist, trackImage);
+            animateClick(trackCard);
+            
+            // Scroll suave hacia el reproductor
+            const player = document.querySelector('.music-player');
+            if (player && window.innerWidth < 768) {
+                player.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        }
     }
 });
+
+// Función para cargar un nuevo track
+function loadTrack(audioSrc, title, artist, image) {
+    const audioPlayer = document.getElementById('audio-player');
+    const playBtn = document.getElementById('play-btn');
+    const musicPlayer = document.querySelector('.music-player');
+    const resetBtn = document.getElementById('reset-featured');
+    
+    if (!audioPlayer) return;
+    
+    // Verificar si es el track original
+    const originalSrc = audioPlayer.getAttribute('data-original-src');
+    const isOriginal = audioSrc === originalSrc;
+    
+    // Detener audio actual
+    audioPlayer.pause();
+    audioPlayer.currentTime = 0;
+    
+    // Cambiar source
+    audioPlayer.src = audioSrc;
+    
+    // Actualizar información visual
+    const trackTitleEl = document.getElementById('current-track-title');
+    const trackArtistEl = document.getElementById('current-track-artist');
+    const artworkImg = document.getElementById('player-artwork');
+    
+    if (trackTitleEl) trackTitleEl.textContent = title || 'Track';
+    if (trackArtistEl) trackArtistEl.textContent = artist || 'Jeighost';
+    if (artworkImg) {
+        artworkImg.src = image || 'assets/images/album-art.jpg';
+        // Efecto de fade en la imagen
+        artworkImg.style.opacity = '0';
+        setTimeout(() => {
+            artworkImg.style.transition = 'opacity 0.5s ease';
+            artworkImg.style.opacity = '1';
+        }, 100);
+    }
+    
+    // Mostrar/ocultar botón de reset
+    if (resetBtn) {
+        resetBtn.style.display = isOriginal ? 'none' : 'inline-block';
+    }
+    
+    // Reproducir automáticamente
+    audioPlayer.load();
+    audioPlayer.play().then(() => {
+        if (playBtn) playBtn.textContent = '⏸';
+        if (musicPlayer) musicPlayer.classList.add('playing');
+        window.isPlaying = true;
+    }).catch(err => {
+        console.log('Autoplay prevented:', err);
+    });
+}
 
 function animateClick(element) {
     element.style.transform = 'scale(0.95)';
@@ -459,14 +575,23 @@ if (window.innerWidth > 1024) {
     });
 }
 
-// Efecto parallax suave en el hero
+// Efecto parallax suave en el hero (solo en desktop)
 const heroSection = document.querySelector('.hero-section');
-if (heroSection) {
+if (heroSection && window.innerWidth > 768) {
     window.addEventListener('scroll', () => {
         const scrolled = window.pageYOffset;
-        if (scrolled < window.innerHeight) {
-            heroSection.style.transform = `translateY(${scrolled * 0.5}px)`;
-            heroSection.style.opacity = 1 - (scrolled / window.innerHeight);
+        const heroHeight = heroSection.offsetHeight;
+        
+        // Solo aplicar efecto mientras el hero esté visible
+        if (scrolled < heroHeight) {
+            heroSection.style.transform = `translateY(${scrolled * 0.3}px)`;
+            // Reducir opacidad solo cuando esté cerca del final
+            const fadeStart = heroHeight * 0.7;
+            if (scrolled > fadeStart) {
+                heroSection.style.opacity = 1 - ((scrolled - fadeStart) / (heroHeight - fadeStart));
+            } else {
+                heroSection.style.opacity = 1;
+            }
         }
     });
 }
