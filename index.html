@@ -3,654 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#D97706">
-    <meta name="description" content="Reflexiones y poemas filosóficos">
-    <link rel="manifest" href="manifest.json">
-    <title>Jeighost - Reflexiones Filosóficas</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.1/umd/lucide.min.js"></script>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        body {
-            font-family: Georgia, 'Times New Roman', serif;
-            transition: all 0.3s;
-            min-height: 100vh;
-        }
-        
-        .dark-mode {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
-                        url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' /%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E");
-            color: #FEF3C7;
-        }
-        
-        .light-mode {
-            background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), 
-                        url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulance type='fractalNoise' baseFrequency='0.9' numOctaves='4' /%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23noise)' opacity='0.1'/%3E%3C/svg%3E");
-            background-color: #FFFBEB;
-            color: #1F2937;
-        }
-        
-        .accent { color: #F59E0B; }
-        
-        header {
-            position: sticky;
-            top: 0;
-            z-index: 50;
-            backdrop-filter: blur(10px);
-            border-bottom: 2px solid #D97706;
-            padding: 1rem;
-        }
-        
-        .dark-mode header { background: rgba(17, 24, 39, 0.95); }
-        .light-mode header { background: rgba(255, 251, 235, 0.95); }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 1rem;
-        }
-        
-        .flex { display: flex; }
-        .items-center { align-items: center; }
-        .justify-between { justify-content: space-between; }
-        .gap-4 { gap: 1rem; }
-        
-        button {
-            cursor: pointer;
-            border: none;
-            background: transparent;
-            padding: 0.5rem;
-            border-radius: 0.5rem;
-            transition: all 0.2s;
-        }
-        
-        button:hover { background: rgba(217, 119, 6, 0.2); }
-        
-        .menu-overlay {
-            position: fixed;
-            inset: 0;
-            z-index: 40;
-            backdrop-filter: blur(10px);
-            padding: 2rem;
-            display: none;
-        }
-        
-        .menu-overlay.active { display: block; }
-        
-        .dark-mode .menu-overlay { background: rgba(17, 24, 39, 0.95); }
-        .light-mode .menu-overlay { background: rgba(255, 251, 235, 0.95); }
-        
-        .menu-item {
-            width: 100%;
-            text-align: left;
-            padding: 1rem;
-            margin-bottom: 0.5rem;
-            border-radius: 0.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-        
-        .card {
-            padding: 1.5rem;
-            border-radius: 0.5rem;
-            border: 2px solid #D97706;
-            margin-bottom: 1.5rem;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        
-        .dark-mode .card { background: #1F2937; }
-        .light-mode .card { background: white; }
-        
-        .card:hover { box-shadow: 0 10px 40px rgba(217, 119, 6, 0.3); transform: translateY(-2px); }
-        
-        .card h2 { color: #F59E0B; margin-bottom: 1rem; font-size: 1.5rem; }
-        
-        .tag {
-            display: inline-block;
-            padding: 0.25rem 0.75rem;
-            border-radius: 9999px;
-            background: rgba(217, 119, 6, 0.2);
-            font-size: 0.875rem;
-            margin-right: 0.5rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .input, .textarea, .select {
-            width: 100%;
-            padding: 0.75rem;
-            border: 2px solid #D97706;
-            border-radius: 0.5rem;
-            margin-bottom: 1rem;
-            font-family: inherit;
-            font-size: 1rem;
-        }
-        
-        .dark-mode .input, .dark-mode .textarea, .dark-mode .select { background: #374151; color: #FEF3C7; }
-        .light-mode .input, .light-mode .textarea, .light-mode .select { background: white; color: #1F2937; }
-        
-        .btn {
-            padding: 0.75rem 1.5rem;
-            border-radius: 0.5rem;
-            font-weight: bold;
-            cursor: pointer;
-            border: none;
-            transition: all 0.2s;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        .btn-primary { background: #D97706; color: white; }
-        .btn-primary:hover { background: #B45309; }
-        
-        .btn-secondary { border: 2px solid #D97706; background: transparent; }
-        .btn-secondary:hover { background: rgba(217, 119, 6, 0.2); }
-        
-        .btn-danger { background: #DC2626; color: white; }
-        .btn-danger:hover { background: #991B1B; }
-        
-        .modal {
-            position: fixed;
-            inset: 0;
-            z-index: 50;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            background: rgba(0, 0, 0, 0.8);
-            padding: 1rem;
-        }
-        
-        .modal.active { display: flex; }
-        
-        .modal-content {
-            max-width: 500px;
-            width: 100%;
-            padding: 2rem;
-            border-radius: 0.5rem;
-            border: 2px solid #D97706;
-        }
-        
-        .dark-mode .modal-content { background: #1F2937; }
-        .light-mode .modal-content { background: white; }
-        
-        .search-box {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.75rem;
-            border: 2px solid #D97706;
-            border-radius: 0.5rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        .dark-mode .search-box { background: #1F2937; }
-        .light-mode .search-box { background: white; }
-        
-        .search-box input {
-            flex: 1;
-            border: none;
-            background: transparent;
-            outline: none;
-            font-size: 1rem;
-        }
-        
-        .dark-mode .search-box input { color: #FEF3C7; }
-        .light-mode .search-box input { color: #1F2937; }
-        
-        .comment-section {
-            border-top: 2px solid #D97706;
-            padding-top: 1.5rem;
-            margin-top: 1.5rem;
-        }
-        
-        .comment {
-            padding: 1rem;
-            border-radius: 0.5rem;
-            margin-bottom: 0.75rem;
-        }
-        
-        .dark-mode .comment { background: #374151; }
-        .light-mode .comment { background: #FFFBEB; }
-        
-        .audio-controls {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.75rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        footer {
-            border-top: 2px solid #D97706;
-            margin-top: 3rem;
-            padding: 1.5rem;
-            text-align: center;
-            color: #F59E0B;
-        }
-        
-        .hidden { display: none; }
-        
-        @media (max-width: 768px) {
-            .card h2 { font-size: 1.25rem; }
-            .container { padding: 0.5rem; }
-        }
-    </style>
+    <meta name="description" content="Jeighost - Portafolio oficial: Poeta, Editor y Productor Musical. Descubre mis proyectos web, videos editados y producciones musicales.">
+    <meta name="keywords" content="Jeighost, poeta, productor musical, beatmaker, editor de video, poesía, beats, música">
+    <meta name="author" content="Jeighost">
+    <meta property="og:title" content="Jeighost - Portafolio Oficial">
+    <meta property="og:description" content="Poeta, Editor y Productor Musical">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://jeighost.lat">
+    <title>Jeighost - Portafolio Oficial | Poeta, Editor & Productor</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
-<body class="dark-mode">
+<body>
+    <!-- Fondo animado con partículas -->
+    <div class="particles-bg" id="particles-bg"></div>
+    
+    <!-- Navegación fija -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">JEIGHOST</a>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link active">Home</a></li>
+                <li><a href="webs.html" class="nav-link">Webs</a></li>
+                <li><a href="video.html" class="nav-link">Video</a></li>
+                <li><a href="beats.html" class="nav-link">Productor</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
 
-    <!-- Header -->
-    <header>
-        <div class="container flex items-center justify-between">
-            <h1 class="accent" style="font-size: 1.5rem; font-weight: bold; cursor: pointer;" onclick="showHome()">
-                Jeighost
+    <!-- Hero Section -->
+    <main class="hero-section">
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <span class="glitch" data-text="JEIGHOST">JEIGHOST</span>
             </h1>
-            <div class="flex items-center gap-4">
-                <button onclick="toggleDarkMode()" class="accent">
-                    <i data-lucide="sun" id="theme-icon"></i>
-                </button>
-                <button onclick="toggleMenu()" class="accent">
-                    <i data-lucide="menu" id="menu-icon"></i>
-                </button>
-            </div>
-        </div>
-    </header>
-
-    <!-- Menú Lateral -->
-    <div id="menu" class="menu-overlay">
-        <div class="container">
-            <button onclick="showHome(); toggleMenu();" class="menu-item accent">
-                <i data-lucide="home"></i> Inicio
-            </button>
+            <p class="hero-subtitle">Poeta • Editor • Productor Musical</p>
+            <p class="hero-description">
+                Creando experiencias audiovisuales únicas. Fusionando la palabra escrita, 
+                la imagen en movimiento y el sonido en un universo creativo sin límites.
+            </p>
             
-            <h3 class="accent" style="font-weight: bold; padding: 1rem 1rem 0.5rem;">Categorías</h3>
-            <button onclick="filterCategory('Amor'); toggleMenu();" class="menu-item">
-                <i data-lucide="folder"></i> Amor
-            </button>
-            <button onclick="filterCategory('Vida'); toggleMenu();" class="menu-item">
-                <i data-lucide="folder"></i> Vida
-            </button>
-            <button onclick="filterCategory('Muerte'); toggleMenu();" class="menu-item">
-                <i data-lucide="folder"></i> Muerte
-            </button>
-            <button onclick="filterCategory('Existencia'); toggleMenu();" class="menu-item">
-                <i data-lucide="folder"></i> Existencia
-            </button>
-            <button onclick="filterCategory('Tiempo'); toggleMenu();" class="menu-item">
-                <i data-lucide="folder"></i> Tiempo
-            </button>
-            <button onclick="filterCategory('todas'); toggleMenu();" class="menu-item">
-                <i data-lucide="folder"></i> Todas
-            </button>
-            
-            <button id="admin-menu-btn" onclick="showAdminPanel(); toggleMenu();" class="menu-item accent" style="margin-top: 1rem;">
-                <i data-lucide="plus"></i> <span id="admin-text">Acceso Admin</span>
-            </button>
-        </div>
-    </div>
-
-    <!-- Modal de Login Admin -->
-    <div id="admin-modal" class="modal">
-        <div class="modal-content">
-            <h2 class="accent" style="font-size: 1.5rem; font-weight: bold; margin-bottom: 1rem;">Acceso Administrador</h2>
-            <input type="password" id="admin-password" class="input" placeholder="Contraseña" onkeypress="if(event.key === 'Enter') loginAdmin()">
-            <div class="flex gap-4">
-                <button onclick="loginAdmin()" class="btn btn-primary" style="flex: 1;">Entrar</button>
-                <button onclick="closeAdminModal()" class="btn btn-secondary" style="flex: 1;">Cancelar</button>
+            <!-- Cards de acceso rápido -->
+            <div class="quick-access">
+                <a href="webs.html" class="access-card" data-tilt>
+                    <div class="card-icon">🌐</div>
+                    <h3>Proyectos Web</h3>
+                    <p>Explora mis creaciones digitales y páginas web</p>
+                    <span class="card-arrow">→</span>
+                </a>
+                
+                <a href="video.html" class="access-card" data-tilt>
+                    <div class="card-icon">🎬</div>
+                    <h3>Edición de Video</h3>
+                    <p>Galería de videos profesionales editados</p>
+                    <span class="card-arrow">→</span>
+                </a>
+                
+                <a href="beats.html" class="access-card" data-tilt>
+                    <div class="card-icon">🎵</div>
+                    <h3>Producción Musical</h3>
+                    <p>Beats, canciones y producciones originales</p>
+                    <span class="card-arrow">→</span>
+                </a>
             </div>
-            <p style="font-size: 0.875rem; margin-top: 1rem; text-align: center; opacity: 0.7;">Contraseña: admin123</p>
-        </div>
-    </div>
 
-    <!-- Contenido Principal -->
-    <main class="container">
-        
-        <!-- Home -->
-        <div id="home-page">
-            <div class="search-box">
-                <i data-lucide="search" class="accent"></i>
-                <input type="text" id="search-input" placeholder="Buscar reflexiones..." oninput="searchReflections()">
-            </div>
-            <div id="reflections-list"></div>
-        </div>
-
-        <!-- Detalle -->
-        <div id="detail-page" class="hidden">
-            <button onclick="showHome()" class="accent" style="margin-bottom: 1rem; cursor: pointer;">← Volver</button>
-            <div id="detail-content"></div>
-        </div>
-
-        <!-- Panel Admin -->
-        <div id="admin-page" class="hidden">
-            <div class="card">
-                <h2 class="accent" style="font-size: 2rem;">Nueva Reflexión</h2>
-                <input type="text" id="new-title" class="input" placeholder="Título">
-                <textarea id="new-content" class="textarea" placeholder="Contenido de la reflexión..." rows="10"></textarea>
-                <select id="new-category" class="select">
-                    <option value="Amor">Amor</option>
-                    <option value="Vida">Vida</option>
-                    <option value="Muerte">Muerte</option>
-                    <option value="Existencia">Existencia</option>
-                    <option value="Tiempo">Tiempo</option>
-                </select>
-                <input type="text" id="new-tags" class="input" placeholder="Tags (separados por comas)">
-                <input type="text" id="new-audio" class="input" placeholder="URL del audio MP3 (opcional)">
-                <div class="flex gap-4">
-                    <button onclick="addReflection()" class="btn btn-primary" style="flex: 1;">
-                        <i data-lucide="check"></i> Publicar Reflexión
-                    </button>
-                    <button onclick="showHome()" class="btn btn-secondary" style="flex: 1;">Cancelar</button>
-                </div>
+            <!-- Call to action -->
+            <div class="cta-section">
+                <a href="https://jeighost.lat" target="_blank" rel="noopener noreferrer" class="btn-primary">
+                    Visita mi Página de Poesía
+                </a>
             </div>
         </div>
 
+        <!-- Scroll indicator -->
+        <div class="scroll-indicator">
+            <div class="mouse"></div>
+            <span>Explora</span>
+        </div>
     </main>
 
-    <!-- Footer -->
-    <footer>
-        <p>© 2024 Jeighost - Reflexiones Filosóficas</p>
-    </footer>
-
-<script>
-    // Estado global
-    let reflections = [
-        {
-            id: '1',
-            title: 'El Silencio del Alma',
-            content: 'En la quietud de la noche, cuando el mundo duerme y los pensamientos despiertan, el alma encuentra su voz más auténtica. No es en el ruido donde hallamos verdad, sino en los espacios entre palabras, en el silencio que abraza nuestra esencia.',
-            category: 'Existencia',
-            tags: ['silencio', 'alma', 'verdad'],
-            date: '2024-11-20',
-            audioUrl: ''
-        },
-        {
-            id: '2',
-            title: 'El Río del Tiempo',
-            content: 'Como un río que fluye sin cesar, el tiempo nos arrastra en su corriente. No podemos detenerlo ni regresar, solo aprender a nadar con gracia en sus aguas, sabiendo que cada momento es único e irrepetible.',
-            category: 'Tiempo',
-            tags: ['tiempo', 'vida', 'momento'],
-            date: '2024-11-19',
-            audioUrl: ''
-        },
-        {
-            id: '3',
-            title: 'La Danza de las Sombras',
-            content: 'Somos luz y oscuridad en perfecta armonía. Las sombras no son enemigas, son maestras que nos enseñan el valor de la luz. En cada noche del alma, germina una nueva aurora.',
-            category: 'Vida',
-            tags: ['luz', 'sombra', 'dualidad'],
-            date: '2024-11-18',
-            audioUrl: ''
-        }
-    ];
-    
-    let currentReflection = null;
-    let isAdmin = false;
-    let currentCategory = 'todas';
-    let audioPlayer = null;
-    let comments = {};
-
-    // Inicializar
-    document.addEventListener('DOMContentLoaded', () => {
-        lucide.createIcons();
-        loadFromLocalStorage();
-        renderReflections();
-    });
-
-    // Usar localStorage como alternativa
-    function loadFromLocalStorage() {
-        try {
-            const stored = localStorage.getItem('jeighost_reflections');
-            if (stored) {
-                reflections = JSON.parse(stored);
-            } else {
-                // Guardar datos iniciales
-                localStorage.setItem('jeighost_reflections', JSON.stringify(reflections));
-            }
-            
-            const storedComments = localStorage.getItem('jeighost_comments');
-            if (storedComments) {
-                comments = JSON.parse(storedComments);
-            }
-        } catch (error) {
-            console.log('Usando datos por defecto');
-        }
-    }
-
-    function saveReflections() {
-        try {
-            localStorage.setItem('jeighost_reflections', JSON.stringify(reflections));
-        } catch (error) {
-            console.error('Error guardando');
-        }
-    }
-
-    function saveComments() {
-        try {
-            localStorage.setItem('jeighost_comments', JSON.stringify(comments));
-        } catch (error) {
-            console.error('Error guardando comentarios');
-        }
-    }
-
-    // Renderizar lista
-    function renderReflections() {
-        const searchTerm = document.getElementById('search-input').value.toLowerCase();
-        const filtered = reflections.filter(r => {
-            const matchCategory = currentCategory === 'todas' || r.category === currentCategory;
-            const matchSearch = r.title.toLowerCase().includes(searchTerm) || 
-                               r.content.toLowerCase().includes(searchTerm);
-            return matchCategory && matchSearch;
-        });
-
-        const html = filtered.map(r => `
-            <div class="card" onclick="showDetail('${r.id}')">
-                <h2>${r.title}</h2>
-                <p style="margin-bottom: 1rem; line-height: 1.6;">${r.content.substring(0, 200)}...</p>
-                <div style="margin-bottom: 0.75rem;">
-                    <span class="tag">${r.category}</span>
-                    ${r.tags.map(t => `<span class="tag" style="background: rgba(217, 119, 6, 0.1);"><i data-lucide="tag" style="width: 14px; height: 14px;"></i> ${t}</span>`).join('')}
-                </div>
-                <p style="font-size: 0.875rem; opacity: 0.7;">${r.date}</p>
-            </div>
-        `).join('');
-
-        document.getElementById('reflections-list').innerHTML = html || '<p class="accent" style="text-align: center; padding: 2rem;">No hay reflexiones</p>';
-        lucide.createIcons();
-    }
-
-    // Resto de funciones (las mismas que antes)
-    function showDetail(id) {
-        currentReflection = reflections.find(r => r.id === id);
-        if (!currentReflection) return;
-
-        const reflectionComments = comments[id] || [];
-        
-        const html = `
-            <div class="card">
-                <h1 class="accent" style="font-size: 2rem; margin-bottom: 1.5rem;">${currentReflection.title}</h1>
-                
-                <div class="audio-controls">
-                    ${currentReflection.audioUrl ? `<button onclick="playAudio('${currentReflection.audioUrl}')" class="btn btn-primary"><i data-lucide="play"></i> Audio MP3</button>` : ''}
-                    <button onclick="speakText()" class="btn btn-secondary"><i data-lucide="volume-2"></i> Leer con Voz</button>
-                    <button onclick="shareReflection()" class="btn btn-secondary"><i data-lucide="share-2"></i> Compartir</button>
-                    ${isAdmin ? `<button onclick="deleteReflection('${currentReflection.id}')" class="btn btn-danger"><i data-lucide="trash-2"></i> Eliminar</button>` : ''}
-                </div>
-
-                <p style="font-size: 1.125rem; line-height: 1.8; margin-bottom: 1.5rem; white-space: pre-wrap;">${currentReflection.content}</p>
-                
-                <div style="margin-bottom: 1.5rem;">
-                    <span class="tag">${currentReflection.category}</span>
-                    ${currentReflection.tags.map(t => `<span class="tag" style="background: rgba(217, 119, 6, 0.1);"><i data-lucide="tag" style="width: 14px; height: 14px;"></i> ${t}</span>`).join('')}
-                </div>
-
-                <div class="comment-section">
-                    <h3 style="font-size: 1.25rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
-                        <i data-lucide="message-circle"></i> Comentarios (${reflectionComments.length})
-                    </h3>
-                    
-                    <textarea id="new-comment" class="textarea" placeholder="Escribe tu comentario..." rows="3"></textarea>
-                    <button onclick="addComment()" class="btn btn-primary"><i data-lucide="send"></i> Publicar</button>
-                    
-                    <div id="comments-list" style="margin-top: 1rem;">
-                        ${reflectionComments.map(c => `
-                            <div class="comment">
-                                <p style="margin-bottom: 0.5rem;">${c.text}</p>
-                                <p style="font-size: 0.875rem; opacity: 0.7;">${c.date}</p>
-                            </div>
-                        `).join('')}
-                    </div>
-                </div>
-            </div>
-        `;
-
-        document.getElementById('detail-content').innerHTML = html;
-        document.getElementById('home-page').classList.add('hidden');
-        document.getElementById('admin-page').classList.add('hidden');
-        document.getElementById('detail-page').classList.remove('hidden');
-        lucide.createIcons();
-        window.scrollTo(0, 0);
-    }
-
-    function showHome() {
-        document.getElementById('home-page').classList.remove('hidden');
-        document.getElementById('detail-page').classList.add('hidden');
-        document.getElementById('admin-page').classList.add('hidden');
-        renderReflections();
-    }
-
-    function showAdminPanel() {
-        if (!isAdmin) {
-            document.getElementById('admin-modal').classList.add('active');
-        } else {
-            document.getElementById('home-page').classList.add('hidden');
-            document.getElementById('detail-page').classList.add('hidden');
-            document.getElementById('admin-page').classList.remove('hidden');
-        }
-    }
-
-    function toggleMenu() {
-        const menu = document.getElementById('menu');
-        const icon = document.getElementById('menu-icon');
-        menu.classList.toggle('active');
-        icon.setAttribute('data-lucide', menu.classList.contains('active') ? 'x' : 'menu');
-        lucide.createIcons();
-    }
-
-    function toggleDarkMode() {
-        document.body.classList.toggle('dark-mode');
-        document.body.classList.toggle('light-mode');
-        const icon = document.getElementById('theme-icon');
-        icon.setAttribute('data-lucide', document.body.classList.contains('dark-mode') ? 'sun' : 'moon');
-        lucide.createIcons();
-    }
-
-    function filterCategory(cat) {
-        currentCategory = cat;
-        renderReflections();
-    }
-
-    function searchReflections() {
-        renderReflections();
-    }
-
-    function loginAdmin() {
-        const password = document.getElementById('admin-password').value;
-        if (password === 'admin123') {
-            isAdmin = true;
-            document.getElementById('admin-text').textContent = 'Nueva Reflexión';
-            closeAdminModal();
-            showAdminPanel();
-        } else {
-            alert('Contraseña incorrecta');
-        }
-    }
-
-    function closeAdminModal() {
-        document.getElementById('admin-modal').classList.remove('active');
-        document.getElementById('admin-password').value = '';
-    }
-
-    function addReflection() {
-        const title = document.getElementById('new-title').value;
-        const content = document.getElementById('new-content').value;
-        const category = document.getElementById('new-category').value;
-        const tags = document.getElementById('new-tags').value.split(',').map(t => t.trim());
-        const audioUrl = document.getElementById('new-audio').value;
-
-        if (!title || !content) {
-            alert('Completa título y contenido');
-            return;
-        }
-
-        const reflection = {
-            id: Date.now().toString(),
-            title, content, category, tags, audioUrl,
-            date: new Date().toISOString().split('T')[0]
-        };
-
-        reflections.unshift(reflection);
-        saveReflections();
-        
-        document.getElementById('new-title').value = '';
-        document.getElementById('new-content').value = '';
-        document.getElementById('new-tags').value = '';
-        document.getElementById('new-audio').value = '';
-        
-        alert('Reflexión publicada');
-        showHome();
-    }
-
-    function deleteReflection(id) {
-        if (confirm('¿Eliminar esta reflexión?')) {
-            reflections = reflections.filter(r => r.id !== id);
-            saveReflections();
-            alert('Eliminada');
-            showHome();
-        }
-    }
-
-    function playAudio(url) {
-        if (audioPlayer) audioPlayer.pause();
-        audioPlayer = new Audio(url);
-        audioPlayer.play();
-    }
-
-    function speakText() {
-        if (window.speechSynthesis.speaking) {
-            window.speechSynthesis.cancel();
-        } else {
-            const utterance = new SpeechSynthesisUtterance(currentReflection.content);
-            utterance.lang = 'es-ES';
-            utterance.rate = 0.9;
-            window.speechSynthesis.speak(utterance);
-        }
-    }
-
-    function shareReflection() {
-        const text = `${currentReflection.title}\n\n${currentReflection.content}\n\nVía jeighost.vercel.app`;
-        if (navigator.share) {
-            navigator.share({ title: currentReflection.title, text });
-        } else {
-            navigator.clipboard.writeText(text);
-            alert('Copiado');
-        }
-    }
-
-    function addComment() {
-        const text = document.getElementById('new-comment').value;
-        if (!text.trim()) return;
-
-        const comment = {
-            id: Date.now(),
-            text: text,
-            date: new Date().toLocaleString('es-ES')
-        };
-
-        if (!comments[currentReflection.id]) {
-            comments[currentReflection.id] = [];
-        }
-        comments[currentReflection.id].push(comment);
-        saveComments();
-        showDetail(currentReflection.id);
-    }
-</script>
+    <script src="js/main.js"></script>
+</body>
+</html>
