@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# Permitir todo el sitio
+Disallow: /css/
+Disallow: /js/
+Disallow: /assets/audio/
+
+# Sitemap
+Sitemap: https://jeighost.art/sitemap.xml
