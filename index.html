@@ -1,244 +1,1932 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Jeighost - Portafolio oficial: Poeta, Editor y Productor Musical. Descubre mis proyectos web, videos editados y producciones musicales.">
-    <meta name="keywords" content="Jeighost, poeta, productor musical, beatmaker, editor de video, poesía, beats, música">
-    <meta name="author" content="Jeighost">
-    <meta property="og:title" content="Jeighost - Portafolio Oficial">
-    <meta property="og:description" content="Poeta, Editor y Productor Musical">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://jeighost.lat">
-    <title>Jeighost - Portafolio Oficial | Poeta, Editor & Productor</title>
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16.png">
-    <link rel="apple-touch-icon" sizes="48x48" href="assets/images/favicon-48.png">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="JEIGHOST — Poeta, Productor Musical & Editor Audiovisual. Portafolio oficial.">
+<title>JEIGHOST — Portafolio Oficial</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════
+   TOKENS — PREMIUM DARK IDENTITY
+═══════════════════════════════════════════ */
+:root {
+  --black:    #080808;
+  --deep:     #0e0e0e;
+  --surface:  #141414;
+  --lift:     #1c1c1c;
+  --border:   rgba(255,255,255,0.07);
+  --border-hi:rgba(255,255,255,0.14);
+  --gold:     #c8a84b;
+  --gold-dim: rgba(200,168,75,0.12);
+  --gold-glow:rgba(200,168,75,0.25);
+  --crimson:  #9b1c1c;
+  --crimson-hi:#c72626;
+  --muted:    #5a5a5a;
+  --secondary:#8a8a8a;
+  --primary:  #e8e6e0;
+  --white:    #f5f3ee;
+
+  --font-display:'Bebas Neue', sans-serif;
+  --font-body:'DM Sans', sans-serif;
+
+  --ease-out: cubic-bezier(0.16,1,0.3,1);
+  --ease-in:  cubic-bezier(0.7,0,0.84,0);
+  --r-sm: 6px;
+  --r-md: 12px;
+  --r-lg: 20px;
+}
+
+*,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+html { scroll-behavior:smooth; -webkit-font-smoothing:antialiased; }
+body {
+  font-family:var(--font-body);
+  background:var(--black);
+  color:var(--primary);
+  overflow-x:hidden;
+  line-height:1.6;
+  font-weight:300;
+}
+a { text-decoration:none; color:inherit; }
+img { max-width:100%; display:block; }
+button { border:none; background:none; cursor:pointer; font-family:inherit; }
+
+/* ═══════════════════════════════════════════
+   GRAIN TEXTURE OVERLAY
+═══════════════════════════════════════════ */
+body::before {
+  content:'';
+  position:fixed;
+  inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  opacity:0.028;
+  pointer-events:none;
+  z-index:9999;
+}
+
+/* ═══════════════════════════════════════════
+   NAVBAR — ULTRA MINIMAL
+═══════════════════════════════════════════ */
+.nav {
+  position:fixed; top:0; left:0; right:0; z-index:1000;
+  padding:0 3rem;
+  height:64px;
+  display:flex; align-items:center; justify-content:space-between;
+  background:rgba(8,8,8,0); /* starts transparent */
+  transition:background 0.5s ease, border-color 0.5s ease;
+  border-bottom:1px solid transparent;
+}
+.nav.scrolled {
+  background:rgba(8,8,8,0.92);
+  border-color:var(--border);
+  backdrop-filter:blur(20px) saturate(1.2);
+}
+.nav-logo {
+  font-family:var(--font-display);
+  font-size:1.4rem;
+  letter-spacing:0.08em;
+  color:var(--white);
+  transition:color 0.3s ease;
+}
+.nav-logo:hover { color:var(--gold); }
+.nav-links {
+  display:flex; gap:2.5rem; list-style:none;
+  align-items:center;
+}
+.nav-links a {
+  font-size:0.78rem;
+  font-weight:400;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  color:var(--secondary);
+  transition:color 0.3s ease;
+  position:relative;
+}
+.nav-links a::after {
+  content:'';
+  position:absolute;
+  bottom:-3px; left:0; right:0;
+  height:1px;
+  background:var(--gold);
+  transform:scaleX(0);
+  transform-origin:left;
+  transition:transform 0.3s var(--ease-out);
+}
+.nav-links a:hover,
+.nav-links a.active { color:var(--white); }
+.nav-links a:hover::after,
+.nav-links a.active::after { transform:scaleX(1); }
+.nav-hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; }
+.nav-hamburger span {
+  width:22px; height:1.5px;
+  background:var(--secondary);
+  transition:all 0.3s ease;
+}
+
+/* ═══════════════════════════════════════════
+   HERO — CINEMATIC FULL-VIEWPORT
+═══════════════════════════════════════════ */
+.hero {
+  min-height:100vh;
+  display:grid;
+  place-items:center;
+  position:relative;
+  overflow:hidden;
+}
+
+/* Ambient background — subtle, not gamer */
+.hero-ambient {
+  position:absolute; inset:0;
+  background:
+    radial-gradient(ellipse 80% 50% at 20% 100%, rgba(155,28,28,0.08) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 80% 0%, rgba(200,168,75,0.06) 0%, transparent 55%),
+    var(--black);
+  pointer-events:none;
+}
+
+/* Horizontal rule lines for cinematic feel */
+.hero-lines {
+  position:absolute; inset:0;
+  overflow:hidden;
+  pointer-events:none;
+}
+.hero-lines::before,
+.hero-lines::after {
+  content:'';
+  position:absolute;
+  left:0; right:0;
+  height:1px;
+  background:linear-gradient(90deg, transparent, var(--border-hi), transparent);
+}
+.hero-lines::before { top:30%; }
+.hero-lines::after  { top:70%; }
+
+.hero-content {
+  text-align:center;
+  padding:8rem 2rem 4rem;
+  max-width:900px;
+  position:relative;
+  z-index:2;
+}
+
+/* Year badge */
+.hero-eyebrow {
+  font-size:0.72rem;
+  letter-spacing:0.25em;
+  text-transform:uppercase;
+  color:var(--gold);
+  margin-bottom:2rem;
+  opacity:0;
+  animation:fadeUp 1s var(--ease-out) 0.2s forwards;
+}
+
+.hero-name {
+  font-family:var(--font-display);
+  font-size:clamp(5rem, 18vw, 14rem);
+  line-height:0.9;
+  letter-spacing:0.04em;
+  color:var(--white);
+  margin-bottom:0.5rem;
+  opacity:0;
+  animation:fadeUp 1.2s var(--ease-out) 0.4s forwards;
+}
+
+/* The gold stroke variant of the name */
+.hero-name-outline {
+  font-family:var(--font-display);
+  font-size:clamp(5rem, 18vw, 14rem);
+  line-height:0.9;
+  letter-spacing:0.04em;
+  color:transparent;
+  -webkit-text-stroke:1px rgba(200,168,75,0.35);
+  position:absolute;
+  top:0; left:0; right:0;
+  pointer-events:none;
+  transform:translate(3px,3px);
+}
+
+.hero-title-wrap {
+  position:relative;
+  display:inline-block;
+  opacity:0;
+  animation:fadeUp 1.2s var(--ease-out) 0.4s forwards;
+}
+
+.hero-roles {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:1.5rem;
+  margin-bottom:2rem;
+  opacity:0;
+  animation:fadeUp 1s var(--ease-out) 0.65s forwards;
+}
+.hero-role {
+  font-size:0.78rem;
+  letter-spacing:0.15em;
+  text-transform:uppercase;
+  color:var(--secondary);
+  font-weight:400;
+}
+.hero-roles-sep {
+  width:1px; height:12px;
+  background:var(--muted);
+}
+
+.hero-desc {
+  font-size:clamp(0.95rem, 2vw, 1.1rem);
+  color:var(--secondary);
+  max-width:480px;
+  margin:0 auto 3rem;
+  line-height:1.75;
+  font-weight:300;
+  opacity:0;
+  animation:fadeUp 1s var(--ease-out) 0.85s forwards;
+}
+
+.hero-ctas {
+  display:flex;
+  gap:1rem;
+  justify-content:center;
+  flex-wrap:wrap;
+  opacity:0;
+  animation:fadeUp 1s var(--ease-out) 1s forwards;
+}
+
+/* Scroll indicator */
+.hero-scroll {
+  position:absolute;
+  bottom:2rem; left:50%;
+  transform:translateX(-50%);
+  display:flex; flex-direction:column; align-items:center; gap:0.5rem;
+  opacity:0;
+  animation:fadeIn 1s ease 1.8s forwards;
+}
+.hero-scroll-line {
+  width:1px; height:40px;
+  background:linear-gradient(to bottom, var(--border), transparent);
+  animation:scrollPulse 2s ease-in-out infinite;
+}
+.hero-scroll span {
+  font-size:0.65rem;
+  letter-spacing:0.2em;
+  text-transform:uppercase;
+  color:var(--muted);
+}
+@keyframes scrollPulse {
+  0%,100%{opacity:0.4} 50%{opacity:1}
+}
+
+/* ═══════════════════════════════════════════
+   BUTTONS
+═══════════════════════════════════════════ */
+.btn {
+  display:inline-flex; align-items:center; gap:0.5rem;
+  padding:0.75rem 2rem;
+  font-family:var(--font-body);
+  font-size:0.8rem;
+  font-weight:500;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  border-radius:var(--r-sm);
+  transition:all 0.3s var(--ease-out);
+  cursor:pointer;
+}
+.btn-gold {
+  background:var(--gold);
+  color:#0a0a0a;
+}
+.btn-gold:hover {
+  background:#d4b155;
+  transform:translateY(-2px);
+  box-shadow:0 8px 30px var(--gold-glow);
+}
+.btn-outline {
+  border:1px solid var(--border-hi);
+  color:var(--primary);
+}
+.btn-outline:hover {
+  border-color:var(--gold);
+  color:var(--gold);
+  transform:translateY(-2px);
+}
+.btn-icon {
+  width:18px; height:18px;
+  transition:transform 0.3s var(--ease-out);
+}
+.btn:hover .btn-icon { transform:translateX(3px); }
+
+/* ═══════════════════════════════════════════
+   SECTION LAYOUT
+═══════════════════════════════════════════ */
+.section { padding:7rem 3rem; }
+.section-inner { max-width:1200px; margin:0 auto; }
+
+.section-label {
+  font-size:0.7rem;
+  letter-spacing:0.25em;
+  text-transform:uppercase;
+  color:var(--gold);
+  margin-bottom:1rem;
+  display:flex; align-items:center; gap:0.75rem;
+}
+.section-label::before {
+  content:'';
+  display:inline-block;
+  width:24px; height:1px;
+  background:var(--gold);
+  flex-shrink:0;
+}
+.section-title {
+  font-family:var(--font-display);
+  font-size:clamp(2.5rem, 7vw, 5.5rem);
+  line-height:0.95;
+  letter-spacing:0.03em;
+  color:var(--white);
+  margin-bottom:1.5rem;
+}
+.section-subtitle {
+  font-size:1rem;
+  color:var(--secondary);
+  max-width:520px;
+  line-height:1.75;
+  font-weight:300;
+}
+
+/* Divider line */
+.divider {
+  border:none;
+  border-top:1px solid var(--border);
+  margin:0;
+}
+
+/* ═══════════════════════════════════════════
+   QUICK ACCESS — HORIZONTAL STRIP
+═══════════════════════════════════════════ */
+.quick {
+  padding:0 3rem 7rem;
+}
+.quick-inner {
+  max-width:1200px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:1px;
+  border:1px solid var(--border);
+  border-radius:var(--r-lg);
+  overflow:hidden;
+  background:var(--border);
+}
+.quick-card {
+  background:var(--surface);
+  padding:2.5rem;
+  display:flex;
+  flex-direction:column;
+  gap:1rem;
+  transition:background 0.3s ease;
+  position:relative;
+  overflow:hidden;
+}
+.quick-card::before {
+  content:'';
+  position:absolute;
+  top:0; left:0; right:0;
+  height:2px;
+  background:linear-gradient(90deg, transparent, var(--gold), transparent);
+  transform:scaleX(0);
+  transform-origin:left;
+  transition:transform 0.5s var(--ease-out);
+}
+.quick-card:hover { background:var(--lift); }
+.quick-card:hover::before { transform:scaleX(1); }
+.quick-card-icon {
+  width:44px; height:44px;
+  border-radius:var(--r-sm);
+  background:var(--gold-dim);
+  display:flex; align-items:center; justify-content:center;
+  font-size:1.3rem;
+}
+.quick-card h3 {
+  font-family:var(--font-display);
+  font-size:1.6rem;
+  color:var(--white);
+  letter-spacing:0.03em;
+}
+.quick-card p {
+  font-size:0.88rem;
+  color:var(--secondary);
+  line-height:1.6;
+  flex:1;
+}
+.quick-card-arrow {
+  font-size:1.2rem;
+  color:var(--gold);
+  align-self:flex-end;
+  transition:transform 0.3s var(--ease-out);
+}
+.quick-card:hover .quick-card-arrow { transform:translateX(4px); }
+
+/* ═══════════════════════════════════════════
+   ABOUT SECTION
+═══════════════════════════════════════════ */
+.about-grid {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:5rem;
+  align-items:start;
+}
+.about-visual {
+  position:sticky; top:8rem;
+}
+.about-photo-wrap {
+  position:relative;
+  border-radius:var(--r-md);
+  overflow:hidden;
+  background:var(--surface);
+  aspect-ratio:4/5;
+}
+.about-photo-wrap img {
+  width:100%; height:100%;
+  object-fit:cover;
+  filter:grayscale(20%) contrast(1.05);
+  transition:filter 0.5s ease;
+}
+.about-photo-wrap:hover img { filter:grayscale(0%) contrast(1.1); }
+
+/* Gold frame accent */
+.about-photo-frame {
+  position:absolute; inset:0;
+  border:1px solid rgba(200,168,75,0.2);
+  border-radius:var(--r-md);
+  pointer-events:none;
+}
+.about-photo-badge {
+  position:absolute;
+  bottom:1.5rem; left:1.5rem;
+  background:rgba(8,8,8,0.85);
+  backdrop-filter:blur(12px);
+  border:1px solid var(--border-hi);
+  border-radius:var(--r-sm);
+  padding:0.75rem 1rem;
+}
+.about-photo-badge p {
+  font-size:0.7rem;
+  letter-spacing:0.1em;
+  text-transform:uppercase;
+  color:var(--secondary);
+}
+.about-photo-badge strong {
+  font-size:0.85rem;
+  color:var(--gold);
+  font-weight:400;
+}
+
+.about-text {}
+.about-text .section-title { margin-bottom:0.5rem; }
+.about-name-sub {
+  font-size:0.85rem;
+  letter-spacing:0.15em;
+  text-transform:uppercase;
+  color:var(--gold);
+  margin-bottom:2rem;
+  font-weight:400;
+}
+.about-body p {
+  font-size:0.95rem;
+  color:var(--secondary);
+  line-height:1.85;
+  margin-bottom:1.25rem;
+  font-weight:300;
+}
+.about-body p strong {
+  color:var(--primary);
+  font-weight:400;
+}
+.about-highlights {
+  display:flex; flex-direction:column; gap:0; margin:2.5rem 0;
+  border-top:1px solid var(--border);
+}
+.about-highlight {
+  display:flex; align-items:center; gap:1.5rem;
+  padding:1rem 0;
+  border-bottom:1px solid var(--border);
+}
+.highlight-num {
+  font-family:var(--font-display);
+  font-size:2.2rem;
+  color:var(--gold);
+  min-width:72px;
+  letter-spacing:0.03em;
+}
+.highlight-text p {
+  font-size:0.78rem;
+  color:var(--secondary);
+  text-transform:uppercase;
+  letter-spacing:0.1em;
+  margin:0;
+}
+.highlight-text strong {
+  font-size:0.9rem;
+  color:var(--primary);
+  font-weight:400;
+}
+.about-cta-link {
+  display:inline-flex;
+  align-items:center;
+  gap:0.5rem;
+  font-size:0.8rem;
+  letter-spacing:0.1em;
+  text-transform:uppercase;
+  color:var(--gold);
+  border-bottom:1px solid rgba(200,168,75,0.3);
+  padding-bottom:2px;
+  transition:all 0.3s ease;
+}
+.about-cta-link:hover { border-color:var(--gold); gap:0.75rem; }
+
+/* ═══════════════════════════════════════════
+   SKILLS ROW
+═══════════════════════════════════════════ */
+.skills-row {
+  display:flex; gap:0.5rem; flex-wrap:wrap; margin-top:2rem;
+}
+.skill-pill {
+  font-size:0.72rem;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  color:var(--secondary);
+  border:1px solid var(--border);
+  border-radius:100px;
+  padding:0.35rem 0.9rem;
+  transition:all 0.3s ease;
+}
+.skill-pill:hover {
+  border-color:var(--gold);
+  color:var(--gold);
+}
+
+/* ═══════════════════════════════════════════
+   PROJECTS — PREMIUM CARDS
+═══════════════════════════════════════════ */
+.projects-grid {
+  display:grid;
+  grid-template-columns:1fr;
+  gap:1px;
+  border:1px solid var(--border);
+  border-radius:var(--r-lg);
+  overflow:hidden;
+  background:var(--border);
+  margin-top:4rem;
+}
+/* First project is featured — 2 column */
+.projects-grid-top {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:1px;
+}
+.projects-grid-bottom {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:1px;
+}
+
+.project-card {
+  background:var(--surface);
+  overflow:hidden;
+  position:relative;
+  transition:background 0.4s ease;
+}
+.project-card:hover { background:var(--lift); }
+
+.project-card-media {
+  aspect-ratio:16/9;
+  overflow:hidden;
+  background:var(--deep);
+  position:relative;
+}
+.project-card-media img {
+  width:100%; height:100%;
+  object-fit:cover;
+  transition:transform 0.7s var(--ease-out), filter 0.5s ease;
+  filter:grayscale(15%) brightness(0.85);
+}
+.project-card:hover .project-card-media img {
+  transform:scale(1.04);
+  filter:grayscale(0%) brightness(1);
+}
+.project-card-media-overlay {
+  position:absolute; inset:0;
+  background:linear-gradient(to bottom, transparent 50%, var(--surface) 100%);
+  pointer-events:none;
+  transition:opacity 0.4s;
+}
+
+.project-card-body {
+  padding:2rem 2rem 2.5rem;
+}
+.project-card-meta {
+  display:flex; align-items:center; gap:0.75rem;
+  margin-bottom:1rem;
+}
+.project-card-type {
+  font-size:0.68rem;
+  letter-spacing:0.15em;
+  text-transform:uppercase;
+  color:var(--gold);
+  font-weight:400;
+}
+.project-card-year {
+  font-size:0.68rem;
+  color:var(--muted);
+}
+.project-card h2 {
+  font-family:var(--font-display);
+  font-size:clamp(1.4rem, 3vw, 2rem);
+  color:var(--white);
+  letter-spacing:0.03em;
+  margin-bottom:0.75rem;
+}
+.project-card p {
+  font-size:0.88rem;
+  color:var(--secondary);
+  line-height:1.7;
+  margin-bottom:1.25rem;
+}
+.project-tags {
+  display:flex; flex-wrap:wrap; gap:0.4rem; margin-bottom:1.5rem;
+}
+.project-tag {
+  font-size:0.68rem;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  color:var(--muted);
+  border:1px solid var(--border);
+  border-radius:100px;
+  padding:0.25rem 0.7rem;
+}
+.project-link {
+  display:inline-flex; align-items:center; gap:0.4rem;
+  font-size:0.78rem;
+  letter-spacing:0.1em;
+  text-transform:uppercase;
+  color:var(--primary);
+  transition:all 0.3s ease;
+}
+.project-link svg {
+  width:14px; height:14px;
+  transition:transform 0.3s var(--ease-out);
+}
+.project-link:hover { color:var(--gold); }
+.project-link:hover svg { transform:translate(3px,-3px); }
+
+/* Featured project spans full width */
+.project-card-featured {
+  grid-column:1/-1;
+}
+.project-card-featured .project-card-media { aspect-ratio:21/9; }
+.project-card-featured h2 { font-size:clamp(2rem, 5vw, 3.5rem); }
+.project-featured-badge {
+  position:absolute;
+  top:1.25rem; left:1.25rem;
+  background:var(--gold);
+  color:#0a0a0a;
+  font-size:0.65rem;
+  letter-spacing:0.15em;
+  text-transform:uppercase;
+  font-weight:500;
+  padding:0.3rem 0.75rem;
+  border-radius:100px;
+}
+
+/* ═══════════════════════════════════════════
+   VIDEO SECTION — CINEMATIC GRID
+═══════════════════════════════════════════ */
+.video-masonry {
+  columns:3;
+  column-gap:1px;
+  margin-top:4rem;
+  border:1px solid var(--border);
+  border-radius:var(--r-lg);
+  overflow:hidden;
+  background:var(--border);
+}
+.video-item {
+  break-inside:avoid;
+  margin-bottom:1px;
+  background:var(--surface);
+  position:relative;
+  overflow:hidden;
+  cursor:pointer;
+  transition:background 0.3s ease;
+}
+.video-item:hover { background:var(--lift); }
+.video-item-media {
+  position:relative;
+  width:100%;
+}
+.video-item:nth-child(1) .video-item-media { padding-bottom:56.25%; }
+.video-item:nth-child(2) .video-item-media { padding-bottom:75%; }
+.video-item:nth-child(3) .video-item-media { padding-bottom:56.25%; }
+.video-item:nth-child(4) .video-item-media { padding-bottom:100%; }
+.video-item:nth-child(5) .video-item-media { padding-bottom:56.25%; }
+.video-item:nth-child(6) .video-item-media { padding-bottom:56.25%; }
+.video-item:nth-child(7) .video-item-media { padding-bottom:56.25%; }
+.video-item:nth-child(8) .video-item-media { padding-bottom:56.25%; }
+.video-item:nth-child(9) .video-item-media { padding-bottom:56.25%; }
+.video-item-media iframe,
+.video-item-media video {
+  position:absolute; inset:0;
+  width:100%; height:100%;
+  border:none;
+}
+/* Info overlay */
+.video-item-info {
+  padding:1rem 1.25rem 1.25rem;
+}
+.video-item-info h4 {
+  font-size:0.85rem;
+  color:var(--primary);
+  font-weight:400;
+  margin-bottom:0.25rem;
+}
+.video-item-info p {
+  font-size:0.72rem;
+  color:var(--muted);
+  text-transform:uppercase;
+  letter-spacing:0.08em;
+}
+
+/* ═══════════════════════════════════════════
+   MUSIC SECTION — STREAMING PREMIUM
+═══════════════════════════════════════════ */
+.music-layout {
+  display:grid;
+  grid-template-columns:380px 1fr;
+  gap:3rem;
+  margin-top:4rem;
+  align-items:start;
+}
+
+/* Player */
+.music-player {
+  position:sticky; top:8rem;
+  border:1px solid var(--border);
+  border-radius:var(--r-lg);
+  overflow:hidden;
+  background:var(--surface);
+}
+.music-artwork {
+  width:100%;
+  aspect-ratio:1/1;
+  background:var(--deep);
+  overflow:hidden;
+  position:relative;
+}
+.music-artwork img {
+  width:100%; height:100%;
+  object-fit:cover;
+  transition:transform 0.5s ease, filter 0.5s ease;
+}
+.music-player.playing .music-artwork img {
+  transform:scale(1.03);
+  filter:brightness(1.05);
+}
+.music-artwork-overlay {
+  position:absolute; inset:0;
+  background:linear-gradient(to bottom, transparent 60%, var(--surface) 100%);
+}
+/* EQ visualizer bars when playing */
+.music-viz {
+  position:absolute;
+  bottom:1rem; left:50%; transform:translateX(-50%);
+  display:flex; align-items:flex-end; gap:3px;
+  height:24px;
+  opacity:0;
+  transition:opacity 0.4s ease;
+}
+.music-player.playing .music-viz { opacity:1; }
+.viz-bar {
+  width:3px;
+  background:var(--gold);
+  border-radius:2px;
+  animation:vizPulse 0.8s ease-in-out infinite;
+}
+.viz-bar:nth-child(1){height:40%;animation-delay:0s;}
+.viz-bar:nth-child(2){height:80%;animation-delay:0.1s;}
+.viz-bar:nth-child(3){height:60%;animation-delay:0.2s;}
+.viz-bar:nth-child(4){height:100%;animation-delay:0.05s;}
+.viz-bar:nth-child(5){height:55%;animation-delay:0.15s;}
+.viz-bar:nth-child(6){height:75%;animation-delay:0.25s;}
+.viz-bar:nth-child(7){height:45%;animation-delay:0s;}
+@keyframes vizPulse {
+  0%,100%{transform:scaleY(0.6)} 50%{transform:scaleY(1)}
+}
+
+.music-player-controls {
+  padding:1.5rem;
+}
+.music-track-info { margin-bottom:1.25rem; }
+.music-track-title {
+  font-family:var(--font-display);
+  font-size:1.4rem;
+  color:var(--white);
+  letter-spacing:0.03em;
+  margin-bottom:0.2rem;
+}
+.music-track-artist {
+  font-size:0.78rem;
+  color:var(--secondary);
+  text-transform:uppercase;
+  letter-spacing:0.1em;
+}
+
+/* Progress bar */
+.music-progress {
+  margin-bottom:0.5rem;
+  cursor:pointer;
+}
+.music-progress-track {
+  width:100%; height:2px;
+  background:var(--border-hi);
+  border-radius:2px;
+  position:relative;
+}
+.music-progress-fill {
+  height:2px;
+  background:var(--gold);
+  border-radius:2px;
+  width:0%;
+  transition:width 0.1s linear;
+  position:relative;
+}
+.music-progress-fill::after {
+  content:'';
+  position:absolute;
+  right:-4px; top:50%;
+  transform:translateY(-50%);
+  width:8px; height:8px;
+  background:var(--gold);
+  border-radius:50%;
+  opacity:0;
+  transition:opacity 0.2s;
+}
+.music-progress:hover .music-progress-fill::after { opacity:1; }
+.music-times {
+  display:flex; justify-content:space-between;
+  font-size:0.7rem; color:var(--muted);
+}
+
+/* Play controls */
+.music-btns {
+  display:flex; align-items:center; justify-content:center; gap:1.5rem;
+  margin:1.25rem 0;
+}
+.music-btn-secondary {
+  width:36px; height:36px;
+  border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  color:var(--secondary);
+  transition:all 0.2s ease;
+  font-size:0.95rem;
+}
+.music-btn-secondary:hover { color:var(--white); background:var(--lift); }
+.music-btn-play {
+  width:52px; height:52px;
+  border-radius:50%;
+  background:var(--gold);
+  display:flex; align-items:center; justify-content:center;
+  color:#0a0a0a;
+  font-size:1.1rem;
+  transition:all 0.3s var(--ease-out);
+}
+.music-btn-play:hover {
+  background:#d4b155;
+  transform:scale(1.08);
+  box-shadow:0 6px 24px var(--gold-glow);
+}
+
+/* Volume */
+.music-volume {
+  display:flex; align-items:center; gap:0.75rem;
+}
+.music-volume svg { width:16px; height:16px; color:var(--muted); flex-shrink:0; }
+.music-volume-slider {
+  flex:1; height:2px;
+  -webkit-appearance:none;
+  background:var(--border-hi);
+  border-radius:2px;
+  outline:none;
+  cursor:pointer;
+}
+.music-volume-slider::-webkit-slider-thumb {
+  -webkit-appearance:none;
+  width:10px; height:10px;
+  border-radius:50%;
+  background:var(--secondary);
+  cursor:pointer;
+  transition:background 0.2s;
+}
+.music-volume-slider:hover::-webkit-slider-thumb { background:var(--gold); }
+
+/* Track list */
+.music-tracklist {
+  display:flex; flex-direction:column;
+}
+.track-item {
+  display:grid;
+  grid-template-columns:40px 1fr auto;
+  align-items:center;
+  gap:1rem;
+  padding:0.9rem 1rem;
+  border-radius:var(--r-sm);
+  cursor:pointer;
+  transition:all 0.25s ease;
+  border:1px solid transparent;
+}
+.track-item:hover {
+  background:var(--surface);
+  border-color:var(--border);
+}
+.track-item.active {
+  background:var(--surface);
+  border-color:rgba(200,168,75,0.2);
+}
+.track-num {
+  font-size:0.78rem;
+  color:var(--muted);
+  text-align:center;
+  font-variant-numeric:tabular-nums;
+}
+.track-item.active .track-num { color:var(--gold); }
+.track-play-icon {
+  display:none;
+  font-size:0.75rem;
+  color:var(--gold);
+  text-align:center;
+}
+.track-item.active .track-num { display:none; }
+.track-item.active .track-play-icon { display:block; }
+.track-cover {
+  width:40px; height:40px;
+  border-radius:var(--r-sm);
+  object-fit:cover;
+  background:var(--deep);
+  overflow:hidden;
+  flex-shrink:0;
+}
+.track-cover img { width:100%; height:100%; object-fit:cover; }
+.track-info { min-width:0; }
+.track-title {
+  font-size:0.88rem;
+  color:var(--primary);
+  font-weight:400;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  margin-bottom:0.1rem;
+}
+.track-item.active .track-title { color:var(--gold); }
+.track-meta {
+  font-size:0.72rem;
+  color:var(--muted);
+  text-transform:uppercase;
+  letter-spacing:0.06em;
+}
+.track-duration {
+  font-size:0.75rem;
+  color:var(--muted);
+  font-variant-numeric:tabular-nums;
+  flex-shrink:0;
+}
+
+/* ═══════════════════════════════════════════
+   CONTACT SECTION
+═══════════════════════════════════════════ */
+.contact-grid {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:5rem;
+  align-items:center;
+  margin-top:4rem;
+}
+.contact-text .section-title { margin-bottom:1.25rem; }
+.contact-text p {
+  font-size:0.95rem;
+  color:var(--secondary);
+  line-height:1.8;
+  margin-bottom:2rem;
+}
+.contact-email {
+  display:flex; align-items:center; gap:0.75rem;
+  padding:1rem 1.25rem;
+  border:1px solid var(--border);
+  border-radius:var(--r-md);
+  background:var(--surface);
+  margin-bottom:1.5rem;
+  transition:all 0.3s ease;
+}
+.contact-email:hover {
+  border-color:var(--gold);
+  background:var(--lift);
+}
+.contact-email-icon {
+  width:38px; height:38px;
+  border-radius:var(--r-sm);
+  background:var(--gold-dim);
+  display:flex; align-items:center; justify-content:center;
+  font-size:1rem;
+  flex-shrink:0;
+}
+.contact-email-text { flex:1; }
+.contact-email-label {
+  font-size:0.68rem;
+  text-transform:uppercase;
+  letter-spacing:0.1em;
+  color:var(--muted);
+  margin-bottom:0.1rem;
+}
+.contact-email-address {
+  font-size:0.88rem;
+  color:var(--primary);
+}
+
+/* Social cards */
+.social-grid {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:0.75rem;
+}
+.social-card {
+  display:flex; align-items:center; gap:0.85rem;
+  padding:0.85rem 1rem;
+  border:1px solid var(--border);
+  border-radius:var(--r-md);
+  background:var(--surface);
+  transition:all 0.3s ease;
+}
+.social-card:hover {
+  border-color:var(--border-hi);
+  background:var(--lift);
+  transform:translateY(-2px);
+}
+.social-icon {
+  width:34px; height:34px;
+  border-radius:var(--r-sm);
+  background:var(--lift);
+  display:flex; align-items:center; justify-content:center;
+  flex-shrink:0;
+}
+.social-icon svg { width:18px; height:18px; color:var(--primary); }
+.social-name {
+  font-size:0.85rem;
+  color:var(--primary);
+  font-weight:400;
+}
+
+/* Contact visual side */
+.contact-visual {
+  position:relative;
+}
+.contact-big-text {
+  font-family:var(--font-display);
+  font-size:clamp(4rem, 10vw, 8rem);
+  line-height:0.9;
+  color:transparent;
+  -webkit-text-stroke:1px var(--border-hi);
+  letter-spacing:0.03em;
+  user-select:none;
+  pointer-events:none;
+}
+
+/* ═══════════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════════ */
+.footer {
+  padding:3rem;
+  border-top:1px solid var(--border);
+}
+.footer-inner {
+  max-width:1200px;
+  margin:0 auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:2rem;
+  flex-wrap:wrap;
+}
+.footer-logo {
+  font-family:var(--font-display);
+  font-size:1.2rem;
+  color:var(--white);
+  letter-spacing:0.08em;
+}
+.footer-links {
+  display:flex; gap:2rem; list-style:none;
+}
+.footer-links a {
+  font-size:0.78rem;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  color:var(--muted);
+  transition:color 0.3s;
+}
+.footer-links a:hover { color:var(--primary); }
+.footer-copy {
+  font-size:0.75rem;
+  color:var(--muted);
+}
+
+/* ═══════════════════════════════════════════
+   SCROLL REVEAL ANIMATIONS
+═══════════════════════════════════════════ */
+.reveal {
+  opacity:0;
+  transform:translateY(24px);
+  transition:opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
+}
+.reveal.in { opacity:1; transform:none; }
+.reveal-delay-1 { transition-delay:0.1s; }
+.reveal-delay-2 { transition-delay:0.2s; }
+.reveal-delay-3 { transition-delay:0.3s; }
+
+@keyframes fadeUp {
+  from { opacity:0; transform:translateY(20px); }
+  to   { opacity:1; transform:none; }
+}
+@keyframes fadeIn {
+  from { opacity:0; } to { opacity:1; }
+}
+
+/* ═══════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════ */
+@media (max-width:1024px) {
+  .about-grid { grid-template-columns:1fr; }
+  .about-visual { position:static; max-width:400px; }
+  .music-layout { grid-template-columns:1fr; }
+  .music-player { position:static; }
+  .projects-grid-top,
+  .projects-grid-bottom { grid-template-columns:1fr; }
+  .contact-grid { grid-template-columns:1fr; }
+  .contact-visual { display:none; }
+}
+@media (max-width:768px) {
+  .nav { padding:0 1.5rem; }
+  .nav-links { display:none; }
+  .nav-hamburger { display:flex; }
+  .nav-links.open {
+    display:flex;
+    flex-direction:column;
+    position:fixed;
+    inset:64px 0 0;
+    background:rgba(8,8,8,0.97);
+    backdrop-filter:blur(20px);
+    padding:3rem 2rem;
+    gap:2rem;
+    z-index:999;
+  }
+  .nav-links.open a { font-size:1.2rem; }
+  .section { padding:5rem 1.5rem; }
+  .quick { padding:0 1.5rem 5rem; }
+  .quick-inner { grid-template-columns:1fr; }
+  .video-masonry { columns:2; }
+  .social-grid { grid-template-columns:1fr; }
+  .footer { padding:2rem 1.5rem; }
+  .footer-inner { flex-direction:column; text-align:center; }
+  .hero-content { padding:7rem 1.5rem 4rem; }
+  .hero-roles { flex-wrap:wrap; gap:0.75rem; }
+  .hero-roles-sep { display:none; }
+}
+@media (max-width:480px) {
+  .video-masonry { columns:1; }
+}
+</style>
 </head>
 <body>
-    <!-- Fondo animado con partículas -->
-    <div class="particles-bg" id="particles-bg"></div>
-    
-    <!-- Navegación fija -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="/inicio/" class="logo">JEIGHOST</a>
-            <ul class="nav-menu">
-                <li><a href="/inicio/" class="nav-link active">Home</a></li>
-                <li><a href="/webs/" class="nav-link">Webs</a></li>
-                <li><a href="/video/" class="nav-link">Video</a></li>
-                <li><a href="/beats/" class="nav-link">Productor</a></li>
-            </ul>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+
+<!-- ═══════════ NAV ═══════════ -->
+<nav class="nav" id="main-nav">
+  <a href="#" class="nav-logo">JEIGHOST</a>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="#inicio" class="active">Home</a></li>
+    <li><a href="#webs">Webs</a></li>
+    <li><a href="#video">Video</a></li>
+    <li><a href="#beats">Productor</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+  </ul>
+  <div class="nav-hamburger" id="hamburger" aria-label="Menú">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- ═══════════ HERO ═══════════ -->
+<section class="hero" id="inicio">
+  <div class="hero-ambient"></div>
+  <div class="hero-lines"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Barranquilla, Colombia — 2024</p>
+    <div class="hero-title-wrap">
+      <h1 class="hero-name">JEIGHOST</h1>
+      <div class="hero-name-outline" aria-hidden="true">JEIGHOST</div>
+    </div>
+    <div class="hero-roles">
+      <span class="hero-role">Poeta</span>
+      <span class="hero-roles-sep"></span>
+      <span class="hero-role">Editor Audiovisual</span>
+      <span class="hero-roles-sep"></span>
+      <span class="hero-role">Productor Musical</span>
+    </div>
+    <p class="hero-desc">
+      Creación audiovisual, producción musical y desarrollo web para artistas, marcas y proyectos con identidad propia.
+    </p>
+    <div class="hero-ctas">
+      <a href="#webs" class="btn btn-gold">
+        Ver Proyectos
+        <svg class="btn-icon" viewBox="0 0 16 16" fill="none">
+          <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+      <a href="#contacto" class="btn btn-outline">Trabajemos Juntos</a>
+    </div>
+  </div>
+  <div class="hero-scroll" aria-hidden="true">
+    <div class="hero-scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- ═══════════ QUICK ACCESS STRIP ═══════════ -->
+<div class="quick">
+  <div class="quick-inner reveal">
+    <a href="#webs" class="quick-card">
+      <div class="quick-card-icon">🌐</div>
+      <h3>Webs</h3>
+      <p>Proyectos digitales, landing pages y experiencias web para marcas y artistas.</p>
+      <span class="quick-card-arrow">→</span>
+    </a>
+    <a href="#video" class="quick-card">
+      <div class="quick-card-icon">🎬</div>
+      <h3>Video</h3>
+      <p>Edición audiovisual, lyric videos y producción de contenido visual.</p>
+      <span class="quick-card-arrow">→</span>
+    </a>
+    <a href="#beats" class="quick-card">
+      <div class="quick-card-icon">🎵</div>
+      <h3>Música</h3>
+      <p>Beats, producciones originales y composiciones para proyectos musicales.</p>
+      <span class="quick-card-arrow">→</span>
+    </a>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- ═══════════ SOBRE MÍ ═══════════ -->
+<section class="section" id="sobre-mi">
+  <div class="section-inner">
+    <div class="about-grid">
+
+      <div class="about-visual reveal">
+        <div class="about-photo-wrap">
+          <img src="assets/images/jeighost-photo.webp" alt="Jeison Gonzalez — Jeighost" loading="lazy">
+          <div class="about-photo-frame"></div>
+          <div class="about-photo-badge">
+            <p>Activo desde</p>
+            <strong>2018 · Colombia 🇨🇴</strong>
+          </div>
         </div>
-    </nav>
+      </div>
 
-    <!-- Hero Section -->
-    <main class="hero-section">
-        <div class="hero-content">
-            <h1 class="hero-title">
-                <span class="glitch" data-text="JEIGHOST">JEIGHOST</span>
-            </h1>
-            <p class="hero-subtitle">Poeta • Editor • Productor Musical • Compositor</p>
-            <p class="hero-description">
-                Edición de video, producción musical y proyectos web
-para artistas, marcas y creadores.
-            </p>
-            
-            <!-- Cards de acceso rápido -->
-            <div class="quick-access">
-                <a href="/webs/" class="access-card" data-tilt>
-                    <div class="card-icon">🌐</div>
-                    <h3>Proyectos Web</h3>
-                    <p>Explora mis creaciones digitales y páginas web</p>
-                    <span class="card-arrow">→</span>
-                </a>
-                
-                <a href="/video/" class="access-card" data-tilt>
-                    <div class="card-icon">🎬</div>
-                    <h3>Edición de Video</h3>
-                    <p>Galería de videos profesionales editados</p>
-                    <span class="card-arrow">→</span>
-                </a>
-                
-                <a href="/beats/" class="access-card" data-tilt>
-                    <div class="card-icon">🎵</div>
-                    <h3>Producción Musical</h3>
-                    <p>Beats, canciones y producciones originales</p>
-                    <span class="card-arrow">→</span>
-                </a>
-            </div>
+      <div class="about-text">
+        <div class="section-label reveal">Sobre Mí</div>
+        <h2 class="section-title reveal reveal-delay-1">Jeison<br>Gonzalez</h2>
+        <p class="about-name-sub reveal reveal-delay-1">Jeighost</p>
 
-            <!-- Call to action -->
-            <div class="cta-section">
-                <a href="https://jeighost.lat" target="_blank" rel="noopener noreferrer" class="btn-primary">
-                    Visita mi Página de Poesía
-                </a>
-            </div>
+        <div class="about-body reveal reveal-delay-2">
+          <p>Creativo multidisciplinario con enfoque en la <strong>producción musical</strong>, la <strong>edición audiovisual</strong> y el <strong>desarrollo web</strong>. Cada proyecto es una oportunidad para construir algo que valga la pena recordar.</p>
+          <p>Trabajo con artistas, marcas independientes y creadores que necesitan una presencia visual y sonora coherente. No entrego borradores: entrego resultados.</p>
+          <p>La poesía es mi lenguaje de origen — esa precisión en el uso de las palabras la aplico en cada pieza que construyo.</p>
         </div>
-    </main>
 
-    <!-- Sección Sobre Mí -->
-    <section class="about-section" id="sobre-mi">
-        <div class="container">
-            <h2 class="section-title-about">Sobre Mí</h2>
-            
-            <div class="about-content">
-                <div class="about-image" data-tilt>
-                    <img src="assets/images/jeighost-photo.webp" alt="Jeison Gonzalez - Jeighost" loading="lazy">
-                    <div class="image-border"></div>
-                </div>
-
-                <div class="about-text">
-                    <h3 class="about-subtitle">Jeison Gonzalez</h3>
-                    <p class="about-location">📍 Barranquilla, Colombia 🇨🇴</p>
-                    
-                    <p class="about-description">
-                        Soy una persona <span class="highlight">comprometida con mi trabajo</span>, me gusta siempre 
-                        dar lo mejor y mejorar en cada proyecto. No me gusta dejar cosas sin finalizar.
-                    </p>
-                    
-                    <p class="about-description">
-                        Aquí puedes encontrar trabajos realizados por mí. En el transcurso de mi vida he creado 
-                        un sinfín de proyectos, actualmente los que puedes ver aquí son los más destacados.
-                    </p>
-                    
-                    <p class="about-description">
-                        Podemos trabajar juntos en las habilidades mencionadas y si son otras las que necesitas, 
-                        <span class="highlight">puedo aprender rápido</span> siempre tratando de no hacer perder tiempo.
-                    </p>
-
-                    <div class="about-cta">
-                        <p>💡 Si deseas saber más sobre mí, te invito a visitar:</p>
-                        <a href="https://jeighost.lat" target="_blank" rel="noopener noreferrer" class="btn-secondary">
-                            "El rincón del conocimiento" ✨
-                        </a>
-                    </div>
-
-                    <div class="about-stats">
-                        <div class="stat-card">
-                            <div class="stat-number">100%</div>
-                            <div class="stat-label">Comprometido</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-number">0</div>
-                            <div class="stat-label">Proyectos Sin Finalizar</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-number">∞</div>
-                            <div class="stat-label">Aprendizaje Continuo</div>
-                        </div>
-                    </div>
-                </div>
+        <div class="about-highlights reveal reveal-delay-2">
+          <div class="about-highlight">
+            <span class="highlight-num">100%</span>
+            <div class="highlight-text">
+              <strong>Proyectos entregados</strong>
+              <p>Sin dejar nada a medias</p>
             </div>
+          </div>
+          <div class="about-highlight">
+            <span class="highlight-num">6+</span>
+            <div class="highlight-text">
+              <strong>Años de experiencia</strong>
+              <p>Producción, edición y desarrollo</p>
+            </div>
+          </div>
+          <div class="about-highlight">
+            <span class="highlight-num">∞</span>
+            <div class="highlight-text">
+              <strong>Aprendizaje continuo</strong>
+              <p>Tecnología aplicada a la creatividad</p>
+            </div>
+          </div>
         </div>
-    </section>
 
-    <!-- Sección de Contacto -->
-    <section class="contact-section" id="contacto">
-        <div class="container">
-            <h2 class="section-title-contact">Conecta Conmigo</h2>
-            <p class="contact-subtitle">¿Tienes un proyecto en mente? Hablemos</p>
-            
-            <div class="contact-content">
-                <!-- Email -->
-                <a href="/cdn-cgi/l/email-protection#8afaf8e5eee0efe3ede2e5f9fecaede7ebe3e6a4e9e5e7" class="contact-card" data-tilt>
-                    <div class="contact-icon">📧</div>
-                    <h3>Gmail</h3>
-                </a>
-
-                <!-- Redes Sociales -->
-                <div class="social-links">
-                    <a href="https://www.facebook.com/Jeig59" target="_blank" rel="noopener noreferrer" class="social-card" data-tilt>
-                        <svg viewBox="0 0 24 24" fill="currentColor" class="social-icon">
-                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                        </svg>
-                        <span>Facebook</span>
-                    </a>
-
-                    <a href="https://www.instagram.com/jeig59s" target="_blank" rel="noopener noreferrer" class="social-card" data-tilt>
-                        <svg viewBox="0 0 24 24" fill="currentColor" class="social-icon">
-                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                        </svg>
-                        <span>Instagram</span>
-                    </a>
-
-                    <a href="https://www.tiktok.com/@elfantasmag59" target="_blank" rel="noopener noreferrer" class="social-card" data-tilt>
-                        <svg viewBox="0 0 24 24" fill="currentColor" class="social-icon">
-                            <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
-                        </svg>
-                        <span>TikTok</span>
-                    </a>
-
-                    <a href="https://x.com/Jeighost" target="_blank" rel="noopener noreferrer" class="social-card" data-tilt>
-                        <svg viewBox="0 0 24 24" fill="currentColor" class="social-icon">
-                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                        </svg>
-                        <span>X (Twitter)</span>
-                    </a>
-                </div>
-            </div>
+        <div class="skills-row reveal reveal-delay-3">
+          <span class="skill-pill">Producción Musical</span>
+          <span class="skill-pill">Edición de Video</span>
+          <span class="skill-pill">Desarrollo Web</span>
+          <span class="skill-pill">Poesía</span>
+          <span class="skill-pill">Branding</span>
+          <span class="skill-pill">Composición</span>
         </div>
-    </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <h3 class="footer-logo">JEIGHOST</h3>
-                    <p>Creando experiencias audiovisuales únicas</p>
-                </div>
-                
-                <div class="footer-links">
-                    <h4>Navegación</h4>
-                    <a href="/inicio/">Home</a>
-                    <a href="/webs/">Proyectos Web</a>
-                    <a href="/video/">Videos</a>
-                    <a href="/beats/">Producción</a>
-                </div>
-
-                <div class="footer-social">
-                    <h4>Sígueme</h4>
-                    <div class="footer-social-links">
-                        <a href="https://www.facebook.com/@Jeig59" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                            </svg>
-                        </a>
-                        <a href="https://www.instagram.com/jeig59s" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                            </svg>
-                        </a>
-                        <a href="https://www.tiktok.com/@elfantasmag59" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
-                            </svg>
-                        </a>
-                        <a href="https://x.com/Jeighost" target="_blank" rel="noopener noreferrer" aria-label="X Twitter">
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2024 Jeighost. Todos los derechos reservados.</p>
-            </div>
+        <div style="margin-top:2rem" class="reveal reveal-delay-3">
+          <a href="https://jeighost.lat" target="_blank" rel="noopener noreferrer" class="about-cta-link">
+            El Rincón del Conocimiento
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+              <path d="M4 12L12 4M12 4H6M12 4v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
         </div>
-    </footer>
+      </div>
 
-    <script src="js/main.js"></script>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ═══════════ PROYECTOS WEB ═══════════ -->
+<section class="section" id="webs">
+  <div class="section-inner">
+    <div class="section-label reveal">Proyectos Web</div>
+    <h2 class="section-title reveal reveal-delay-1">Casos de<br>Estudio</h2>
+    <p class="section-subtitle reveal reveal-delay-2">Algunos proyectos usan IA para optimizar flujos de trabajo — herramienta, no dependencia. La creatividad y la dirección son siempre propias.</p>
+
+    <div class="projects-grid reveal reveal-delay-2">
+
+      <!-- Featured -->
+      <div class="projects-grid-top">
+        <article class="project-card project-card-featured">
+          <div class="project-card-media">
+            <img src="assets/images/Jeighost-lat.webp" alt="El Rincón del Conocimiento" loading="lazy">
+            <div class="project-card-media-overlay"></div>
+            <span class="project-featured-badge">Destacado</span>
+          </div>
+          <div class="project-card-body">
+            <div class="project-card-meta">
+              <span class="project-card-type">Poesía Digital</span>
+              <span class="project-card-year">· 2024</span>
+            </div>
+            <h2>El Rincón del Conocimiento</h2>
+            <p>Espacio digital dedicado a la poesía contemporánea, pensamiento crítico y exploración del lenguaje como forma de arte. Diseño, desarrollo y contenido propios.</p>
+            <div class="project-tags">
+              <span class="project-tag">Poesía</span>
+              <span class="project-tag">Literatura</span>
+              <span class="project-tag">Diseño Web</span>
+            </div>
+            <a href="https://jeighost.lat" target="_blank" rel="noopener noreferrer" class="project-link">
+              Visitar sitio
+              <svg viewBox="0 0 16 16" fill="none">
+                <path d="M4 12L12 4M12 4H6M12 4v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
+        </article>
+      </div>
+
+      <!-- Additional projects -->
+      <div class="projects-grid-bottom">
+        <article class="project-card">
+          <div class="project-card-media">
+            <img src="assets/images/project-2.webp" alt="Ebenezer Stereo" loading="lazy">
+            <div class="project-card-media-overlay"></div>
+          </div>
+          <div class="project-card-body">
+            <div class="project-card-meta">
+              <span class="project-card-type">Landing Page</span>
+              <span class="project-card-year">· 2024</span>
+            </div>
+            <h2>Ebenezer Stereo</h2>
+            <p>Sitio oficial para la emisora Ebenezer Stereo 88.2FM/Online. Información institucional, contacto y transmisión en línea.</p>
+            <div class="project-tags">
+              <span class="project-tag">Radio Web</span>
+              <span class="project-tag">Identidad Digital</span>
+            </div>
+            <a href="https://jeighost.github.io/Ebenezer-Stereo" target="_blank" rel="noopener noreferrer" class="project-link">
+              Visitar sitio
+              <svg viewBox="0 0 16 16" fill="none">
+                <path d="M4 12L12 4M12 4H6M12 4v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-card-media">
+            <img src="assets/images/project-3.webp" alt="SOALL" loading="lazy">
+            <div class="project-card-media-overlay"></div>
+          </div>
+          <div class="project-card-body">
+            <div class="project-card-meta">
+              <span class="project-card-type">E-Commerce</span>
+              <span class="project-card-year">· 2024</span>
+            </div>
+            <h2>SOALL</h2>
+            <p>Tienda virtual de producto diversificado: ropa, artículos del hogar y accesorios. Catálogo interactivo y experiencia de compra optimizada.</p>
+            <div class="project-tags">
+              <span class="project-tag">E-Commerce</span>
+              <span class="project-tag">UX/UI</span>
+            </div>
+            <a href="https://jeighost.github.io/SOALL/" target="_blank" rel="noopener noreferrer" class="project-link">
+              Visitar sitio
+              <svg viewBox="0 0 16 16" fill="none">
+                <path d="M4 12L12 4M12 4H6M12 4v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
+        </article>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ═══════════ VIDEO ═══════════ -->
+<section class="section" id="video">
+  <div class="section-inner">
+    <div class="section-label reveal">Edición Audiovisual</div>
+    <h2 class="section-title reveal reveal-delay-1">Galería<br>de Video</h2>
+    <p class="section-subtitle reveal reveal-delay-2">Todos los proyectos son de autoría propia — producción musical, lyric videos y edición audiovisual integral.</p>
+
+    <div class="video-masonry reveal reveal-delay-2">
+
+      <div class="video-item">
+        <div class="video-item-media">
+          <iframe src="https://www.youtube.com/embed/JxLlopEiS9I" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy" title="Video 1"></iframe>
+        </div>
+        <div class="video-item-info">
+          <h4>Producción Original</h4>
+          <p>Lyric Video · Jeighost</p>
+        </div>
+      </div>
+
+      <div class="video-item">
+        <div class="video-item-media">
+          <iframe src="https://www.youtube.com/embed/bCG0PepPhLo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy" title="Video 2"></iframe>
+        </div>
+        <div class="video-item-info">
+          <h4>Producción Original</h4>
+          <p>Edición Audiovisual · Jeighost</p>
+        </div>
+      </div>
+
+      <div class="video-item">
+        <div class="video-item-media">
+          <iframe src="https://www.youtube.com/embed/ERNX4mdIBMo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy" title="Video 3"></iframe>
+        </div>
+        <div class="video-item-info">
+          <h4>Producción Original</h4>
+          <p>Lyric Video · Jeighost</p>
+        </div>
+      </div>
+
+      <div class="video-item">
+        <div class="video-item-media">
+          <iframe src="https://www.youtube.com/embed/E0IIjgoo00w" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy" title="Video 4"></iframe>
+        </div>
+        <div class="video-item-info">
+          <h4>Producción Original</h4>
+          <p>Video Clip · Jeighost</p>
+        </div>
+      </div>
+
+      <div class="video-item">
+        <div class="video-item-media">
+          <iframe src="https://www.youtube.com/embed/N2HhuOvOqYw" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy" title="Video 5"></iframe>
+        </div>
+        <div class="video-item-info">
+          <h4>Producción Original</h4>
+          <p>Edición Audiovisual · Jeighost</p>
+        </div>
+      </div>
+
+      <div class="video-item">
+        <div class="video-item-media">
+          <video src="assets/video1.mp4" poster="assets/images/video-thumb-1.jpg" controls preload="metadata"></video>
+        </div>
+        <div class="video-item-info">
+          <h4>Producción Original</h4>
+          <p>Video · Jeighost</p>
+        </div>
+      </div>
+
+      <div class="video-item">
+        <div class="video-item-media">
+          <video src="assets/video2.mp4" poster="assets/images/video-thumb-1.jpg" controls preload="metadata"></video>
+        </div>
+        <div class="video-item-info">
+          <h4>Producción Original</h4>
+          <p>Video · Jeighost</p>
+        </div>
+      </div>
+
+      <div class="video-item">
+        <div class="video-item-media">
+          <video src="assets/video3.mp4" poster="assets/images/video-thumb-1.jpg" controls preload="metadata"></video>
+        </div>
+        <div class="video-item-info">
+          <h4>Producción Original</h4>
+          <p>Video · Jeighost</p>
+        </div>
+      </div>
+
+      <div class="video-item">
+        <div class="video-item-media">
+          <video src="assets/video4.mp4" poster="assets/images/video-thumb-1.jpg" controls preload="metadata"></video>
+        </div>
+        <div class="video-item-info">
+          <h4>Producción Original</h4>
+          <p>Video · Jeighost</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ═══════════ BEATS / MÚSICA ═══════════ -->
+<section class="section" id="beats">
+  <div class="section-inner">
+    <div class="section-label reveal">Producción Musical</div>
+    <h2 class="section-title reveal reveal-delay-1">Beats &<br>Composiciones</h2>
+    <p class="section-subtitle reveal reveal-delay-2">Producciones originales disponibles para proyectos musicales, sincs y colaboraciones.</p>
+
+    <div class="music-layout reveal reveal-delay-2">
+
+      <!-- Player -->
+      <div class="music-player" id="music-player">
+        <div class="music-artwork">
+          <img src="assets/images/album-art.jpg" alt="Album Art" id="player-artwork" loading="lazy">
+          <div class="music-artwork-overlay"></div>
+          <div class="music-viz" aria-hidden="true">
+            <div class="viz-bar"></div>
+            <div class="viz-bar"></div>
+            <div class="viz-bar"></div>
+            <div class="viz-bar"></div>
+            <div class="viz-bar"></div>
+            <div class="viz-bar"></div>
+            <div class="viz-bar"></div>
+          </div>
+        </div>
+
+        <audio id="audio-player" preload="none"
+          data-original-src="assets/audio/track1.mp3"
+          data-original-title="Beat Sin Título"
+          data-original-artist="Jeighost">
+        </audio>
+
+        <div class="music-player-controls">
+          <div class="music-track-info">
+            <div class="music-track-title" id="current-track-title">Beat Sin Título</div>
+            <div class="music-track-artist" id="current-track-artist">Jeighost</div>
+          </div>
+
+          <div class="music-progress" id="progress-bar">
+            <div class="music-progress-track">
+              <div class="music-progress-fill" id="progress-fill"></div>
+            </div>
+            <div class="music-times">
+              <span id="current-time">0:00</span>
+              <span id="duration">0:00</span>
+            </div>
+          </div>
+
+          <div class="music-btns">
+            <button class="music-btn-secondary" id="prev-btn" aria-label="Anterior">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                <path d="M19 20L9 12l10-8v16zM5 4v16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            <button class="music-btn-play" id="play-btn" aria-label="Reproducir">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" id="play-icon">
+                <path d="M8 5v14l11-7z"/>
+              </svg>
+            </button>
+            <button class="music-btn-secondary" id="next-btn" aria-label="Siguiente">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                <path d="M5 4l10 8-10 8V4zM19 20V4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </div>
+
+          <div class="music-volume">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M11 5L6 9H2v6h4l5 4V5zM19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <input type="range" class="music-volume-slider" id="volume-slider" min="0" max="100" value="80" aria-label="Volumen">
+          </div>
+        </div>
+      </div>
+
+      <!-- Track list -->
+      <div class="music-tracklist" id="track-list">
+
+          <div class="track-item" data-src="/assets/audio/track1.mp3" data-title="Nova estelar" data-artist="Jeighost" data-art="/assets/images/album-art.webp" data-genre="trap">
+            <div class="track-idx"><span class="num">1</span><span class="ico">▶</span></div>
+            <div class="track-cover"><img src="/assets/images/album-art.webp" alt="" loading="lazy"></div>
+            <div class="track-info">
+              <div class="track-name">Nova estelar</div>
+              <div class="track-meta-text">Trap · 140 BPM</div>
+            </div>
+          </div>
+
+          <div class="track-item" data-src="/assets/audio/track2.mp3" data-title="Interestelar" data-artist="Jeighost" data-art="/assets/images/beat1.webp" data-genre="ambient">
+            <div class="track-idx"><span class="num">2</span><span class="ico">▶</span></div>
+            <div class="track-cover"><img src="/assets/images/beat1.webp" alt="" loading="lazy"></div>
+            <div class="track-info">
+              <div class="track-name">Interestelar</div>
+              <div class="track-meta-text">Ambient · 75 BPM</div>
+            </div>
+          </div>
+
+          <div class="track-item" data-src="/assets/audio/track3.mp3" data-title="Flotando" data-artist="Jeighost" data-art="/assets/images/beat2.webp" data-genre="lofi">
+            <div class="track-idx"><span class="num">3</span><span class="ico">▶</span></div>
+            <div class="track-cover"><img src="/assets/images/beat2.webp" alt="" loading="lazy"></div>
+            <div class="track-info">
+              <div class="track-name">Flotando</div>
+              <div class="track-meta-text">Lo-fi · 88 BPM</div>
+            </div>
+          </div>
+
+          <div class="track-item" data-src="/assets/audio/track4.mp3" data-title="Tu cuerpo" data-artist="Jeighost" data-art="/assets/images/beat3.webp" data-genre="boombap">
+            <div class="track-idx"><span class="num">4</span><span class="ico">▶</span></div>
+            <div class="track-cover"><img src="/assets/images/beat3.webp" alt="" loading="lazy"></div>
+            <div class="track-info">
+              <div class="track-name">Tu cuerpo</div>
+              <div class="track-meta-text">Reggaeton · 95 BPM</div>
+            </div>
+          </div>
+
+          <div class="track-item" data-src="/assets/audio/track5.mp3" data-title="Vitamina" data-artist="Jeighost" data-art="/assets/images/beat4.webp" data-genre="drill">
+            <div class="track-idx"><span class="num">5</span><span class="ico">▶</span></div>
+            <div class="track-cover"><img src="/assets/images/beat4.webp" alt="" loading="lazy"></div>
+            <div class="track-info">
+              <div class="track-name">Vitamina</div>
+              <div class="track-meta-text">Drill · 148 BPM</div>
+            </div>
+          </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ═══════════ CONTACTO ═══════════ -->
+<section class="section" id="contacto">
+  <div class="section-inner">
+    <div class="contact-grid">
+      <div class="contact-text">
+        <div class="section-label reveal">Contacto</div>
+        <h2 class="section-title reveal reveal-delay-1">Trabajemos<br>Juntos</h2>
+        <p class="reveal reveal-delay-2">¿Tienes un proyecto musical, audiovisual o web en mente? Cuéntame la idea — construimos desde ahí.</p>
+
+        <a href="mailto:jeig59@gmail.com" class="contact-email reveal reveal-delay-2">
+          <div class="contact-email-icon">📧</div>
+          <div class="contact-email-text">
+            <div class="contact-email-label">Correo Electrónico</div>
+            <div class="contact-email-address">prodjeighost@gmail.com</div>
+          </div>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="color:var(--muted)">
+            <path d="M4 12L12 4M12 4H6M12 4v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+
+        <div class="social-grid reveal reveal-delay-3">
+          <a href="https://www.instagram.com/jeig59s" target="_blank" rel="noopener noreferrer" class="social-card">
+            <div class="social-icon">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </div>
+            <span class="social-name">Instagram</span>
+          </a>
+          <a href="https://x.com/Jeighost" target="_blank" rel="noopener noreferrer" class="social-card">
+            <div class="social-icon">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </div>
+            <span class="social-name">X / Twitter</span>
+          </a>
+          <a href="https://www.tiktok.com/@elfantasmag59" target="_blank" rel="noopener noreferrer" class="social-card">
+            <div class="social-icon">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>
+            </div>
+            <span class="social-name">TikTok</span>
+          </a>
+          <a href="https://www.facebook.com/Jeig59" target="_blank" rel="noopener noreferrer" class="social-card">
+            <div class="social-icon">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </div>
+            <span class="social-name">Facebook</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="contact-visual reveal reveal-delay-1" aria-hidden="true">
+        <div class="contact-big-text">LET'S<br>BUILD</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-logo">JEIGHOST</div>
+    <ul class="footer-links">
+      <li><a href="#inicio">Home</a></li>
+      <li><a href="#webs">Webs</a></li>
+      <li><a href="#video">Video</a></li>
+      <li><a href="#beats">Música</a></li>
+    </ul>
+    <div class="footer-copy">© 2024 Jeighost. Todos los derechos reservados.</div>
+  </div>
+</footer>
+
+<!-- ═══════════ JAVASCRIPT ═══════════ -->
+<script>
+/* ── NAV SCROLL ── */
+const nav = document.getElementById('main-nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 40);
+}, {passive:true});
+
+/* ── HAMBURGER ── */
+const hamburger = document.getElementById('hamburger');
+const navLinks  = document.getElementById('nav-links');
+hamburger.addEventListener('click', () => {
+  navLinks.classList.toggle('open');
+  hamburger.classList.toggle('open');
+});
+navLinks.querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+    hamburger.classList.remove('open');
+  });
+});
+
+/* ── SCROLL REVEAL ── */
+const revealEls = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+  });
+}, {threshold:0.1, rootMargin:'0px 0px -40px 0px'});
+revealEls.forEach(el => io.observe(el));
+
+/* ── MUSIC PLAYER ── */
+(function() {
+  const audio     = document.getElementById('audio-player');
+  const player    = document.getElementById('music-player');
+  const playBtn   = document.getElementById('play-btn');
+  const playIcon  = document.getElementById('play-icon');
+  const prevBtn   = document.getElementById('prev-btn');
+  const nextBtn   = document.getElementById('next-btn');
+  const progBar   = document.getElementById('progress-bar');
+  const progFill  = document.getElementById('progress-fill');
+  const curTime   = document.getElementById('current-time');
+  const durEl     = document.getElementById('duration');
+  const volSlider = document.getElementById('volume-slider');
+  const artwork   = document.getElementById('player-artwork');
+  const titleEl   = document.getElementById('current-track-title');
+  const artistEl  = document.getElementById('current-track-artist');
+  const trackList = document.getElementById('track-list');
+
+  let isPlaying = false;
+  let currentIdx = 0;
+  const tracks = Array.from(document.querySelectorAll('.track-item'));
+
+  function fmt(s) {
+    const m = Math.floor(s/60), sec = Math.floor(s%60);
+    return m+':'+(sec<10?'0':'')+sec;
+  }
+
+  function loadTrack(idx) {
+    const t = tracks[idx];
+    if (!t) return;
+    tracks.forEach(x => x.classList.remove('active'));
+    t.classList.add('active');
+    const src    = t.dataset.src;
+    const title  = t.dataset.title;
+    const artist = t.dataset.artist;
+    const art    = t.dataset.art;
+    audio.src = src;
+    titleEl.textContent  = title;
+    artistEl.textContent = artist;
+    if (art) {
+      artwork.style.opacity = '0';
+      artwork.src = art;
+      artwork.onload = () => { artwork.style.transition='opacity .4s'; artwork.style.opacity='1'; };
+    }
+    currentIdx = idx;
+  }
+
+  function togglePlay() {
+    if (isPlaying) {
+      audio.pause();
+      isPlaying = false;
+      player.classList.remove('playing');
+      playIcon.innerHTML = '<path d="M8 5v14l11-7z"/>';
+    } else {
+      if (!audio.src || audio.src === window.location.href) loadTrack(0);
+      audio.play().catch(()=>{});
+      isPlaying = true;
+      player.classList.add('playing');
+      playIcon.innerHTML = '<path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>';
+    }
+  }
+
+  playBtn.addEventListener('click', togglePlay);
+
+  audio.addEventListener('timeupdate', () => {
+    if (!audio.duration) return;
+    const pct = (audio.currentTime / audio.duration) * 100;
+    progFill.style.width = pct + '%';
+    curTime.textContent = fmt(audio.currentTime);
+  });
+  audio.addEventListener('loadedmetadata', () => {
+    durEl.textContent = fmt(audio.duration);
+  });
+  audio.addEventListener('ended', () => {
+    const next = (currentIdx + 1) % tracks.length;
+    loadTrack(next);
+    audio.play().catch(()=>{});
+  });
+
+  progBar.addEventListener('click', (e) => {
+    if (!audio.duration) return;
+    const rect = progBar.getBoundingClientRect();
+    audio.currentTime = ((e.clientX - rect.left) / rect.width) * audio.duration;
+  });
+
+  volSlider.addEventListener('input', () => {
+    audio.volume = volSlider.value / 100;
+  });
+  audio.volume = 0.8;
+
+  prevBtn.addEventListener('click', () => {
+    const prev = (currentIdx - 1 + tracks.length) % tracks.length;
+    loadTrack(prev);
+    if (isPlaying) audio.play().catch(()=>{});
+  });
+  nextBtn.addEventListener('click', () => {
+    const next = (currentIdx + 1) % tracks.length;
+    loadTrack(next);
+    if (isPlaying) audio.play().catch(()=>{});
+  });
+
+  tracks.forEach((t, i) => {
+    t.addEventListener('click', () => {
+      if (i === currentIdx && isPlaying) { togglePlay(); return; }
+      loadTrack(i);
+      audio.play().catch(()=>{});
+      isPlaying = true;
+      player.classList.add('playing');
+      playIcon.innerHTML = '<path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>';
+    });
+  });
+})();
+
+/* ── IMAGE FALLBACK ── */
+document.querySelectorAll('img').forEach(img => {
+  img.addEventListener('error', function() {
+    this.style.background='linear-gradient(135deg,rgba(200,168,75,0.08),rgba(155,28,28,0.08))';
+    this.style.minHeight='120px';
+    this.removeAttribute('src');
+  });
+});
+
+/* ── ACTIVE NAV LINK ON SCROLL ── */
+const sections = document.querySelectorAll('section[id], div[id="sobre-mi"]');
+const navAnchors = document.querySelectorAll('.nav-links a');
+const sectionObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      navAnchors.forEach(a => a.classList.remove('active'));
+      const match = document.querySelector(`.nav-links a[href="#${e.target.id}"]`);
+      if (match) match.classList.add('active');
+    }
+  });
+}, {threshold:0.4});
+sections.forEach(s => sectionObserver.observe(s));
+</script>
 </body>
 </html>
