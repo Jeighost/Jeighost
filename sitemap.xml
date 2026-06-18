@@ -9,17 +9,9 @@
     <priority>1.0</priority>
   </url>
   
-  <!-- Inicio -->
-  <url>
-    <loc>https://jeighost.art/inicio/</loc>
-    <lastmod>2024-12-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
-  
   <!-- Webs -->
   <url>
-    <loc>https://jeighost.art/webs/</loc>
+    <loc>https://jeighost.art/#webs</loc>
     <lastmod>2024-12-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -35,7 +27,7 @@
   
   <!-- Beats/Producción -->
   <url>
-    <loc>https://jeighost.art/beats/</loc>
+    <loc>https://jeighost.art/#beats</loc>
     <lastmod>2024-12-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
