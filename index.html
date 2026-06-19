@@ -34,8 +34,8 @@
   --gold-glow:rgba(200,168,75,0.25);
   --crimson:  #9b1c1c;
   --crimson-hi:#c72626;
-  --muted:    #5a5a5a;
-  --secondary:#8a8a8a;
+  --muted:    #767676;  /* 4.54:1 on #080808 — WCAG AA */
+  --secondary:#a8a8a8;  /* 6.0:1  on #080808 — WCAG AA */
   --primary:  #e8e6e0;
   --white:    #f5f3ee;
 
@@ -64,8 +64,49 @@ img { max-width:100%; display:block; }
 button { border:none; background:none; cursor:pointer; font-family:inherit; }
 
 /* ═══════════════════════════════════════════
-   GRAIN TEXTURE OVERLAY
+   ACCESSIBILITY
 ═══════════════════════════════════════════ */
+.skip-link {
+  position:absolute;
+  top:-100%;
+  left:1rem;
+  background:var(--gold);
+  color:#080808;
+  font-size:0.85rem;
+  font-weight:500;
+  padding:0.6rem 1.2rem;
+  border-radius:0 0 var(--r-sm) var(--r-sm);
+  z-index:9999;
+  transition:top 0.2s ease;
+}
+.skip-link:focus { top:0; }
+
+/* quick-card-title replaces h3 — styled identically but is a <p> to preserve heading order */
+.quick-card-title {
+  font-family:var(--font-display);
+  font-size:1.55rem;
+  color:var(--white);
+  letter-spacing:0.04em;
+  margin:0;
+}
+/* project-card-h: h3 styled as former h2 */
+.project-card-h {
+  font-family:var(--font-display);
+  font-size:clamp(1.4rem, 3vw, 2rem);
+  color:var(--white);
+  letter-spacing:0.03em;
+  margin-bottom:0.75rem;
+  line-height:1;
+  font-weight:400;
+}
+/* video-item-title: p styled as former h4 */
+.video-item-title {
+  font-size:0.82rem;
+  color:var(--primary);
+  font-weight:400;
+  margin-bottom:0.2rem;
+}
+
 body::before {
   content:'';
   position:fixed;
@@ -202,7 +243,6 @@ body::before {
   opacity:0;
   animation:fadeUp 1.2s var(--ease-out) 0.4s forwards;
 }
-
 /* The gold stroke variant of the name */
 .hero-name-outline {
   font-family:var(--font-display);
@@ -576,7 +616,6 @@ body::before {
   border-color:var(--gold);
   color:var(--gold);
 }
-
 /* ═══════════════════════════════════════════
    PROJECTS — PREMIUM CARDS
 ═══════════════════════════════════════════ */
@@ -709,7 +748,6 @@ body::before {
   padding:0.3rem 0.75rem;
   border-radius:100px;
 }
-
 /* ═══════════════════════════════════════════
    VIDEO SECTION — CINEMATIC GRID
 ═══════════════════════════════════════════ */
@@ -942,17 +980,17 @@ body::before {
 
 /* Track list */
 .music-tracklist {
-  display:flex; flex-direction:column;
+  display:flex; flex-direction:column; gap:2px;
 }
 .track-item {
   display:grid;
-  grid-template-columns:40px 1fr auto;
+  grid-template-columns:28px 44px 1fr auto;
   align-items:center;
-  gap:1rem;
-  padding:0.9rem 1rem;
+  gap:0.85rem;
+  padding:0.75rem 0.75rem;
   border-radius:var(--r-sm);
   cursor:pointer;
-  transition:all 0.25s ease;
+  transition:background 0.22s ease, border-color 0.22s ease;
   border:1px solid transparent;
 }
 .track-item:hover {
@@ -963,30 +1001,38 @@ body::before {
   background:var(--surface);
   border-color:rgba(200,168,75,0.2);
 }
-.track-num {
-  font-size:0.78rem;
-  color:var(--muted);
-  text-align:center;
-  font-variant-numeric:tabular-nums;
+
+/* Col 1 — number / play icon */
+.track-num-wrap {
+  display:flex; align-items:center; justify-content:center;
+  width:28px;
 }
-.track-item.active .track-num { color:var(--gold); }
+.track-num {
+  font-size:0.75rem;
+  color:var(--muted);
+  font-variant-numeric:tabular-nums;
+  line-height:1;
+}
 .track-play-icon {
   display:none;
-  font-size:0.75rem;
+  font-size:0.72rem;
   color:var(--gold);
-  text-align:center;
+  line-height:1;
 }
-.track-item.active .track-num { display:none; }
+.track-item.active .track-num      { display:none; }
 .track-item.active .track-play-icon { display:block; }
+
+/* Col 2 — cover art */
 .track-cover {
-  width:40px; height:40px;
-  border-radius:var(--r-sm);
-  object-fit:cover;
+  width:44px; height:44px;
+  border-radius:var(--r-xs);
   background:var(--deep);
   overflow:hidden;
   flex-shrink:0;
 }
-.track-cover img { width:100%; height:100%; object-fit:cover; }
+.track-cover img { width:100%; height:100%; object-fit:cover; display:block; }
+
+/* Col 3 — name only, no meta below */
 .track-info { min-width:0; }
 .track-title {
   font-size:0.88rem;
@@ -995,22 +1041,21 @@ body::before {
   white-space:nowrap;
   overflow:hidden;
   text-overflow:ellipsis;
-  margin-bottom:0.1rem;
+  line-height:1.3;
 }
 .track-item.active .track-title { color:var(--gold); }
+
+/* Col 4 — genre · bpm, right-aligned */
 .track-meta {
-  font-size:0.72rem;
+  font-size:0.68rem;
   color:var(--muted);
   text-transform:uppercase;
-  letter-spacing:0.06em;
-}
-.track-duration {
-  font-size:0.75rem;
-  color:var(--muted);
-  font-variant-numeric:tabular-nums;
+  letter-spacing:0.07em;
+  text-align:left;
+  white-space:nowrap;
   flex-shrink:0;
+  line-height:1.5;
 }
-
 /* ═══════════════════════════════════════════
    CONTACT SECTION
 ═══════════════════════════════════════════ */
@@ -1718,6 +1763,24 @@ body::before {
             <div class="track-info">
               <div class="track-name">A lo grande</div>
               <div class="track-meta-text">Drill · 148 BPM</div>
+            </div>
+          </div>
+          
+        <div class="track-item" data-src="/assets/audio/track9.mp3" data-title="Luxiry" data-artist="Jeighost" data-art="/assets/images/beat8.webp" data-genre="trap child">
+            <div class="track-idx"><span class="num">9</span><span class="ico">▶</span></div>
+            <div class="track-cover"><img src="/assets/images/beat8.webp" alt="" loading="lazy"></div>
+            <div class="track-info">
+              <div class="track-name">Luxiry</div>
+              <div class="track-meta-text">trap child· 135 BPM</div>
+            </div>
+          </div>
+
+        <div class="track-item" data-src="/assets/audio/track10.mp3" data-title="SOJEI" data-artist="Jeighost" data-art="/assets/images/beat9.webp" data-genre="trap">
+            <div class="track-idx"><span class="num">10</span><span class="ico">▶</span></div>
+            <div class="track-cover"><img src="/assets/images/beat9.webp" alt="" loading="lazy"></div>
+            <div class="track-info">
+              <div class="track-name">SOJEI</div>
+              <div class="track-meta-text">trap· 120 BPM</div>
             </div>
           </div>
 
