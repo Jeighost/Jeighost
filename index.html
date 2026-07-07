@@ -230,21 +230,23 @@ body::before {
   color:var(--gold);
   margin-bottom:2rem;
   opacity:0;
-  animation:fadeUp 1s var(--ease-out) 0.2s forwards;
+  animation:fadeUp 2s var(--ease-out) 0.2s forwards;
 }
 
 .hero-name {
   font-family:var(--font-display);
-  font-size:clamp(5rem, 18vw, 14rem);
+  font-size:clamp(4.6rem, 14vw, 10rem);
   line-height:0.9;
   letter-spacing:0.04em;
   color:var(--white);
   margin-bottom:0.5rem;
   opacity:0;
-  animation:fadeUp 1.2s var(--ease-out) 0.4s forwards;
+  white-space:nowrap;
+  animation:fadeUp 2.2s var(--ease-out) 0.4s forwards;
 }
 /* The gold stroke variant of the name */
 .hero-name-outline {
+  white-space:nowrap;
   font-family:var(--font-display);
   font-size:clamp(5rem, 18vw, 14rem);
   line-height:0.9;
@@ -261,7 +263,38 @@ body::before {
   position:relative;
   display:inline-block;
   opacity:0;
-  animation:fadeUp 1.2s var(--ease-out) 0.4s forwards;
+  animation:fadeUp 2.2s var(--ease-out) 0.4s forwards;
+}
+
+/* Glitch letra por letra */
+.hero-name .gl { position:relative; display:inline-block; }
+
+.hero-name .gl::before,
+.hero-name .gl::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  opacity: 0;
+  pointer-events:none;
+}
+.hero-name .gl::before { color: #00e5ff; }
+.hero-name .gl::after  { color: var(--crimson-hi); }
+
+.hero-name .gl.glitching::before { animation: glitch-1 0.8s var(--ease-out) forwards; }
+.hero-name .gl.glitching::after  { animation: glitch-2 0.8s var(--ease-out) forwards; }
+
+@keyframes glitch-1 {
+  0%   { clip-path: inset(20% 0 60% 0); transform: translate(-10px,-4px); opacity:1; }
+  50%  { clip-path: inset(60% 0 5% 0);  transform: translate(6px,2px); }
+  80%  { clip-path: inset(10% 0 70% 0); transform: translate(-4px,3px); opacity:.6; }
+  100% { clip-path: inset(0 0 0 0);     transform: translate(0,0); opacity:0; }
+}
+@keyframes glitch-2 {
+  0%   { clip-path: inset(70% 0 5% 0);  transform: translate(10px,3px); opacity:1; }
+  50%  { clip-path: inset(15% 0 55% 0); transform: translate(-6px,-2px); }
+  80%  { clip-path: inset(55% 0 15% 0); transform: translate(4px,-3px); opacity:.6; }
+  100% { clip-path: inset(0 0 0 0);     transform: translate(0,0); opacity:0; }
 }
 
 .hero-roles {
@@ -1283,7 +1316,7 @@ body::before {
   <div class="hero-content">
     <p class="hero-eyebrow">Barranquilla, Colombia</p>
     <div class="hero-title-wrap">
-      <h1 class="hero-name">JEIGHOST</h1>
+      <h1 class="hero-name" id="hero-name"><span class="gl" data-text="J">J</span><span class="gl" data-text="E">E</span><span class="gl" data-text="I">I</span><span class="gl" data-text="G">G</span><span class="gl" data-text="H">H</span><span class="gl" data-text="O">O</span><span class="gl" data-text="S">S</span><span class="gl" data-text="T">T</span></h1>
       <div class="hero-name-outline" aria-hidden="true">JEIGHOST</div>
     </div>
     <div class="hero-roles">
@@ -2045,6 +2078,34 @@ document.querySelectorAll('img').forEach(img => {
     this.removeAttribute('src');
   });
 });
+
+/* ── GLITCH LETRA POR LETRA (ida y vuelta) ── */
+(function() {
+  const letters = document.querySelectorAll('#hero-name .gl');
+  const step = 80;   // ms entre cada letra
+  const dur  = 500;  // debe coincidir con la duración del keyframe
+
+  function trigger(el) {
+    el.classList.remove('glitching');
+    void el.offsetWidth; // fuerza reflow para reiniciar animación
+    el.classList.add('glitching');
+  }
+
+  function wave(order) {
+    order.forEach((el, i) => setTimeout(() => trigger(el), i * step));
+  }
+
+  window.addEventListener('load', () => {
+    if (!letters.length) return;
+    const forward  = Array.from(letters);
+    const backward = [...forward].reverse();
+    const startDelay = 1600; // espera a que termine el fadeUp del título
+
+    setTimeout(() => wave(forward), startDelay);
+    const forwardTotal = (forward.length - 1) * step + dur;
+    setTimeout(() => wave(backward), startDelay + forwardTotal);
+  });
+})();
 
 /* ── ACTIVE NAV LINK ON SCROLL ── */
 const sections = document.querySelectorAll('section[id], div[id="sobre-mi"]');
