@@ -3,568 +3,36 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Jeighost — Desarrollo de producto, video y música</title>
-<meta name="description" content="Jeighost (Jeison Gonzalez): desarrollador de producto digital, editor audiovisual y productor musical en Barranquilla, Colombia. Creador de ClauClone y Eso Va.">
+<title>Jeighost — Productos digitales, video y música</title>
+<meta name="description" content="Jeighost (Jeison Gonzalez): desarrollador de producto, editor audiovisual y productor musical en Barranquilla. Creador de ClauClone y Eso Va.">
 <meta name="author" content="Jeison Gonzalez — Jeighost">
 <meta name="theme-color" content="#080808">
 <link rel="canonical" href="https://jeighost.art/">
-<meta property="og:title" content="Jeighost — Desarrollo de producto, video y música">
-<meta property="og:description" content="Creador de ClauClone y Eso Va. Producto digital, edición audiovisual y producción musical desde Barranquilla.">
+<meta property="og:title" content="Jeighost — Productos digitales, video y música">
+<meta property="og:description" content="Jeighost (Jeison Gonzalez): desarrollador de producto, editor audiovisual y productor musical en Barranquilla. Creador de ClauClone y Eso Va.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://jeighost.art/">
-<meta property="og:image" content="https://jeighost.art/assets/images/clauclone.webp">
+<meta property="og:image" content="https://jeighost.art/assets/images/previews/clauclone.webp">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16.png">
 <link rel="apple-touch-icon" sizes="48x48" href="/assets/images/favicon-48.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@400;500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
 <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Jeison Gonzalez",
-  "alternateName": "Jeighost",
-  "url": "https://jeighost.art/",
-  "image": "https://jeighost.art/assets/images/jeighost-photo.webp",
-  "jobTitle": "Desarrollador de producto, editor audiovisual y productor musical",
-  "address": { "@type": "PostalAddress", "addressLocality": "Barranquilla", "addressCountry": "CO" },
-  "sameAs": [
-    "https://www.instagram.com/jeig59s",
-    "https://x.com/Jeighost",
-    "https://www.tiktok.com/@elfantasmag59",
-    "https://www.facebook.com/Jeig59",
-    "https://www.clauclone.lat",
-    "https://jeighost.lat"
-  ]
-}
+{"@context":"https://schema.org","@type":"Person","name":"Jeison Gonzalez","alternateName":"Jeighost","url":"https://jeighost.art/","image":"https://jeighost.art/assets/images/jeighost-photo.webp","jobTitle":"Desarrollador de producto, editor audiovisual y productor musical","address":{"@type":"PostalAddress","addressLocality":"Barranquilla","addressCountry":"CO"},"sameAs":["https://www.instagram.com/jeig59s","https://x.com/Jeighost","https://www.tiktok.com/@elfantasmag59","https://www.facebook.com/Jeig59","https://www.clauclone.lat","https://jeighost.lat"]}
 </script>
-<style>
-/* ═══════════════════════════════════════════
-   TOKENS — JEIGHOST / NOIR & GOLD
-═══════════════════════════════════════════ */
-:root{
-  --black:#080808;
-  --deep:#0c0c0c;
-  --surface:#121212;
-  --lift:#181818;
-  --raise:#1f1f1f;
-  --border:rgba(255,255,255,.07);
-  --border-hi:rgba(255,255,255,.14);
-  --gold:#c8a84b;
-  --gold-hi:#e0c36a;
-  --gold-dim:rgba(200,168,75,.10);
-  --gold-glow:rgba(200,168,75,.28);
-  --crimson:#9b1c1c;
-  --crimson-hi:#c72626;
-  --muted:#777;       /* AA on --black */
-  --secondary:#a9a8a4;
-  --primary:#e8e6e0;
-  --white:#f5f3ee;
-
-  --f-display:'Bebas Neue',Impact,sans-serif;
-  --f-serif:'Instrument Serif',Georgia,serif;
-  --f-body:'DM Sans',system-ui,sans-serif;
-  --f-mono:'DM Mono',ui-monospace,monospace;
-
-  --ease:cubic-bezier(.16,1,.3,1);
-  --r-xs:4px; --r-sm:8px; --r-md:14px; --r-lg:22px;
-  --gutter:clamp(1rem,4vw,3rem);
-  --max:1280px;
-}
-
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;scroll-padding-top:80px}
-body{font-family:var(--f-body);background:var(--black);color:var(--primary);line-height:1.6;font-weight:300;overflow-x:hidden}
-a{color:inherit;text-decoration:none}
-img,video{max-width:100%;display:block}
-button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
-ul{list-style:none}
-::selection{background:var(--gold);color:#0a0a0a}
-:focus-visible{outline:1px solid var(--gold);outline-offset:4px;border-radius:2px}
-
-/* Film grain */
-body::before{
-  content:'';position:fixed;inset:0;pointer-events:none;z-index:9998;opacity:.035;
-  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-}
-
-.skip-link{position:absolute;top:-100%;left:1rem;background:var(--gold);color:#080808;font-size:.85rem;font-weight:500;padding:.6rem 1.2rem;border-radius:0 0 var(--r-sm) var(--r-sm);z-index:10000}
-.skip-link:focus{top:0}
-
-.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}
-.mono{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase}
-.serif{font-family:var(--f-serif);font-style:italic;font-weight:400;letter-spacing:0}
-.gold{color:var(--gold)}
-
-/* Scroll progress */
-.progress{position:fixed;top:0;left:0;height:1px;width:100%;background:var(--gold);transform-origin:0 50%;transform:scaleX(0);z-index:1100;pointer-events:none}
-
-/* ═══════════════════════════════════════════
-   NAV
-═══════════════════════════════════════════ */
-.nav{position:fixed;inset:0 0 auto;z-index:1000;height:72px;border-bottom:1px solid transparent;transition:background .5s ease,border-color .5s ease,height .4s var(--ease)}
-.nav.scrolled{background:rgba(8,8,8,.78);backdrop-filter:blur(18px) saturate(1.3);-webkit-backdrop-filter:blur(18px) saturate(1.3);border-color:var(--border);height:62px}
-.nav-inner{height:100%;display:flex;align-items:center;justify-content:space-between;gap:2rem}
-.nav-logo{font-family:var(--f-display);font-size:1.45rem;letter-spacing:.1em;color:var(--white);display:flex;align-items:center;gap:.5rem}
-.nav-logo i{width:6px;height:6px;border-radius:50%;background:var(--gold);box-shadow:0 0 12px var(--gold-glow)}
-.nav-links{display:flex;gap:2.25rem;align-items:center}
-.nav-links a{font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--secondary);position:relative;padding:.3rem 0;transition:color .3s}
-.nav-links a::after{content:'';position:absolute;left:0;right:0;bottom:-2px;height:1px;background:var(--gold);transform:scaleX(0);transform-origin:right;transition:transform .45s var(--ease)}
-.nav-links a:hover,.nav-links a.active{color:var(--white)}
-.nav-links a:hover::after,.nav-links a.active::after{transform:scaleX(1);transform-origin:left}
-.nav-right{display:flex;align-items:center;gap:1rem}
-.nav-cta{font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;padding:.6rem 1.1rem;border:1px solid var(--border-hi);border-radius:100px;color:var(--white);transition:all .35s var(--ease)}
-.nav-cta:hover{border-color:var(--gold);color:var(--gold)}
-.burger{display:none;width:40px;height:40px;border:1px solid var(--border-hi);border-radius:50%;position:relative}
-.burger span{position:absolute;left:12px;right:12px;height:1px;background:var(--white);transition:transform .4s var(--ease),top .4s var(--ease)}
-.burger span:nth-child(1){top:16px}.burger span:nth-child(2){top:23px}
-.burger.open span:nth-child(1){top:19.5px;transform:rotate(45deg)}
-.burger.open span:nth-child(2){top:19.5px;transform:rotate(-45deg)}
-
-.menu{position:fixed;inset:0;z-index:990;background:rgba(8,8,8,.97);backdrop-filter:blur(20px);display:flex;flex-direction:column;justify-content:center;padding:6rem var(--gutter) 3rem;opacity:0;visibility:hidden;transition:opacity .45s var(--ease),visibility .45s}
-.menu.open{opacity:1;visibility:visible}
-.menu a.menu-link{font-family:var(--f-display);font-size:clamp(2.6rem,12vw,4.5rem);line-height:1.05;color:var(--white);display:flex;align-items:baseline;gap:1rem;transform:translateY(20px);opacity:0;transition:transform .6s var(--ease),opacity .6s var(--ease),color .3s}
-.menu a.menu-link span{font-family:var(--f-mono);font-size:.7rem;color:var(--gold);letter-spacing:.1em}
-.menu.open a.menu-link{transform:none;opacity:1}
-.menu.open a.menu-link:nth-child(2){transition-delay:.05s}.menu.open a.menu-link:nth-child(3){transition-delay:.1s}
-.menu.open a.menu-link:nth-child(4){transition-delay:.15s}.menu.open a.menu-link:nth-child(5){transition-delay:.2s}
-.menu.open a.menu-link:nth-child(6){transition-delay:.25s}
-.menu a.menu-link:hover{color:var(--gold)}
-.menu-foot{margin-top:3rem;display:flex;flex-wrap:wrap;gap:1.25rem;color:var(--secondary)}
-
-/* ═══════════════════════════════════════════
-   BUTTONS
-═══════════════════════════════════════════ */
-.btn{display:inline-flex;align-items:center;gap:.65rem;padding:.95rem 1.6rem;border-radius:100px;font-size:.78rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;transition:transform .4s var(--ease),box-shadow .4s var(--ease),background .3s,border-color .3s,color .3s;will-change:transform}
-.btn svg{width:15px;height:15px;transition:transform .4s var(--ease)}
-.btn:hover svg{transform:translate(3px,-3px)}
-.btn-gold{background:var(--gold);color:#0a0a0a}
-.btn-gold:hover{background:var(--gold-hi);box-shadow:0 10px 40px -8px var(--gold-glow)}
-.btn-ghost{border:1px solid var(--border-hi);color:var(--white)}
-.btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
-
-/* ═══════════════════════════════════════════
-   HERO
-═══════════════════════════════════════════ */
-.hero{min-height:100svh;position:relative;display:flex;flex-direction:column;justify-content:flex-end;padding:120px 0 0;overflow:hidden;isolation:isolate}
-.hero-bg{position:absolute;inset:0;z-index:-1;pointer-events:none;
-  background:
-    radial-gradient(60% 50% at 85% 10%,rgba(200,168,75,.10),transparent 60%),
-    radial-gradient(50% 45% at 5% 95%,rgba(155,28,28,.12),transparent 60%),
-    var(--black)}
-.hero-grid-lines{position:absolute;inset:0;z-index:-1;pointer-events:none;
-  background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);
-  background-size:calc(100%/12) 120px;
-  mask-image:radial-gradient(ellipse 80% 70% at 50% 40%,#000 20%,transparent 75%);
-  -webkit-mask-image:radial-gradient(ellipse 80% 70% at 50% 40%,#000 20%,transparent 75%);opacity:.5}
-.spot{position:absolute;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(200,168,75,.09),transparent 65%);transform:translate(-50%,-50%);pointer-events:none;z-index:-1;left:50%;top:40%;transition:opacity .6s}
-
-.hero-meta{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;color:var(--secondary);padding-bottom:clamp(2rem,6vh,4rem)}
-.hero-meta > div{display:flex;align-items:center;gap:.6rem}
-.status-dot{width:7px;height:7px;border-radius:50%;background:#3ecf8e;box-shadow:0 0 0 0 rgba(62,207,142,.5);animation:ping 2.2s infinite}
-@keyframes ping{0%{box-shadow:0 0 0 0 rgba(62,207,142,.45)}70%{box-shadow:0 0 0 9px rgba(62,207,142,0)}100%{box-shadow:0 0 0 0 rgba(62,207,142,0)}}
-
-.hero-kicker{display:flex;align-items:center;gap:1rem;color:var(--gold);margin-bottom:1.25rem}
-.hero-kicker::before{content:'';width:40px;height:1px;background:var(--gold)}
-
-.hero-name{font-family:var(--f-display);font-weight:400;font-size:clamp(4.8rem,19.5vw,18.5rem);line-height:.8;letter-spacing:.015em;color:var(--white);white-space:nowrap;margin-left:-.04em;display:flex}
-.hero-name .gl{position:relative;display:inline-block;transform:translateY(105%);animation:rise 1.3s var(--ease) forwards}
-.hero > .wrap{width:100%;min-width:0}
-.hero-name-mask{overflow:hidden;padding-top:.06em;min-width:0}
-@keyframes rise{to{transform:none}}
-.hero-name .gl::before,.hero-name .gl::after{content:attr(data-text);position:absolute;inset:0;opacity:0;pointer-events:none}
-.hero-name .gl::before{color:var(--gold)}
-.hero-name .gl::after{color:var(--crimson-hi)}
-.hero-name .gl.glitching::before{animation:g1 .7s var(--ease) forwards}
-.hero-name .gl.glitching::after{animation:g2 .7s var(--ease) forwards}
-@keyframes g1{0%{clip-path:inset(20% 0 60% 0);transform:translate(-8px,-3px);opacity:1}50%{clip-path:inset(60% 0 5% 0);transform:translate(5px,2px)}100%{clip-path:inset(0);transform:none;opacity:0}}
-@keyframes g2{0%{clip-path:inset(70% 0 5% 0);transform:translate(8px,3px);opacity:1}50%{clip-path:inset(15% 0 55% 0);transform:translate(-5px,-2px)}100%{clip-path:inset(0);transform:none;opacity:0}}
-
-.hero-bottom{display:grid;grid-template-columns:1.25fr 1fr;gap:3rem;align-items:end;padding:clamp(2rem,5vh,3rem) 0 clamp(2rem,6vh,3.5rem);border-top:1px solid var(--border);margin-top:clamp(1.5rem,3vh,2rem)}
-.hero-lead{font-family:var(--f-serif);font-size:clamp(1.6rem,3.2vw,2.6rem);line-height:1.12;color:var(--white);max-width:22ch}
-.hero-lead em{color:var(--gold)}
-.hero-side p{color:var(--secondary);font-size:.98rem;max-width:44ch;margin-bottom:1.75rem}
-.hero-ctas{display:flex;gap:.75rem;flex-wrap:wrap}
-
-.fade-in{opacity:0;transform:translateY(16px);animation:fadeUp 1.2s var(--ease) forwards}
-@keyframes fadeUp{to{opacity:1;transform:none}}
-
-/* Marquee */
-.marquee{border-block:1px solid var(--border);overflow:hidden;padding:1.1rem 0;background:var(--deep)}
-.marquee-track{display:flex;width:max-content;animation:marq 38s linear infinite}
-.marquee:hover .marquee-track{animation-play-state:paused}
-.marquee-group{display:flex;align-items:center;gap:2.5rem;padding-right:2.5rem}
-.marquee-group span{font-family:var(--f-display);font-size:clamp(1.4rem,2.6vw,2rem);letter-spacing:.06em;color:var(--primary);white-space:nowrap}
-.marquee-group span.s{font-family:var(--f-serif);font-style:italic;text-transform:none;letter-spacing:0;color:var(--gold)}
-.marquee-group b{width:6px;height:6px;border-radius:50%;background:var(--crimson-hi);flex-shrink:0}
-@keyframes marq{to{transform:translateX(-50%)}}
-
-/* ═══════════════════════════════════════════
-   SECTIONS
-═══════════════════════════════════════════ */
-.section{padding:clamp(5rem,12vw,9rem) 0;position:relative}
-.sec-head{display:grid;grid-template-columns:1fr auto;align-items:end;gap:2rem;margin-bottom:clamp(3rem,7vw,5rem)}
-.eyebrow{display:flex;align-items:center;gap:.75rem;color:var(--gold);margin-bottom:1.25rem}
-.eyebrow::before{content:'';width:24px;height:1px;background:currentColor}
-.sec-title{font-family:var(--f-display);font-weight:400;font-size:clamp(3rem,8vw,6.5rem);line-height:.88;letter-spacing:.015em;color:var(--white)}
-.sec-title .serif{font-size:.82em;color:var(--gold);text-transform:none;display:inline-block;transform:translateY(-.02em)}
-.sec-sub{color:var(--secondary);max-width:40ch;font-size:.98rem;text-align:right}
-.sec-count{font-family:var(--f-mono);font-size:.75rem;color:var(--muted);letter-spacing:.1em}
-
-/* Stats */
-.stats{display:grid;grid-template-columns:repeat(4,1fr);border-block:1px solid var(--border)}
-.stat{padding:2.5rem 1.5rem;border-right:1px solid var(--border)}
-.stat:last-child{border-right:0}
-.stat-num{font-family:var(--f-display);font-size:clamp(3rem,6vw,4.75rem);line-height:1;color:var(--white);letter-spacing:.02em}
-.stat-num sup{font-size:.45em;color:var(--gold);vertical-align:top;margin-left:.1em}
-.stat p{color:var(--secondary);font-size:.85rem;margin-top:.5rem;max-width:22ch}
-
-/* ═══════════════════════════════════════════
-   WORK — CASE STUDIES
-═══════════════════════════════════════════ */
-.case{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(2rem,5vw,5rem);align-items:center;padding:clamp(3rem,6vw,5rem) 0;border-top:1px solid var(--border)}
-.case.flip{grid-template-columns:minmax(0,7fr) minmax(0,5fr)}
-.case.flip .case-info{order:2}
-.case-index{display:flex;align-items:center;gap:1rem;color:var(--muted);margin-bottom:1.5rem}
-.case-index .num{color:var(--gold)}
-.case-index .line{flex:1;height:1px;background:var(--border)}
-.case-badge{display:inline-flex;align-items:center;gap:.5rem;padding:.35rem .8rem;border-radius:100px;border:1px solid rgba(200,168,75,.35);color:var(--gold);background:var(--gold-dim)}
-.case-title{font-family:var(--f-display);font-weight:400;font-size:clamp(3rem,6.5vw,5.5rem);line-height:.9;color:var(--white);letter-spacing:.015em;margin-bottom:.75rem}
-.case-lead{font-family:var(--f-serif);font-style:italic;font-size:clamp(1.3rem,2.2vw,1.75rem);line-height:1.2;color:var(--gold);margin-bottom:1.25rem}
-.case-desc{color:var(--secondary);font-size:.95rem;margin-bottom:1.75rem;max-width:52ch}
-.case-feats{display:grid;gap:0;margin-bottom:1.75rem;border-top:1px solid var(--border)}
-.case-feats li{display:grid;grid-template-columns:110px 1fr;gap:1rem;padding:.8rem 0;border-bottom:1px solid var(--border);font-size:.88rem;color:var(--primary)}
-.case-feats li span{color:var(--muted)}
-.chips{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:2rem}
-.chip{font-family:var(--f-mono);font-size:.68rem;letter-spacing:.05em;color:var(--secondary);border:1px solid var(--border-hi);border-radius:100px;padding:.3rem .75rem}
-.case-ctas{display:flex;flex-wrap:wrap;gap:.75rem;align-items:center}
-.link-arrow{display:inline-flex;align-items:center;gap:.5rem;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--primary);padding:.4rem 0;border-bottom:1px solid var(--border-hi);transition:color .3s,border-color .3s,gap .4s var(--ease)}
-.link-arrow svg{width:13px;height:13px}
-.link-arrow:hover{color:var(--gold);border-color:var(--gold);gap:.8rem}
-
-/* Browser frame */
-.stage{position:relative}
-.stage::before{content:'';position:absolute;inset:8% -4% -6%;background:radial-gradient(closest-side,rgba(200,168,75,.16),transparent);filter:blur(30px);z-index:-1}
-.browser{border-radius:var(--r-md);overflow:hidden;background:var(--surface);border:1px solid var(--border-hi);box-shadow:0 50px 100px -30px rgba(0,0,0,.8),0 0 0 1px rgba(0,0,0,.4);transform:perspective(1400px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transition:transform .6s var(--ease)}
-.browser-bar{display:flex;align-items:center;gap:.9rem;padding:.7rem .9rem;background:#171717;border-bottom:1px solid var(--border)}
-.dots{display:flex;gap:6px}
-.dots i{width:10px;height:10px;border-radius:50%;background:#2c2c2c}
-.dots i:nth-child(1){background:#5b2a2a}.dots i:nth-child(2){background:#5a4b25}.dots i:nth-child(3){background:#2b4a33}
-.url{flex:1;display:flex;align-items:center;justify-content:center;gap:.4rem;font-family:var(--f-mono);font-size:.68rem;color:var(--secondary);background:#0e0e0e;border:1px solid var(--border);border-radius:100px;padding:.3rem .8rem;max-width:320px;margin:0 auto;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.url svg{width:10px;height:10px;color:#3ecf8e;flex-shrink:0}
-.browser-view{aspect-ratio:16/9;overflow:hidden;background:var(--deep);position:relative}
-.browser-view img{width:100%;height:100%;object-fit:cover;object-position:top;transition:transform 1.2s var(--ease)}
-a.browser:hover .browser-view img,.case:hover .browser-view img{transform:scale(1.03)}
-
-.float-tag{position:absolute;display:flex;align-items:center;gap:.6rem;padding:.7rem .95rem;border-radius:var(--r-sm);background:rgba(18,18,18,.86);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid var(--border-hi);box-shadow:0 20px 40px -12px rgba(0,0,0,.7);font-size:.78rem;color:var(--primary);animation:bob 6s ease-in-out infinite}
-.float-tag strong{font-weight:500;color:var(--white)}
-.float-tag .ic{width:26px;height:26px;border-radius:6px;display:grid;place-items:center;background:var(--gold-dim);color:var(--gold)}
-.float-tag .ic svg{width:14px;height:14px}
-.float-tag.t1{left:-6%;bottom:14%}
-.float-tag.t2{right:-2%;top:-6%;animation-delay:-3s}
-@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
-
-/* Phone frame — Eso Va */
-.phone-stage{position:relative;display:flex;justify-content:center;align-items:center;min-height:560px}
-.phone-stage::before{content:'';position:absolute;width:80%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(155,28,28,.22),transparent 65%);filter:blur(20px)}
-.phone-stage .ring{position:absolute;border:1px solid var(--border);border-radius:50%;aspect-ratio:1}
-.phone-stage .ring.r1{width:78%}.phone-stage .ring.r2{width:58%;border-color:rgba(200,168,75,.15)}
-.phone{position:relative;width:272px;aspect-ratio:9/19;border-radius:44px;padding:10px;background:linear-gradient(145deg,#2a2a2a,#0f0f0f);box-shadow:0 60px 120px -30px rgba(0,0,0,.9),inset 0 0 0 1px rgba(255,255,255,.08);transform:rotate(-4deg);transition:transform .8s var(--ease)}
-.case:hover .phone{transform:rotate(0)}
-.phone::before{content:'';position:absolute;top:18px;left:50%;transform:translateX(-50%);width:84px;height:24px;border-radius:20px;background:#000;z-index:3}
-.phone-screen{position:relative;width:100%;height:100%;border-radius:35px;overflow:hidden;background:#f6efe2}
-.phone-screen > img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;z-index:2}
-.inv{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;text-align:center;padding:62px 22px 22px;color:#2a1d14;
-  background:
-    radial-gradient(120% 60% at 50% 0%,rgba(200,168,75,.35),transparent 60%),
-    linear-gradient(180deg,#f8f1e4,#efe3cc)}
-.inv-top{font-family:var(--f-mono);font-size:.55rem;letter-spacing:.3em;text-transform:uppercase;color:#8a6a2c}
-.inv-orn{width:70px;height:18px;margin:.6rem auto;color:#a8842f}
-.inv-title{font-family:var(--f-serif);font-style:italic;font-size:2.25rem;line-height:.95;color:#2a1d14}
-.inv-title b{display:block;font-family:var(--f-display);font-style:normal;font-weight:400;font-size:1.05rem;letter-spacing:.3em;color:#7a1818;margin:.5rem 0}
-.inv-sub{font-size:.66rem;color:#6b5a48;margin:.4rem 0 1rem;line-height:1.5}
-.inv-count{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;width:100%;margin-bottom:1rem}
-.inv-count div{background:rgba(255,255,255,.55);border:1px solid rgba(168,132,47,.3);border-radius:10px;padding:.45rem 0}
-.inv-count strong{display:block;font-family:var(--f-display);font-size:1.3rem;line-height:1;color:#2a1d14;font-weight:400}
-.inv-count span{font-size:.5rem;letter-spacing:.12em;text-transform:uppercase;color:#8a6a2c}
-.inv-btn{width:100%;padding:.7rem;border-radius:100px;background:#2a1d14;color:#f6efe2;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:.45rem}
-.inv-btn.alt{background:transparent;border:1px solid rgba(42,29,20,.35);color:#2a1d14}
-.inv-foot{margin-top:auto;display:flex;gap:.9rem;font-size:.55rem;color:#8a6a2c;letter-spacing:.12em;text-transform:uppercase}
-.float-tag.t3{left:2%;top:18%}
-.float-tag.t4{right:0;bottom:16%;animation-delay:-2.5s}
-
-/* More work grid */
-.more-head{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:clamp(3rem,6vw,4.5rem) 0 2rem;border-top:1px solid var(--border)}
-.more-head h3{font-family:var(--f-display);font-weight:400;font-size:clamp(2rem,4vw,3rem);color:var(--white);letter-spacing:.02em}
-.work-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1rem,2vw,1.75rem)}
-.work-card{display:flex;flex-direction:column;gap:1.25rem}
-.work-card .browser{box-shadow:0 30px 60px -25px rgba(0,0,0,.8)}
-.work-card:hover .browser{border-color:rgba(200,168,75,.4)}
-.work-card:hover .browser-view img{transform:scale(1.05)}
-.work-meta{display:flex;justify-content:space-between;align-items:center;color:var(--muted)}
-.work-meta .gold{color:var(--gold)}
-.work-card h4{font-family:var(--f-display);font-weight:400;font-size:1.9rem;line-height:1;color:var(--white);letter-spacing:.02em;display:flex;align-items:center;justify-content:space-between;gap:1rem}
-.work-card h4 svg{width:18px;height:18px;color:var(--muted);transition:transform .4s var(--ease),color .3s}
-.work-card:hover h4 svg{transform:translate(3px,-3px);color:var(--gold)}
-.work-card p{color:var(--secondary);font-size:.88rem;line-height:1.65}
-
-/* ═══════════════════════════════════════════
-   SERVICES
-═══════════════════════════════════════════ */
-.services{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden}
-.service{padding:clamp(2rem,3vw,2.75rem);border-right:1px solid var(--border);position:relative;background:var(--deep);transition:background .5s var(--ease)}
-.service:last-child{border-right:0}
-.service::before{content:'';position:absolute;inset:0 0 auto;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);transform:scaleX(0);transition:transform .7s var(--ease)}
-.service:hover{background:var(--surface)}
-.service:hover::before{transform:scaleX(1)}
-.service-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:4rem;color:var(--muted)}
-.service-ic{width:48px;height:48px;border-radius:50%;border:1px solid var(--border-hi);display:grid;place-items:center;color:var(--gold);transition:border-color .4s,background .4s}
-.service:hover .service-ic{border-color:var(--gold);background:var(--gold-dim)}
-.service-ic svg{width:20px;height:20px}
-.service h3{font-family:var(--f-display);font-weight:400;font-size:2.3rem;line-height:.95;color:var(--white);letter-spacing:.02em;margin-bottom:.9rem}
-.service > p{color:var(--secondary);font-size:.9rem;margin-bottom:1.75rem}
-.service ul li{display:flex;align-items:center;gap:.7rem;padding:.55rem 0;border-top:1px solid var(--border);font-size:.85rem;color:var(--primary)}
-.service ul li::before{content:'';width:4px;height:4px;background:var(--gold);transform:rotate(45deg);flex-shrink:0}
-
-.process{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-top:clamp(3rem,6vw,4.5rem)}
-.step{border-top:1px solid var(--border-hi);padding-top:1.25rem;position:relative}
-.step::before{content:'';position:absolute;top:-1px;left:0;width:36px;height:1px;background:var(--gold)}
-.step .mono{color:var(--gold)}
-.step h4{font-family:var(--f-serif);font-style:italic;font-weight:400;font-size:1.6rem;color:var(--white);margin:.5rem 0 .35rem}
-.step p{font-size:.85rem;color:var(--secondary)}
-
-/* ═══════════════════════════════════════════
-   ABOUT
-═══════════════════════════════════════════ */
-.about{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(2.5rem,6vw,6rem);align-items:start}
-.about-visual{position:sticky;top:110px}
-.portrait{position:relative;border-radius:var(--r-md);overflow:hidden;aspect-ratio:4/5;background:var(--surface)}
-.portrait img{width:100%;height:100%;object-fit:cover;filter:grayscale(100%) contrast(1.08);transition:filter 1s var(--ease),transform 1.2s var(--ease)}
-.portrait:hover img{filter:grayscale(0) contrast(1.04);transform:scale(1.03)}
-.portrait::after{content:'';position:absolute;inset:0;border:1px solid rgba(200,168,75,.22);border-radius:inherit;pointer-events:none}
-.portrait-cap{position:absolute;left:1rem;right:1rem;bottom:1rem;display:flex;justify-content:space-between;align-items:center;padding:.8rem 1rem;border-radius:var(--r-sm);background:rgba(8,8,8,.72);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid var(--border-hi);color:var(--secondary)}
-.portrait-cap strong{color:var(--gold);font-weight:500}
-.about-quote{font-family:var(--f-serif);font-size:clamp(1.8rem,3.6vw,3rem);line-height:1.1;color:var(--white);margin-bottom:2.5rem}
-.about-quote em{color:var(--gold)}
-.about-body{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem 2.5rem;margin-bottom:3rem}
-.about-body p{color:var(--secondary);font-size:.95rem;line-height:1.8}
-.about-body strong{color:var(--primary);font-weight:400}
-.stack-title{color:var(--muted);margin-bottom:1rem}
-.stack{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:3rem}
-.stack span{font-size:.8rem;color:var(--primary);padding:.45rem .95rem;border:1px solid var(--border-hi);border-radius:100px;transition:all .3s}
-.stack span:hover{border-color:var(--gold);color:var(--gold)}
-.timeline{border-top:1px solid var(--border)}
-.tl{display:grid;grid-template-columns:120px 1fr auto;gap:1.5rem;align-items:baseline;padding:1.1rem 0;border-bottom:1px solid var(--border)}
-.tl .mono{color:var(--gold)}
-.tl strong{font-weight:400;color:var(--white)}
-.tl span:last-child{color:var(--muted);font-size:.85rem}
-
-/* ═══════════════════════════════════════════
-   VIDEO
-═══════════════════════════════════════════ */
-.video-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:clamp(.75rem,1.5vw,1.25rem)}
-.vcard{grid-column:span 2;display:flex;flex-direction:column;gap:.85rem}
-.vcard.lg{grid-column:span 3}
-.vframe{position:relative;aspect-ratio:16/9;border-radius:var(--r-md);overflow:hidden;background:var(--surface);border:1px solid var(--border)}
-.vframe iframe,.vframe video{position:absolute;inset:0;width:100%;height:100%;border:0;object-fit:cover;background:#000}
-.yt{position:absolute;inset:0;width:100%;height:100%;display:block;cursor:pointer}
-.yt img{width:100%;height:100%;object-fit:cover;filter:brightness(.72) saturate(.9);transition:transform 1s var(--ease),filter .6s}
-.yt:hover img{transform:scale(1.05);filter:brightness(.9) saturate(1)}
-.yt::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(8,8,8,.7))}
-.play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:68px;height:68px;border-radius:50%;display:grid;place-items:center;background:rgba(8,8,8,.45);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.3);z-index:2;transition:all .45s var(--ease)}
-.play svg{width:20px;height:20px;margin-left:3px;color:var(--white)}
-.yt:hover .play{background:var(--gold);border-color:var(--gold);transform:translate(-50%,-50%) scale(1.08)}
-.yt:hover .play svg{color:#0a0a0a}
-.vinfo{display:flex;justify-content:space-between;align-items:baseline;gap:1rem}
-.vinfo strong{font-weight:400;color:var(--primary);font-size:.92rem}
-.vinfo span{color:var(--muted)}
-
-/* ═══════════════════════════════════════════
-   MUSIC
-═══════════════════════════════════════════ */
-.music{display:grid;grid-template-columns:400px 1fr;gap:clamp(2rem,4vw,3.5rem);align-items:start}
-.player{position:sticky;top:100px;border:1px solid var(--border-hi);border-radius:var(--r-lg);overflow:hidden;background:var(--surface)}
-.player-art{position:relative;aspect-ratio:1;overflow:hidden;background:var(--deep)}
-.player-art img{width:100%;height:100%;object-fit:cover;transition:transform 1.4s var(--ease),opacity .45s}
-.player.playing .player-art img{transform:scale(1.05)}
-.player-art::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,var(--surface))}
-.viz{position:absolute;left:1.5rem;bottom:1.25rem;display:flex;align-items:flex-end;gap:3px;height:22px;z-index:2;opacity:0;transition:opacity .4s}
-.player.playing .viz{opacity:1}
-.viz i{width:3px;height:100%;background:var(--gold);border-radius:2px;transform-origin:bottom;animation:eq .9s ease-in-out infinite}
-.viz i:nth-child(2){animation-delay:.15s}.viz i:nth-child(3){animation-delay:.3s}.viz i:nth-child(4){animation-delay:.1s}.viz i:nth-child(5){animation-delay:.25s}
-@keyframes eq{0%,100%{transform:scaleY(.25)}50%{transform:scaleY(1)}}
-.player-body{padding:1.25rem 1.5rem 1.5rem}
-.player-now{color:var(--gold);margin-bottom:.35rem}
-.player-title{font-family:var(--f-display);font-size:2rem;line-height:1;color:var(--white);letter-spacing:.02em}
-.player-artist{color:var(--secondary);font-size:.85rem;margin-top:.25rem}
-.prog{margin-top:1.25rem;cursor:pointer;padding:.5rem 0}
-.prog-track{height:2px;background:var(--border-hi);border-radius:2px;position:relative}
-.prog-fill{position:absolute;inset:0 auto 0 0;width:0;background:var(--gold);border-radius:2px}
-.prog-fill::after{content:'';position:absolute;right:-5px;top:50%;width:10px;height:10px;border-radius:50%;background:var(--gold);transform:translateY(-50%) scale(0);transition:transform .25s}
-.prog:hover .prog-fill::after{transform:translateY(-50%) scale(1)}
-.times{display:flex;justify-content:space-between;color:var(--muted);font-family:var(--f-mono);font-size:.68rem;margin-top:.35rem}
-.ctrls{display:flex;align-items:center;justify-content:space-between;margin-top:1rem}
-.ctrl-group{display:flex;align-items:center;gap:.6rem}
-.cbtn{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;color:var(--secondary);transition:all .25s}
-.cbtn:hover{color:var(--white);background:var(--raise)}
-.cbtn svg{width:18px;height:18px}
-.pbtn{width:58px;height:58px;border-radius:50%;background:var(--gold);color:#0a0a0a;display:grid;place-items:center;transition:all .35s var(--ease)}
-.pbtn:hover{background:var(--gold-hi);transform:scale(1.06);box-shadow:0 10px 30px -6px var(--gold-glow)}
-.pbtn svg{width:22px;height:22px}
-.vol{display:flex;align-items:center;gap:.5rem;color:var(--muted)}
-.vol svg{width:16px;height:16px}
-.vol input{-webkit-appearance:none;appearance:none;width:80px;height:2px;background:var(--border-hi);border-radius:2px;outline:none;cursor:pointer}
-.vol input::-webkit-slider-thumb{-webkit-appearance:none;width:10px;height:10px;border-radius:50%;background:var(--primary)}
-.vol input::-moz-range-thumb{width:10px;height:10px;border:0;border-radius:50%;background:var(--primary)}
-
-.tracks{border-top:1px solid var(--border)}
-.track{display:grid;grid-template-columns:36px 52px 1fr auto auto;gap:1rem;align-items:center;padding:.8rem .75rem;border-bottom:1px solid var(--border);cursor:pointer;transition:background .3s;width:100%;text-align:left;border-radius:0}
-.track:hover{background:var(--surface)}
-.track.active{background:linear-gradient(90deg,var(--gold-dim),transparent 70%)}
-.track-n{font-family:var(--f-mono);font-size:.72rem;color:var(--muted);text-align:center}
-.track-n .eqi{display:none;align-items:flex-end;justify-content:center;gap:2px;height:12px}
-.track-n .eqi i{width:2px;height:100%;background:var(--gold);transform-origin:bottom;animation:eq .9s ease-in-out infinite}
-.track-n .eqi i:nth-child(2){animation-delay:.2s}.track-n .eqi i:nth-child(3){animation-delay:.4s}
-.track.active .track-n .n{display:none}
-.track.active .track-n .eqi{display:flex}
-.player:not(.playing) ~ .tracks .track.active .eqi i,
-.music:not(.is-playing) .track.active .eqi i{animation-play-state:paused}
-.track-cover{width:52px;height:52px;border-radius:var(--r-xs);overflow:hidden;background:var(--deep)}
-.track-cover img{width:100%;height:100%;object-fit:cover}
-.track-name{color:var(--primary);font-size:.95rem;font-weight:400;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.track.active .track-name{color:var(--gold)}
-.track-art{color:var(--muted);font-size:.78rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.track-genre{color:var(--secondary)}
-.track-bpm{color:var(--muted);min-width:64px;text-align:right}
-
-/* ═══════════════════════════════════════════
-   CONTACT
-═══════════════════════════════════════════ */
-.contact{position:relative;overflow:hidden}
-.contact-big{font-family:var(--f-display);font-weight:400;font-size:clamp(4.5rem,15vw,13rem);line-height:.82;color:var(--white);letter-spacing:.01em}
-.contact-big .serif{color:var(--gold);font-size:.8em;text-transform:none}
-.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,5rem);margin-top:clamp(3rem,6vw,4.5rem);padding-top:clamp(2rem,4vw,3rem);border-top:1px solid var(--border)}
-.contact-grid > div > p{color:var(--secondary);font-size:1rem;max-width:44ch;margin-bottom:2rem}
-.mail{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1.4rem 1.5rem;border:1px solid var(--border-hi);border-radius:var(--r-md);background:var(--surface);transition:border-color .4s,background .4s}
-.mail:hover{border-color:var(--gold);background:var(--lift)}
-.mail small{display:block;color:var(--muted);margin-bottom:.2rem}
-.mail a{font-size:clamp(1rem,2.2vw,1.35rem);color:var(--white);word-break:break-all}
-.copy{flex-shrink:0;padding:.55rem .95rem;border-radius:100px;border:1px solid var(--border-hi);color:var(--secondary);transition:all .3s}
-.copy:hover{color:var(--gold);border-color:var(--gold)}
-.socials{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--border)}
-.social{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1.3rem .25rem;border-bottom:1px solid var(--border);color:var(--primary);transition:color .3s,padding .4s var(--ease)}
-.social:nth-child(odd){border-right:1px solid var(--border);padding-right:1.25rem}
-.social:nth-child(even){padding-left:1.25rem}
-.social span{display:flex;align-items:center;gap:.8rem}
-.social svg{width:17px;height:17px}
-.social .arr{width:13px;height:13px;color:var(--muted);transition:transform .4s var(--ease),color .3s}
-.social:hover{color:var(--gold)}
-.social:hover .arr{transform:translate(3px,-3px);color:var(--gold)}
-
-/* ═══════════════════════════════════════════
-   FOOTER
-═══════════════════════════════════════════ */
-.footer{border-top:1px solid var(--border);padding:3rem 0 2rem;overflow:hidden}
-.footer-top{display:flex;justify-content:space-between;align-items:flex-start;gap:2rem;flex-wrap:wrap}
-.footer-links{display:flex;gap:2rem;flex-wrap:wrap}
-.footer-links a{color:var(--secondary);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;transition:color .3s}
-.footer-links a:hover{color:var(--gold)}
-.to-top{display:inline-flex;align-items:center;gap:.5rem;color:var(--secondary);transition:color .3s}
-.to-top:hover{color:var(--gold)}
-.footer-word{font-family:var(--f-display);font-size:clamp(5rem,23vw,21rem);line-height:.8;letter-spacing:.01em;color:transparent;-webkit-text-stroke:1px rgba(200,168,75,.22);text-align:center;margin:2.5rem 0 1.5rem;user-select:none;white-space:nowrap}
-.footer-bottom{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;color:var(--muted)}
-
-/* ═══════════════════════════════════════════
-   REVEAL
-═══════════════════════════════════════════ */
-.reveal{opacity:0;transform:translateY(28px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
-.reveal.in{opacity:1;transform:none}
-.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}
-
-/* ═══════════════════════════════════════════
-   RESPONSIVE
-═══════════════════════════════════════════ */
-@media (max-width:1100px){
-  .nav-links{gap:1.5rem}
-  .case,.case.flip{grid-template-columns:1fr}
-  .case.flip .case-info{order:0}
-  .work-grid{grid-template-columns:1fr 1fr}
-  .services{grid-template-columns:1fr}
-  .service{border-right:0;border-bottom:1px solid var(--border)}
-  .service:last-child{border-bottom:0}
-  .service-top{margin-bottom:2rem}
-  .music{grid-template-columns:1fr}
-  .player{position:relative;top:0;display:grid;grid-template-columns:260px 1fr}
-  .player-art::after{background:linear-gradient(90deg,transparent 60%,var(--surface))}
-  .about{grid-template-columns:1fr}
-  .about-visual{position:relative;top:0;max-width:440px}
-  .video-grid{grid-template-columns:repeat(2,1fr)}
-  .vcard,.vcard.lg{grid-column:span 1}
-}
-@media (max-width:860px){
-  .nav-links,.nav-cta{display:none}
-  .burger{display:block}
-  .hero-bottom{grid-template-columns:1fr;gap:1.5rem}
-  .sec-head{grid-template-columns:1fr}
-  .sec-sub{text-align:left}
-  .stats{grid-template-columns:1fr 1fr}
-  .stat:nth-child(2){border-right:0}
-  .stat:nth-child(-n+2){border-bottom:1px solid var(--border)}
-  .process{grid-template-columns:1fr 1fr}
-  .about-body{grid-template-columns:1fr}
-  .contact-grid{grid-template-columns:1fr}
-  .float-tag.t1{left:2%}.float-tag.t2{right:2%}
-}
-@media (max-width:640px){
-  .hero-meta .hide-sm{display:none}
-  .work-grid{grid-template-columns:1fr}
-  .player{grid-template-columns:1fr}
-  .player-art::after{background:linear-gradient(180deg,transparent 55%,var(--surface))}
-  .track{grid-template-columns:28px 44px 1fr auto;gap:.75rem;padding:.7rem .25rem}
-  .track-cover{width:44px;height:44px}
-  .track-genre{display:none}
-  .video-grid{grid-template-columns:1fr}
-  .socials{grid-template-columns:1fr}
-  .social:nth-child(odd){border-right:0;padding-right:.25rem}
-  .social:nth-child(even){padding-left:.25rem}
-  .tl{grid-template-columns:90px 1fr}
-  .tl span:last-child{display:none}
-  .case-feats li{grid-template-columns:90px 1fr}
-  .float-tag{font-size:.7rem;padding:.55rem .75rem}
-  .float-tag .ic{display:none}
-  .float-tag.t1{bottom:-10%}
-  .float-tag.t2{top:-12%}
-  .phone-stage{min-height:500px}
-  .phone{width:240px}
-  .process{grid-template-columns:1fr}
-  .mail{flex-direction:column;align-items:flex-start}
-}
-@media (prefers-reduced-motion:reduce){
-  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
-  .reveal,.fade-in{opacity:1;transform:none}
-  .hero-name .gl{transform:none}
-}
-</style>
 </head>
 <body>
 <a href="#main" class="skip-link">Saltar al contenido</a>
 <div class="progress" id="progress" aria-hidden="true"></div>
 
-<!-- ═══════════ NAV ═══════════ -->
 <header class="nav" id="main-nav">
   <div class="wrap nav-inner">
-    <a href="#inicio" class="nav-logo" aria-label="Jeighost, inicio"><i></i>JEIGHOST</a>
-    <nav aria-label="Principal">
-      <ul class="nav-links" id="nav-links">
-        <li><a href="#webs">Trabajo</a></li>
-        <li><a href="#servicios">Servicios</a></li>
-        <li><a href="#sobre-mi">Sobre mí</a></li>
-        <li><a href="#video">Video</a></li>
-        <li><a href="#beats">Música</a></li>
-      </ul>
-    </nav>
+    <a href="/" class="nav-logo" aria-label="Jeighost, inicio"><span class="nav-logo-mark">J</span>Jeighost</a>
+    <nav aria-label="Principal"><ul class="nav-links"><li><a href="/" class="active" aria-current="page">Inicio</a></li><li><a href="/webs/">Webs</a></li><li><a href="/beats/">Música</a></li><li><a href="/video/">Video</a></li></ul></nav>
     <div class="nav-right">
       <a href="#contacto" class="nav-cta">Hablemos</a>
       <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu"><span></span><span></span></button>
@@ -573,389 +41,120 @@ a.browser:hover .browser-view img,.case:hover .browser-view img{transform:scale(
 </header>
 
 <div class="menu" id="menu" aria-hidden="true">
-  <a class="menu-link" href="#webs"><span>01</span>Trabajo</a>
-  <a class="menu-link" href="#servicios"><span>02</span>Servicios</a>
-  <a class="menu-link" href="#sobre-mi"><span>03</span>Sobre mí</a>
-  <a class="menu-link" href="#video"><span>04</span>Video</a>
-  <a class="menu-link" href="#beats"><span>05</span>Música</a>
-  <a class="menu-link" href="#contacto"><span>06</span>Contacto</a>
-  <div class="menu-foot mono">
-    <a href="https://www.instagram.com/jeig59s" target="_blank" rel="noopener noreferrer">Instagram</a>
-    <a href="https://x.com/Jeighost" target="_blank" rel="noopener noreferrer">X</a>
-    <a href="https://www.tiktok.com/@elfantasmag59" target="_blank" rel="noopener noreferrer">TikTok</a>
-  </div>
+  <a class="menu-link active" href="/"><span>01</span>Inicio</a><a class="menu-link" href="/webs/"><span>02</span>Webs</a><a class="menu-link" href="/beats/"><span>03</span>Música</a><a class="menu-link" href="/video/"><span>04</span>Video</a>
+  <a class="menu-link" href="#contacto"><span>05</span>Contacto</a>
+  <div class="menu-foot mono"><a href="https://www.instagram.com/jeig59s" target="_blank" rel="noopener noreferrer">Instagram</a><a href="https://x.com/Jeighost" target="_blank" rel="noopener noreferrer">X</a><a href="https://www.tiktok.com/@elfantasmag59" target="_blank" rel="noopener noreferrer">TikTok</a></div>
 </div>
 
 <main id="main">
 
-<!-- ═══════════ HERO ═══════════ -->
 <section class="hero" id="inicio">
-  <div class="hero-bg"></div>
-  <div class="hero-grid-lines"></div>
-  <div class="spot" id="spot" aria-hidden="true"></div>
-
+  <div class="hero-bg"></div><div class="hero-grid"></div><div class="spot" id="spot" aria-hidden="true"></div>
   <div class="wrap">
-    <div class="hero-meta mono fade-in" style="animation-delay:.1s">
-      <div><span class="status-dot"></span>Disponible para proyectos</div>
-      <div class="hide-sm">Portafolio — Ed. 2026</div>
-      <div>Barranquilla, CO · <span id="clock">--:--</span></div>
+    <div class="status mono fade-in" style="animation-delay:.05s"><span class="status-dot"></span>Disponible para proyectos<span class="sep hide-sm"></span><span class="hide-sm">Barranquilla · <span id="clock">--:--</span></span></div>
+    <h1 class="h-display fade-in" style="animation-delay:.15s">Productos digitales, video y música con <span class="gold">criterio de autor.</span></h1>
+    <p class="lead fade-in" style="animation-delay:.3s">Soy Jeison Gonzalez — Jeighost. Diseño y desarrollo apps como ClauClone y Eso Va, edito video y produzco beats. Explora cada área de mi trabajo.</p>
+    <div class="hero-ctas fade-in" style="animation-delay:.42s">
+      <a href="/webs/" class="btn btn-gold">Ver proyectos web <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a href="#contacto" class="btn btn-ghost">Iniciar un proyecto</a>
     </div>
-
-    <p class="hero-kicker mono fade-in" style="animation-delay:.25s">Producto digital · Video · Música</p>
-    <div class="hero-name-mask">
-      <h1 class="hero-name" id="hero-name" aria-label="Jeighost"><span class="gl" data-text="J" style="animation-delay:.30s">J</span><span class="gl" data-text="E" style="animation-delay:.36s">E</span><span class="gl" data-text="I" style="animation-delay:.42s">I</span><span class="gl" data-text="G" style="animation-delay:.48s">G</span><span class="gl" data-text="H" style="animation-delay:.54s">H</span><span class="gl" data-text="O" style="animation-delay:.60s">O</span><span class="gl" data-text="S" style="animation-delay:.66s">S</span><span class="gl" data-text="T" style="animation-delay:.72s">T</span></h1>
-    </div>
-
-    <div class="hero-bottom">
-      <p class="hero-lead fade-in" style="animation-delay:.9s">Construyo productos digitales con <em>oficio de poeta</em> y oído de productor.</p>
-      <div class="hero-side fade-in" style="animation-delay:1.05s">
-        <p>Soy Jeison Gonzalez. Diseño y desarrollo apps web como <strong style="color:var(--white);font-weight:400">ClauClone</strong> y <strong style="color:var(--white);font-weight:400">Eso Va</strong>, edito video y produzco música — todo con la misma obsesión por el detalle.</p>
-        <div class="hero-ctas">
-          <a href="#webs" class="btn btn-gold">Ver trabajo
-            <svg viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H6M12 4v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </a>
-          <a href="#contacto" class="btn btn-ghost">Iniciar un proyecto</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="marquee" aria-hidden="true">
-    <div class="marquee-track">
-      <div class="marquee-group">
-        <span>Desarrollo web</span><b></b><span class="s">producto &amp; SaaS</span><b></b><span>Apps con IA</span><b></b><span class="s">invitaciones digitales</span><b></b><span>Edición audiovisual</span><b></b><span class="s">lyric videos</span><b></b><span>Producción musical</span><b></b><span class="s">poesía</span><b></b>
-      </div>
-      <div class="marquee-group">
-        <span>Desarrollo web</span><b></b><span class="s">producto &amp; SaaS</span><b></b><span>Apps con IA</span><b></b><span class="s">invitaciones digitales</span><b></b><span>Edición audiovisual</span><b></b><span class="s">lyric videos</span><b></b><span>Producción musical</span><b></b><span class="s">poesía</span><b></b>
-      </div>
+    <div class="hero-foot mono fade-in" style="animation-delay:.55s">
+      <div class="who"><img src="/assets/images/jeighost-photo.webp" alt="Jeison Gonzalez"><div><strong>Jeison Gonzalez</strong>Desarrollador · Editor · Productor</div></div>
+      <span>5 productos en línea · Creando desde 2018</span>
     </div>
   </div>
 </section>
 
-<!-- ═══════════ STATS ═══════════ -->
-<div class="wrap">
-  <div class="stats reveal">
-    <div class="stat"><div class="stat-num" data-count="5">0</div><p>Productos web publicados y en línea</p></div>
-    <div class="stat"><div class="stat-num"><span data-count="6">0</span><sup>+</sup></div><p>Años creando en música, video y web</p></div>
-    <div class="stat"><div class="stat-num" data-count="10">0</div><p>Producciones musicales originales</p></div>
-    <div class="stat"><div class="stat-num" data-count="5">0</div><p>Modelos de IA integrados en ClauClone</p></div>
-  </div>
-</div>
-
-<!-- ═══════════ TRABAJO ═══════════ -->
-<section class="section" id="webs">
+<section class="section-tight" aria-labelledby="explora">
   <div class="wrap">
     <div class="sec-head">
-      <div>
-        <div class="eyebrow mono reveal">Trabajo seleccionado</div>
-        <h2 class="sec-title reveal d1">Casos de <span class="serif">estudio</span></h2>
-      </div>
-      <p class="sec-sub reveal d2">Productos reales, en producción, usados por personas reales. Del concepto y la identidad hasta el código y el despliegue.</p>
+      <div><span class="eyebrow mono reveal">Explora</span><h2 class="h-2 reveal d1" id="explora">Tres áreas, un mismo estándar.</h2></div>
+      <p class="lead reveal d2">Entra a cada sección para ver los proyectos completos, escuchar las producciones o ver los videos.</p>
     </div>
 
-    <!-- 01 — ClauClone -->
-    <article class="case">
-      <div class="case-info">
-        <div class="case-index mono reveal"><span class="num">01</span><span class="line"></span><span class="case-badge mono">★ Producto insignia</span></div>
-        <h3 class="case-title reveal d1">ClauClone</h3>
-        <p class="case-lead reveal d1">Los mejores modelos de IA, en una sola cuenta.</p>
-        <p class="case-desc reveal d2">Plataforma SaaS de inteligencia artificial para Latinoamérica: Claude, GPT, Gemini, DeepSeek y GLM en la misma conversación. Pagos en pesos, sin tarjeta internacional, y el costo de cada respuesta visible antes de enviarla.</p>
-        <ul class="case-feats reveal d2">
-          <li><span class="mono">Rol</span>Fundador · Diseño de producto · Full-stack</li>
-          <li><span class="mono">Modelos</span>Claude · GPT · Gemini · DeepSeek · GLM</li>
-          <li><span class="mono">Negocio</span>Planes Pro / Max · 100 créditos gratis al día</li>
-          <li><span class="mono">Plataforma</span>Web + app instalable (PWA)</li>
-        </ul>
-        <div class="chips reveal d3">
-          <span class="chip">React</span><span class="chip">Vite</span><span class="chip">SSR / Hydration</span><span class="chip">APIs de IA</span><span class="chip">Auth Google</span><span class="chip">PWA</span><span class="chip">Vercel</span>
+    <div class="portals">
+      <a class="portal portal-webs reveal" href="/webs/">
+        <div class="portal-body">
+          <div class="portal-top"><span class="mono">01 · Webs &amp; apps</span><span class="portal-go"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+          <h3>Webs</h3>
+          <p>ClauClone, Eso Va y más: productos reales en producción, del diseño al despliegue.</p>
+          <span class="mono portal-count">5 proyectos →</span>
         </div>
-        <div class="case-ctas reveal d3">
-          <a href="https://www.clauclone.lat" target="_blank" rel="noopener noreferrer" class="btn btn-gold">Visitar clauclone.lat
-            <svg viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H6M12 4v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </a>
-        </div>
-      </div>
-      <div class="stage reveal d2">
-        <a href="https://www.clauclone.lat" target="_blank" rel="noopener noreferrer" class="browser tilt" aria-label="Abrir ClauClone">
-          <div class="browser-bar">
-            <div class="dots"><i></i><i></i><i></i></div>
-            <div class="url"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 1a3.5 3.5 0 0 0-3.5 3.5V6H4a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V7a1 1 0 0 0-1-1h-.5V4.5A3.5 3.5 0 0 0 8 1zm2 5H6V4.5a2 2 0 1 1 4 0V6z"/></svg>clauclone.lat</div>
-            <div style="width:42px"></div>
-          </div>
-          <div class="browser-view"><img src="assets/images/clauclone.webp" alt="Página principal de ClauClone: los mejores modelos de IA en una sola cuenta" loading="lazy" width="1200" height="675"></div>
-        </a>
-        <div class="float-tag t1"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l2.5 5.5L20 9l-4 4 1 6-5-3-5 3 1-6-4-4 5.5-.5z"/></svg></span><span><strong>5 modelos</strong> · una conversación</span></div>
-        <div class="float-tag t2"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10h18"/></svg></span><span>Pagos en <strong>COP</strong></span></div>
-      </div>
-    </article>
-
-    <!-- 02 — Eso Va -->
-    <article class="case flip">
-      <div class="case-info">
-        <div class="case-index mono reveal"><span class="num">02</span><span class="line"></span><span>App · Eventos</span></div>
-        <h3 class="case-title reveal d1">Eso Va</h3>
-        <p class="case-lead reveal d1">Invitaciones digitales que se sienten como un evento.</p>
-        <p class="case-desc reveal d2">Plataforma de invitaciones digitales para bodas, cumpleaños, grados y celebraciones. Una invitación elegante, pensada para el móvil y lista para compartir con un enlace — sin papel, sin impresiones y con toda la información del evento en un solo lugar.</p>
-        <ul class="case-feats reveal d2">
-          <li><span class="mono">Rol</span>Concepto · Diseño UI · Desarrollo</li>
-          <li><span class="mono">Enfoque</span>Mobile-first · compartir por enlace</li>
-          <li><span class="mono">Uso</span>Bodas · XV años · cumpleaños · grados</li>
-        </ul>
-        <div class="chips reveal d3">
-          <span class="chip">Mobile-first</span><span class="chip">UI editorial</span><span class="chip">Animaciones</span><span class="chip">Vercel</span>
-        </div>
-        <div class="case-ctas reveal d3">
-          <a href="https://eso-va.vercel.app" target="_blank" rel="noopener noreferrer" class="btn btn-gold">Ver Eso Va
-            <svg viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H6M12 4v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </a>
-        </div>
-      </div>
-      <div class="phone-stage reveal d2">
-        <span class="ring r1"></span><span class="ring r2"></span>
-        <a href="https://eso-va.vercel.app" target="_blank" rel="noopener noreferrer" class="phone" aria-label="Abrir Eso Va">
-          <div class="phone-screen">
-            <!-- Si agregas una captura real en assets/images/eso-va.webp se mostrará aquí automáticamente -->
-            <img src="assets/images/eso-va.webp" alt="Vista previa de Eso Va" loading="lazy" onerror="this.remove()">
-            <div class="inv" aria-hidden="true">
-              <span class="inv-top">Eso Va · Invitación</span>
-              <svg class="inv-orn" viewBox="0 0 70 18" fill="none" stroke="currentColor" stroke-width="1"><path d="M0 9h26M44 9h26"/><path d="M35 2l4 7-4 7-4-7z"/></svg>
-              <div class="inv-title">Celebremos<b>JUNTOS</b>esta noche</div>
-              <p class="inv-sub">Tu presencia es el mejor regalo.<br>Te esperamos para compartir este momento.</p>
-              <div class="inv-count">
-                <div><strong>12</strong><span>Días</span></div>
-                <div><strong>08</strong><span>Horas</span></div>
-                <div><strong>45</strong><span>Min</span></div>
-                <div><strong>30</strong><span>Seg</span></div>
-              </div>
-              <div class="inv-btn">Confirmar asistencia</div>
-              <div class="inv-btn alt">Cómo llegar</div>
-              <div class="inv-foot"><span>Lugar</span><span>·</span><span>Hora</span><span>·</span><span>Dress code</span></div>
-            </div>
-          </div>
-        </a>
-        <div class="float-tag t3"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 6L9 17l-5-5"/></svg></span><span><strong>RSVP</strong> en un toque</span></div>
-        <div class="float-tag t4"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg></span><span>Comparte con <strong>un enlace</strong></span></div>
-      </div>
-    </article>
-
-    <!-- 03–05 -->
-    <div class="more-head">
-      <h3 class="reveal">Más proyectos</h3>
-      <span class="sec-count reveal">03 — 05</span>
-    </div>
-    <div class="work-grid">
-      <a class="work-card reveal" href="https://jeighost.lat" target="_blank" rel="noopener noreferrer">
-        <div class="browser">
-          <div class="browser-bar"><div class="dots"><i></i><i></i><i></i></div><div class="url">jeighost.lat</div></div>
-          <div class="browser-view"><img src="assets/images/Jeighost-lat.webp" alt="El Rincón del Conocimiento" loading="lazy"></div>
-        </div>
-        <div class="work-meta mono"><span class="gold">03 · Poesía digital</span><span>2024</span></div>
-        <h4>El Rincón del Conocimiento <svg viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H6M12 4v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></h4>
-        <p>Espacio editorial propio dedicado a la poesía contemporánea, el pensamiento crítico y el lenguaje como forma de arte. Diseño, desarrollo y contenido.</p>
+        <div class="portal-visual"><div class="stack-previews"><div class="browser"><div class="browser-bar"><div class="dots"><i></i><i></i><i></i></div><div class="url">clauclone.lat</div></div><div class="browser-view"><img src="/assets/images/previews/clauclone.webp" alt="" loading="lazy" width="1280" height="800"></div></div><div class="browser"><div class="browser-bar"><div class="dots"><i></i><i></i><i></i></div><div class="url">eso-va.vercel.app</div></div><div class="browser-view"><img src="/assets/images/previews/esova.webp" alt="" loading="lazy" width="1280" height="800"></div></div><div class="browser"><div class="browser-bar"><div class="dots"><i></i><i></i><i></i></div><div class="url">jeighost.lat</div></div><div class="browser-view"><img src="/assets/images/previews/rincon.webp" alt="" loading="lazy" width="1280" height="800"></div></div></div></div>
       </a>
-      <a class="work-card reveal d1" href="https://jeighost.github.io/Ebenezer-Stereo" target="_blank" rel="noopener noreferrer">
-        <div class="browser">
-          <div class="browser-bar"><div class="dots"><i></i><i></i><i></i></div><div class="url">ebenezer-stereo</div></div>
-          <div class="browser-view"><img src="assets/images/project-2.webp" alt="Ebenezer Stereo" loading="lazy"></div>
+
+      <a class="portal reveal d1" href="/beats/">
+        <div class="portal-body">
+          <div class="portal-top"><span class="mono">02 · Producción musical</span><span class="portal-go"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+          <h3>Música</h3>
+          <p>Beats originales de trap, drill, reggaetón y hip hop.</p>
+          <div class="wave" aria-hidden="true"><i style="--h:30%;--d:0.00s"></i><i style="--h:55%;--d:0.09s"></i><i style="--h:80%;--d:0.18s"></i><i style="--h:45%;--d:0.27s"></i><i style="--h:95%;--d:0.36s"></i><i style="--h:60%;--d:0.45s"></i><i style="--h:35%;--d:0.54s"></i><i style="--h:70%;--d:0.00s"></i><i style="--h:50%;--d:0.09s"></i><i style="--h:85%;--d:0.18s"></i><i style="--h:40%;--d:0.27s"></i><i style="--h:65%;--d:0.36s"></i><i style="--h:90%;--d:0.45s"></i><i style="--h:30%;--d:0.54s"></i><i style="--h:55%;--d:0.00s"></i><i style="--h:75%;--d:0.09s"></i><i style="--h:45%;--d:0.18s"></i><i style="--h:60%;--d:0.27s"></i><i style="--h:35%;--d:0.36s"></i><i style="--h:80%;--d:0.45s"></i><i style="--h:50%;--d:0.54s"></i><i style="--h:70%;--d:0.00s"></i><i style="--h:40%;--d:0.09s"></i><i style="--h:90%;--d:0.18s"></i><i style="--h:55%;--d:0.27s"></i><i style="--h:30%;--d:0.36s"></i><i style="--h:65%;--d:0.45s"></i><i style="--h:85%;--d:0.54s"></i><i style="--h:45%;--d:0.00s"></i><i style="--h:60%;--d:0.09s"></i></div>
         </div>
-        <div class="work-meta mono"><span class="gold">04 · Radio · Landing</span><span>2024</span></div>
-        <h4>Ebenezer Stereo <svg viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H6M12 4v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></h4>
-        <p>Sitio oficial de la emisora Ebenezer Stereo 88.2 FM / Online: identidad institucional, contacto y transmisión en línea.</p>
+        <div class="covers" aria-hidden="true"><img src="/assets/images/album-art.webp" alt="" loading="lazy"><img src="/assets/images/beat3.webp" alt="" loading="lazy"><img src="/assets/images/beat6.webp" alt="" loading="lazy"><img src="/assets/images/beat9.webp" alt="" loading="lazy"></div>
       </a>
-      <a class="work-card reveal d2" href="https://jeighost.github.io/SOALL/" target="_blank" rel="noopener noreferrer">
-        <div class="browser">
-          <div class="browser-bar"><div class="dots"><i></i><i></i><i></i></div><div class="url">soall</div></div>
-          <div class="browser-view"><img src="assets/images/project-3.webp" alt="SOALL tienda virtual" loading="lazy"></div>
+
+      <a class="portal reveal d2" href="/video/">
+        <div class="portal-body">
+          <div class="portal-top"><span class="mono">03 · Edición audiovisual</span><span class="portal-go"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+          <h3>Video</h3>
+          <p>Lyric videos, videoclips y edición integral.</p>
         </div>
-        <div class="work-meta mono"><span class="gold">05 · E-commerce</span><span>2024</span></div>
-        <h4>SOALL <svg viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H6M12 4v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></h4>
-        <p>Tienda de moda con identidad editorial: catálogo interactivo, ropa y hogar, y una experiencia de compra clara y cuidada.</p>
+        <div class="thumbs" aria-hidden="true"><span><img src="https://i.ytimg.com/vi/JxLlopEiS9I/mqdefault.jpg" alt="" loading="lazy"></span><span><img src="https://i.ytimg.com/vi/bCG0PepPhLo/mqdefault.jpg" alt="" loading="lazy"></span><span><img src="https://i.ytimg.com/vi/ERNX4mdIBMo/mqdefault.jpg" alt="" loading="lazy"></span></div>
       </a>
     </div>
   </div>
 </section>
 
-<!-- ═══════════ SERVICIOS ═══════════ -->
-<section class="section" id="servicios" style="padding-top:0">
+<section class="section-tight" aria-labelledby="destacado">
   <div class="wrap">
-    <div class="sec-head">
+    <div class="featured reveal">
       <div>
-        <div class="eyebrow mono reveal">Servicios</div>
-        <h2 class="sec-title reveal d1">Lo que <span class="serif">hago</span></h2>
+        <span class="badge mono">★ Producto insignia</span>
+        <h2 class="h-2" id="destacado" style="margin-top:1.25rem">ClauClone</h2>
+        <p class="body">Claude, GPT, Gemini, DeepSeek y GLM en la misma conversación. Pagos en pesos, sin tarjeta internacional, y el costo de cada respuesta visible antes de enviarla.</p>
+        <div class="featured-tags"><span class="chip">Claude</span><span class="chip">GPT</span><span class="chip">Gemini</span><span class="chip">DeepSeek</span><span class="chip">GLM</span></div>
+        <div class="actions">
+          <a href="https://www.clauclone.lat" class="btn btn-gold" target="_blank" rel="noopener noreferrer">Visitar clauclone.lat <svg class="ne" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H6M12 4v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a href="/webs/#clauclone" class="link-arrow">Caso completo <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
       </div>
-      <p class="sec-sub reveal d2">Tres disciplinas, un mismo criterio: que cada pieza se vea, se sienta y suene premium.</p>
-    </div>
-
-    <div class="services reveal">
-      <div class="service">
-        <div class="service-top"><span class="mono">01</span><span class="service-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5M14 4l-4 16"/></svg></span></div>
-        <h3>Producto &amp; desarrollo web</h3>
-        <p>Apps web, SaaS y sitios a medida — de la idea al despliegue.</p>
-        <ul><li>Aplicaciones web y SaaS</li><li>Integraciones con IA</li><li>Landing pages y e-commerce</li><li>Invitaciones digitales</li></ul>
-      </div>
-      <div class="service">
-        <div class="service-top"><span class="mono">02</span><span class="service-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="6" width="13" height="12" rx="2"/><path d="M16 10l5-3v10l-5-3"/></svg></span></div>
-        <h3>Edición audiovisual</h3>
-        <p>Piezas que retienen, cuentan y convierten.</p>
-        <ul><li>Lyric videos</li><li>Videoclips</li><li>Contenido para redes</li><li>Color y ritmo de montaje</li></ul>
-      </div>
-      <div class="service">
-        <div class="service-top"><span class="mono">03</span><span class="service-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></span></div>
-        <h3>Producción musical</h3>
-        <p>Beats y composiciones con identidad propia.</p>
-        <ul><li>Beats trap, drill, reggaetón</li><li>Composición y letras</li><li>Arreglos para artistas</li><li>Música para video</li></ul>
-      </div>
-    </div>
-
-    <div class="process">
-      <div class="step reveal"><span class="mono">Paso 01</span><h4>Descubrir</h4><p>Entiendo el objetivo, el público y lo que hace única la idea.</p></div>
-      <div class="step reveal d1"><span class="mono">Paso 02</span><h4>Diseñar</h4><p>Identidad, estructura y detalles antes de escribir una línea.</p></div>
-      <div class="step reveal d2"><span class="mono">Paso 03</span><h4>Construir</h4><p>Código limpio, rápido y pensado para crecer.</p></div>
-      <div class="step reveal d3"><span class="mono">Paso 04</span><h4>Lanzar</h4><p>Despliegue, pruebas y acompañamiento después de salir.</p></div>
+      <a class="devices" href="https://www.clauclone.lat" target="_blank" rel="noopener noreferrer" aria-label="Abrir ClauClone">
+        <div class="browser"><div class="browser-bar"><div class="dots"><i></i><i></i><i></i></div><div class="url"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 1a3.5 3.5 0 0 0-3.5 3.5V6H4a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V7a1 1 0 0 0-1-1h-.5V4.5A3.5 3.5 0 0 0 8 1zm2 5H6V4.5a2 2 0 1 1 4 0V6z"/></svg>clauclone.lat</div></div><div class="browser-view"><img src="/assets/images/previews/clauclone.webp" alt="ClauClone: los mejores modelos de IA en una sola cuenta" width="1280" height="800" loading="lazy"></div></div>
+        <div class="phone" aria-hidden="true"><div class="phone-screen"><img src="/assets/images/previews/clauclone-mobile.webp" alt="" loading="lazy" width="390" height="844"></div></div>
+      </a>
     </div>
   </div>
 </section>
 
-<!-- ═══════════ SOBRE MÍ ═══════════ -->
-<section class="section" id="sobre-mi" style="padding-top:0">
+<section class="section" id="sobre-mi" aria-labelledby="sobre">
   <div class="wrap">
     <div class="about">
-      <div class="about-visual reveal">
-        <div class="portrait">
-          <img src="assets/images/jeighost-photo.webp" alt="Jeison Gonzalez — Jeighost" loading="lazy">
-          <div class="portrait-cap mono"><span>Jeison Gonzalez</span><strong>Desde 2018</strong></div>
-        </div>
-      </div>
+      <div class="portrait reveal"><img src="/assets/images/jeighost-photo.webp" alt="Jeison Gonzalez — Jeighost" loading="lazy"></div>
       <div>
-        <div class="eyebrow mono reveal">Sobre mí</div>
-        <p class="about-quote reveal d1">“La poesía me enseñó a no sobrar ni una palabra. Hoy aplico esa <em>precisión</em> a cada línea de código, cada corte y cada compás.”</p>
-        <div class="about-body reveal d2">
-          <p>Soy un creativo multidisciplinario de <strong>Barranquilla, Colombia</strong>. Fundé <strong>ClauClone</strong>, una plataforma de IA para Latinoamérica, y construí <strong>Eso Va</strong> para llevar las invitaciones al mundo digital.</p>
-          <p>Trabajo con artistas, marcas independientes y emprendedores que necesitan presencia visual y sonora coherente. <strong>No entrego borradores: entrego resultados.</strong> Uso IA como herramienta; la dirección creativa siempre es propia.</p>
-        </div>
-        <p class="stack-title mono reveal">Herramientas</p>
-        <div class="stack reveal d1">
-          <span>React</span><span>JavaScript</span><span>Vite</span><span>HTML &amp; CSS</span><span>Vercel</span><span>APIs de IA</span><span>Premiere / edición</span><span>DAW &amp; mezcla</span><span>Branding</span>
-        </div>
-        <div class="timeline reveal d2">
-          <div class="tl"><span class="mono">2026</span><strong>ClauClone — plataforma de IA</strong><span>Fundador</span></div>
-          <div class="tl"><span class="mono">2025</span><strong>Eso Va — invitaciones digitales</strong><span>Producto</span></div>
-          <div class="tl"><span class="mono">2024</span><strong>Webs para marcas y medios</strong><span>Cliente</span></div>
-          <div class="tl"><span class="mono">2018</span><strong>Primeras producciones y videos</strong><span>Inicio</span></div>
-        </div>
+        <span class="eyebrow mono reveal">Sobre mí</span>
+        <h2 class="h-2 reveal d1" id="sobre">La poesía me enseñó precisión. <span class="dim">Hoy la aplico al código, al montaje y al sonido.</span></h2>
+        <p class="body reveal d2">Soy un creativo multidisciplinario de <strong>Barranquilla, Colombia</strong>. Fundé <strong>ClauClone</strong>, una plataforma de IA para Latinoamérica, y construí <strong>Eso Va</strong> para llevar las invitaciones al mundo digital.</p>
+        <p class="body reveal d2">Trabajo con artistas, marcas y emprendedores que necesitan una presencia visual y sonora coherente. No entrego borradores: entrego resultados.</p>
+        <div class="skills reveal d3"><span>React</span><span>Next.js</span><span>JavaScript</span><span>Supabase</span><span>Vercel</span><span>APIs de IA</span><span>Edición de video</span><span>Producción musical</span></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══════════ VIDEO ═══════════ -->
-<section class="section" id="video" style="padding-top:0">
+<section class="section-tight" id="contacto">
   <div class="wrap">
-    <div class="sec-head">
+    <div class="cta reveal">
       <div>
-        <div class="eyebrow mono reveal">Edición audiovisual</div>
-        <h2 class="sec-title reveal d1">Galería <span class="serif">de video</span></h2>
+        <span class="eyebrow mono">Contacto</span>
+        <h2 class="h-1">¿Tienes un proyecto? <span class="gold">Hagámoslo real.</span></h2>
+        <p class="lead">Apps, sitios web, video o música. Cuéntame la idea y te respondo con una propuesta clara, tiempos y el siguiente paso.</p>
       </div>
-      <p class="sec-sub reveal d2">Producción musical, lyric videos y edición integral. Todo de autoría propia.</p>
-    </div>
-
-    <div class="video-grid">
-      <div class="vcard lg reveal"><div class="vframe"><button class="yt" data-id="JxLlopEiS9I" aria-label="Reproducir video: Lyric video"><img src="https://i.ytimg.com/vi/JxLlopEiS9I/hqdefault.jpg" alt="" loading="lazy"><span class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></button></div><div class="vinfo"><strong>Producción original</strong><span class="mono">Lyric video</span></div></div>
-      <div class="vcard lg reveal d1"><div class="vframe"><button class="yt" data-id="bCG0PepPhLo" aria-label="Reproducir video: Edición audiovisual"><img src="https://i.ytimg.com/vi/bCG0PepPhLo/hqdefault.jpg" alt="" loading="lazy"><span class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></button></div><div class="vinfo"><strong>Producción original</strong><span class="mono">Edición</span></div></div>
-      <div class="vcard reveal"><div class="vframe"><button class="yt" data-id="ERNX4mdIBMo" aria-label="Reproducir video: Lyric video"><img src="https://i.ytimg.com/vi/ERNX4mdIBMo/hqdefault.jpg" alt="" loading="lazy"><span class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></button></div><div class="vinfo"><strong>Producción original</strong><span class="mono">Lyric video</span></div></div>
-      <div class="vcard reveal d1"><div class="vframe"><button class="yt" data-id="E0IIjgoo00w" aria-label="Reproducir video: Videoclip"><img src="https://i.ytimg.com/vi/E0IIjgoo00w/hqdefault.jpg" alt="" loading="lazy"><span class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></button></div><div class="vinfo"><strong>Producción original</strong><span class="mono">Videoclip</span></div></div>
-      <div class="vcard reveal d2"><div class="vframe"><button class="yt" data-id="N2HhuOvOqYw" aria-label="Reproducir video: Edición audiovisual"><img src="https://i.ytimg.com/vi/N2HhuOvOqYw/hqdefault.jpg" alt="" loading="lazy"><span class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></button></div><div class="vinfo"><strong>Producción original</strong><span class="mono">Edición</span></div></div>
-      <div class="vcard lg reveal"><div class="vframe"><video src="assets/video1.mp4#t=0.1" controls preload="metadata" playsinline></video></div><div class="vinfo"><strong>Producción original</strong><span class="mono">Video</span></div></div>
-      <div class="vcard lg reveal d1"><div class="vframe"><video src="assets/video2.mp4#t=0.1" controls preload="metadata" playsinline></video></div><div class="vinfo"><strong>Producción original</strong><span class="mono">Video</span></div></div>
-      <div class="vcard lg reveal"><div class="vframe"><video src="assets/video3.mp4#t=0.1" controls preload="metadata" playsinline></video></div><div class="vinfo"><strong>Producción original</strong><span class="mono">Video</span></div></div>
-      <div class="vcard lg reveal d1"><div class="vframe"><video src="assets/video4.mp4#t=0.1" controls preload="metadata" playsinline></video></div><div class="vinfo"><strong>Producción original</strong><span class="mono">Video</span></div></div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════ MÚSICA ═══════════ -->
-<section class="section" id="beats" style="padding-top:0">
-  <div class="wrap">
-    <div class="sec-head">
       <div>
-        <div class="eyebrow mono reveal">Producción musical</div>
-        <h2 class="sec-title reveal d1">Beats &amp; <span class="serif">composiciones</span></h2>
-      </div>
-      <p class="sec-sub reveal d2">Producciones originales disponibles para artistas, sincronización y colaboraciones.</p>
-    </div>
-
-    <div class="music reveal" id="music">
-      <div class="player" id="player">
-        <div class="player-art">
-          <img src="assets/images/album-art.webp" alt="Portada del beat" id="player-art">
-          <div class="viz" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
-        </div>
-        <div class="player-body">
-          <p class="player-now mono">Reproduciendo</p>
-          <p class="player-title" id="player-title">Nova estelar</p>
-          <p class="player-artist" id="player-artist">Jeighost</p>
-          <div class="prog" id="prog" role="slider" aria-label="Progreso" tabindex="0" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
-            <div class="prog-track"><div class="prog-fill" id="prog-fill"></div></div>
-          </div>
-          <div class="times"><span id="t-cur">0:00</span><span id="t-dur">0:00</span></div>
-          <div class="ctrls">
-            <div class="vol">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5L6 9H2v6h4l5 4V5zM15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
-              <input type="range" id="vol" min="0" max="100" value="80" aria-label="Volumen">
-            </div>
-            <div class="ctrl-group">
-              <button class="cbtn" id="prev" aria-label="Anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 20L9 12l10-8v16zM5 19V5"/></svg></button>
-              <button class="pbtn" id="play" aria-label="Reproducir">
-                <svg viewBox="0 0 24 24" fill="currentColor" id="ic-play"><path d="M8 5v14l11-7z"/></svg>
-                <svg viewBox="0 0 24 24" fill="currentColor" id="ic-pause" style="display:none"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
-              </button>
-              <button class="cbtn" id="next" aria-label="Siguiente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4l10 8-10 8V4zM19 5v14"/></svg></button>
-            </div>
-          </div>
-        </div>
-        <audio id="audio" preload="none"></audio>
-      </div>
-
-      <div class="tracks" id="tracks">
-        <button class="track" data-src="/assets/audio/track1.mp3" data-title="Nova estelar" data-artist="Jeighost" data-art="/assets/images/album-art.webp"><span class="track-n"><span class="n">01</span><span class="eqi"><i></i><i></i><i></i></span></span><span class="track-cover"><img src="/assets/images/album-art.webp" alt="" loading="lazy"></span><span style="min-width:0"><span class="track-name" style="display:block">Nova estelar</span><span class="track-art" style="display:block">Jeighost</span></span><span class="track-genre mono">Trap</span><span class="track-bpm mono">140 BPM</span></button>
-        <button class="track" data-src="/assets/audio/track2.mp3" data-title="Interestelar" data-artist="Jeighost" data-art="/assets/images/beat1.webp"><span class="track-n"><span class="n">02</span><span class="eqi"><i></i><i></i><i></i></span></span><span class="track-cover"><img src="/assets/images/beat1.webp" alt="" loading="lazy"></span><span style="min-width:0"><span class="track-name" style="display:block">Interestelar</span><span class="track-art" style="display:block">Jeighost</span></span><span class="track-genre mono">Trap</span><span class="track-bpm mono">75 BPM</span></button>
-        <button class="track" data-src="/assets/audio/track3.mp3" data-title="Flotando" data-artist="Jeighost" data-art="/assets/images/beat2.webp"><span class="track-n"><span class="n">03</span><span class="eqi"><i></i><i></i><i></i></span></span><span class="track-cover"><img src="/assets/images/beat2.webp" alt="" loading="lazy"></span><span style="min-width:0"><span class="track-name" style="display:block">Flotando</span><span class="track-art" style="display:block">Jeighost</span></span><span class="track-genre mono">Trap</span><span class="track-bpm mono">88 BPM</span></button>
-        <button class="track" data-src="/assets/audio/track4.mp3" data-title="Tu cuerpo" data-artist="Jeighost" data-art="/assets/images/beat3.webp"><span class="track-n"><span class="n">04</span><span class="eqi"><i></i><i></i><i></i></span></span><span class="track-cover"><img src="/assets/images/beat3.webp" alt="" loading="lazy"></span><span style="min-width:0"><span class="track-name" style="display:block">Tu cuerpo</span><span class="track-art" style="display:block">Jeighost</span></span><span class="track-genre mono">Reggaetón</span><span class="track-bpm mono">95 BPM</span></button>
-        <button class="track" data-src="/assets/audio/track5.mp3" data-title="Vitamina" data-artist="Jeighost" data-art="/assets/images/beat4.webp"><span class="track-n"><span class="n">05</span><span class="eqi"><i></i><i></i><i></i></span></span><span class="track-cover"><img src="/assets/images/beat4.webp" alt="" loading="lazy"></span><span style="min-width:0"><span class="track-name" style="display:block">Vitamina</span><span class="track-art" style="display:block">Jeighost</span></span><span class="track-genre mono">Trap</span><span class="track-bpm mono">85 BPM</span></button>
-        <button class="track" data-src="/assets/audio/track6.mp3" data-title="Old hip hop" data-artist="Jeighost" data-art="/assets/images/beat5.webp"><span class="track-n"><span class="n">06</span><span class="eqi"><i></i><i></i><i></i></span></span><span class="track-cover"><img src="/assets/images/beat5.webp" alt="" loading="lazy"></span><span style="min-width:0"><span class="track-name" style="display:block">Old hip hop</span><span class="track-art" style="display:block">Jeighost</span></span><span class="track-genre mono">Hip hop</span><span class="track-bpm mono">150 BPM</span></button>
-        <button class="track" data-src="/assets/audio/track7.mp3" data-title="Fire bom" data-artist="Jeighost" data-art="/assets/images/beat6.webp"><span class="track-n"><span class="n">07</span><span class="eqi"><i></i><i></i><i></i></span></span><span class="track-cover"><img src="/assets/images/beat6.webp" alt="" loading="lazy"></span><span style="min-width:0"><span class="track-name" style="display:block">Fire bom</span><span class="track-art" style="display:block">Jeighost</span></span><span class="track-genre mono">Ambient drill</span><span class="track-bpm mono">120 BPM</span></button>
-        <button class="track" data-src="/assets/audio/track8.mp3" data-title="A lo grande" data-artist="Jeighost · Capi · Gero · AMZ" data-art="/assets/images/beat7.webp"><span class="track-n"><span class="n">08</span><span class="eqi"><i></i><i></i><i></i></span></span><span class="track-cover"><img src="/assets/images/beat7.webp" alt="" loading="lazy"></span><span style="min-width:0"><span class="track-name" style="display:block">A lo grande</span><span class="track-art" style="display:block">Jeighost · Capi · Gero · AMZ</span></span><span class="track-genre mono">Drill</span><span class="track-bpm mono">148 BPM</span></button>
-        <button class="track" data-src="/assets/audio/track9.mp3" data-title="Luxiry" data-artist="Jeighost" data-art="/assets/images/beat8.webp"><span class="track-n"><span class="n">09</span><span class="eqi"><i></i><i></i><i></i></span></span><span class="track-cover"><img src="/assets/images/beat8.webp" alt="" loading="lazy"></span><span style="min-width:0"><span class="track-name" style="display:block">Luxiry</span><span class="track-art" style="display:block">Jeighost</span></span><span class="track-genre mono">Trap chill</span><span class="track-bpm mono">135 BPM</span></button>
-        <button class="track" data-src="/assets/audio/track10.mp3" data-title="SOJEI" data-artist="Jeighost" data-art="/assets/images/beat9.webp"><span class="track-n"><span class="n">10</span><span class="eqi"><i></i><i></i><i></i></span></span><span class="track-cover"><img src="/assets/images/beat9.webp" alt="" loading="lazy"></span><span style="min-width:0"><span class="track-name" style="display:block">SOJEI</span><span class="track-art" style="display:block">Jeighost</span></span><span class="track-genre mono">Trap</span><span class="track-bpm mono">120 BPM</span></button>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════ CONTACTO ═══════════ -->
-<section class="section contact" id="contacto" style="padding-top:0">
-  <div class="wrap">
-    <div class="eyebrow mono reveal">Contacto</div>
-    <h2 class="contact-big reveal d1">¿Tienes una idea?<br><span class="serif">Hagámosla real.</span></h2>
-
-    <div class="contact-grid">
-      <div class="reveal d2">
-        <p>Apps, sitios web, videos o música: cuéntame qué quieres construir y te respondo con una propuesta clara, tiempos y siguiente paso.</p>
         <div class="mail">
-          <div>
-            <small class="mono">Correo</small>
-            <a href="mailto:prodjeighost@gmail.com" id="mail">prodjeighost@gmail.com</a>
-          </div>
-          <button class="copy mono" id="copy" type="button">Copiar</button>
+          <div><small class="mono">Correo</small><a href="mailto:prodjeighost@gmail.com">prodjeighost@gmail.com</a></div>
+          <button class="copy mono" type="button" data-copy="prodjeighost@gmail.com">Copiar</button>
         </div>
-      </div>
-      <div class="socials reveal d3">
-        <a class="social" href="https://www.instagram.com/jeig59s" target="_blank" rel="noopener noreferrer"><span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>Instagram</span><svg class="arr" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H6M12 4v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        <a class="social" href="https://x.com/Jeighost" target="_blank" rel="noopener noreferrer"><span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>X / Twitter</span><svg class="arr" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H6M12 4v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        <a class="social" href="https://www.tiktok.com/@elfantasmag59" target="_blank" rel="noopener noreferrer"><span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>TikTok</span><svg class="arr" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H6M12 4v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        <a class="social" href="https://www.facebook.com/Jeig59" target="_blank" rel="noopener noreferrer"><span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>Facebook</span><svg class="arr" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H6M12 4v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        <a class="social" href="https://www.clauclone.lat" target="_blank" rel="noopener noreferrer"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l2.5 5.5L20 9l-4 4 1 6-5-3-5 3 1-6-4-4 5.5-.5z"/></svg>ClauClone</span><svg class="arr" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H6M12 4v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        <a class="social" href="https://jeighost.lat" target="_blank" rel="noopener noreferrer"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V3H6.5A2.5 2.5 0 0 0 4 5.5z"/><path d="M4 19.5A2.5 2.5 0 0 0 6.5 22H20v-5"/></svg>Poesía</span><svg class="arr" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H6M12 4v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <div class="socials"><a class="social" href="https://www.instagram.com/jeig59s" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>Instagram</a><a class="social" href="https://x.com/Jeighost" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>X</a><a class="social" href="https://www.tiktok.com/@elfantasmag59" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>TikTok</a><a class="social" href="https://www.facebook.com/Jeig59" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>Facebook</a></div>
       </div>
     </div>
   </div>
@@ -963,203 +162,14 @@ a.browser:hover .browser-view img,.case:hover .browser-view img{transform:scale(
 
 </main>
 
-<!-- ═══════════ FOOTER ═══════════ -->
 <footer class="footer">
-  <div class="wrap">
-    <div class="footer-top">
-      <nav class="footer-links" aria-label="Pie de página">
-        <a href="#webs">Trabajo</a><a href="#servicios">Servicios</a><a href="#sobre-mi">Sobre mí</a><a href="#video">Video</a><a href="#beats">Música</a><a href="#contacto">Contacto</a>
-      </nav>
-      <a href="#inicio" class="to-top mono">Volver arriba ↑</a>
-    </div>
-    <div class="footer-word" aria-hidden="true">JEIGHOST</div>
-    <div class="footer-bottom mono">
-      <span>© <span id="year">2026</span> Jeighost · Jeison Gonzalez</span>
-      <span>Hecho a mano en Barranquilla</span>
-    </div>
+  <div class="wrap footer-inner">
+    <span class="mono">© <span class="year">2026</span> Jeighost · Jeison Gonzalez</span>
+    <nav class="footer-links" aria-label="Pie de página"><a href="/">Inicio</a><a href="/webs/">Webs</a><a href="/beats/">Música</a><a href="/video/">Video</a><a href="https://jeighost.lat" target="_blank" rel="noopener noreferrer">Poesía</a></nav>
+    <span class="mono">Barranquilla, Colombia</span>
   </div>
 </footer>
 
-<script>
-(function(){
-  const $ = (s, c=document) => c.querySelector(s);
-  const $$ = (s, c=document) => Array.from(c.querySelectorAll(s));
-  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  /* ── Nav + progress ── */
-  const nav = $('#main-nav'), bar = $('#progress');
-  const onScroll = () => {
-    const y = scrollY, h = document.documentElement.scrollHeight - innerHeight;
-    nav.classList.toggle('scrolled', y > 40);
-    bar.style.transform = 'scaleX(' + (h > 0 ? y / h : 0) + ')';
-  };
-  addEventListener('scroll', onScroll, {passive:true}); onScroll();
-
-  /* ── Mobile menu ── */
-  const burger = $('#burger'), menu = $('#menu');
-  const setMenu = open => {
-    menu.classList.toggle('open', open); burger.classList.toggle('open', open);
-    burger.setAttribute('aria-expanded', open); menu.setAttribute('aria-hidden', !open);
-    document.body.style.overflow = open ? 'hidden' : '';
-  };
-  burger.addEventListener('click', () => setMenu(!menu.classList.contains('open')));
-  $$('a', menu).forEach(a => a.addEventListener('click', () => setMenu(false)));
-  addEventListener('keydown', e => { if (e.key === 'Escape') setMenu(false); });
-
-  /* ── Reveal ── */
-  const io = new IntersectionObserver(es => es.forEach(e => {
-    if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
-  }), {threshold:.12, rootMargin:'0px 0px -40px 0px'});
-  $$('.reveal').forEach(el => io.observe(el));
-
-  /* ── Counters ── */
-  const co = new IntersectionObserver(es => es.forEach(e => {
-    if (!e.isIntersecting) return;
-    const el = e.target, end = +el.dataset.count, t0 = performance.now(), d = reduce ? 1 : 1400;
-    const tick = t => { const p = Math.min((t - t0) / d, 1); el.textContent = Math.round(end * (1 - Math.pow(1 - p, 3))); if (p < 1) requestAnimationFrame(tick); };
-    requestAnimationFrame(tick); co.unobserve(el);
-  }), {threshold:.6});
-  $$('[data-count]').forEach(el => co.observe(el));
-
-  /* ── Clock (Barranquilla) ── */
-  const clock = $('#clock');
-  const fmtT = new Intl.DateTimeFormat('es-CO', {hour:'2-digit', minute:'2-digit', hour12:false, timeZone:'America/Bogota'});
-  const tickClock = () => clock.textContent = fmtT.format(new Date());
-  tickClock(); setInterval(tickClock, 15000);
-  $('#year').textContent = new Date().getFullYear();
-
-  /* ── Hero spotlight ── */
-  const hero = $('.hero'), spot = $('#spot');
-  if (!reduce && matchMedia('(pointer:fine)').matches) {
-    hero.addEventListener('pointermove', e => {
-      const r = hero.getBoundingClientRect();
-      spot.style.left = (e.clientX - r.left) + 'px'; spot.style.top = (e.clientY - r.top) + 'px';
-    });
-    /* Subtle 3D tilt on flagship browser */
-    $$('.tilt').forEach(el => {
-      el.addEventListener('pointermove', e => {
-        const r = el.getBoundingClientRect();
-        el.style.setProperty('--ry', ((e.clientX - r.left) / r.width - .5) * 6 + 'deg');
-        el.style.setProperty('--rx', ((e.clientY - r.top) / r.height - .5) * -6 + 'deg');
-      });
-      el.addEventListener('pointerleave', () => { el.style.setProperty('--rx','0deg'); el.style.setProperty('--ry','0deg'); });
-    });
-  }
-
-  /* ── Keep the name on one line at any width / font ── */
-  const heroName = $('#hero-name');
-  const fitName = () => {
-    heroName.style.fontSize = '';
-    const avail = heroName.parentElement.clientWidth, need = heroName.scrollWidth;
-    if (need > avail) heroName.style.fontSize = (parseFloat(getComputedStyle(heroName).fontSize) * avail / need * .98) + 'px';
-  };
-  fitName();
-  if (document.fonts) document.fonts.ready.then(fitName);
-  addEventListener('resize', fitName);
-
-  /* ── Glitch wave on name ── */
-  const letters = $$('#hero-name .gl');
-  const glitch = el => { el.classList.remove('glitching'); void el.offsetWidth; el.classList.add('glitching'); };
-  const wave = () => letters.forEach((el, i) => setTimeout(() => glitch(el), i * 70));
-  if (!reduce) {
-    addEventListener('load', () => { setTimeout(wave, 1700); setInterval(wave, 9000); });
-    $('#hero-name').addEventListener('pointerenter', wave);
-  }
-
-  /* ── Active nav link ── */
-  const links = $$('.nav-links a');
-  const so = new IntersectionObserver(es => es.forEach(e => {
-    if (!e.isIntersecting) return;
-    links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id));
-  }), {rootMargin:'-45% 0px -50% 0px'});
-  ['inicio','webs','servicios','sobre-mi','video','beats','contacto'].forEach(id => { const s = document.getElementById(id); if (s) so.observe(s); });
-
-  /* ── YouTube facade ── */
-  $$('.yt').forEach(b => b.addEventListener('click', () => {
-    const f = document.createElement('iframe');
-    f.src = 'https://www.youtube-nocookie.com/embed/' + b.dataset.id + '?autoplay=1&rel=0';
-    f.title = b.getAttribute('aria-label') || 'Video';
-    f.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
-    f.allowFullscreen = true;
-    b.replaceWith(f);
-  }));
-  /* Only one local video at a time */
-  const vids = $$('video');
-  vids.forEach(v => v.addEventListener('play', () => { vids.forEach(o => o !== v && o.pause()); pauseAudio(); }));
-
-  /* ── Copy email ── */
-  const copy = $('#copy');
-  copy.addEventListener('click', async () => {
-    try { await navigator.clipboard.writeText($('#mail').textContent.trim()); copy.textContent = 'Copiado ✓'; }
-    catch { location.href = $('#mail').href; }
-    setTimeout(() => copy.textContent = 'Copiar', 2000);
-  });
-
-  /* ── Music player ── */
-  const audio = $('#audio'), player = $('#player'), music = $('#music');
-  const tracks = $$('.track'), art = $('#player-art');
-  const icPlay = $('#ic-play'), icPause = $('#ic-pause'), playBtn = $('#play');
-  const fill = $('#prog-fill'), prog = $('#prog'), tCur = $('#t-cur'), tDur = $('#t-dur');
-  let idx = 0, loaded = false;
-  const fmt = s => isFinite(s) ? Math.floor(s/60) + ':' + String(Math.floor(s%60)).padStart(2,'0') : '0:00';
-  const setUI = on => {
-    player.classList.toggle('playing', on); music.classList.toggle('is-playing', on);
-    icPlay.style.display = on ? 'none' : 'block'; icPause.style.display = on ? 'block' : 'none';
-    playBtn.setAttribute('aria-label', on ? 'Pausar' : 'Reproducir');
-  };
-  function load(i){
-    idx = (i + tracks.length) % tracks.length;
-    const t = tracks[idx];
-    tracks.forEach(x => x.classList.toggle('active', x === t));
-    audio.src = t.dataset.src; loaded = true;
-    $('#player-title').textContent = t.dataset.title;
-    $('#player-artist').textContent = t.dataset.artist;
-    art.style.opacity = 0;
-    art.onload = () => art.style.opacity = 1;
-    art.src = t.dataset.art;
-    fill.style.width = '0%'; tCur.textContent = '0:00'; tDur.textContent = '0:00';
-  }
-  const play = () => { if (!loaded) load(idx); audio.play().catch(() => setUI(false)); };
-  function pauseAudio(){ audio.pause(); }
-  playBtn.addEventListener('click', () => audio.paused ? play() : audio.pause());
-  $('#prev').addEventListener('click', () => { const was = !audio.paused; load(idx - 1); if (was) play(); });
-  $('#next').addEventListener('click', () => { const was = !audio.paused; load(idx + 1); if (was) play(); });
-  tracks.forEach((t, i) => t.addEventListener('click', () => {
-    if (i === idx && loaded) { audio.paused ? play() : audio.pause(); return; }
-    load(i); play();
-  }));
-  audio.addEventListener('play', () => { setUI(true); vids.forEach(v => v.pause()); });
-  audio.addEventListener('pause', () => setUI(false));
-  audio.addEventListener('ended', () => { load(idx + 1); play(); });
-  audio.addEventListener('loadedmetadata', () => tDur.textContent = fmt(audio.duration));
-  audio.addEventListener('timeupdate', () => {
-    if (!audio.duration) return;
-    const p = audio.currentTime / audio.duration * 100;
-    fill.style.width = p + '%'; tCur.textContent = fmt(audio.currentTime);
-    prog.setAttribute('aria-valuenow', Math.round(p));
-  });
-  prog.addEventListener('click', e => {
-    if (!audio.duration) return;
-    const r = prog.getBoundingClientRect();
-    audio.currentTime = (e.clientX - r.left) / r.width * audio.duration;
-  });
-  prog.addEventListener('keydown', e => {
-    if (!audio.duration) return;
-    if (e.key === 'ArrowRight') audio.currentTime = Math.min(audio.duration, audio.currentTime + 5);
-    if (e.key === 'ArrowLeft') audio.currentTime = Math.max(0, audio.currentTime - 5);
-  });
-  const vol = $('#vol');
-  audio.volume = .8;
-  vol.addEventListener('input', () => audio.volume = vol.value / 100);
-  tracks[0].classList.add('active');
-
-  /* ── Image fallback ── */
-  $$('img').forEach(img => img.addEventListener('error', function(){
-    if (this.closest('.phone-screen')) return;
-    this.style.background = 'linear-gradient(135deg,rgba(200,168,75,.08),rgba(155,28,28,.08))';
-    this.removeAttribute('src');
-  }));
-})();
-</script>
+<script src="/js/main.js"></script>
 </body>
 </html>

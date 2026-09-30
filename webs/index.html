@@ -3,12 +3,174 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Jeighost</title>
-<meta name="robots" content="noindex, follow">
-<link rel="canonical" href="https://jeighost.art/#webs">
-<meta http-equiv="refresh" content="0; url=/#webs">
-<script>location.replace('/#webs');</script>
-<style>body{margin:0;min-height:100vh;display:grid;place-items:center;background:#080808;color:#a9a8a4;font:300 14px/1.6 system-ui,sans-serif}a{color:#c8a84b}</style>
+<title>Webs & apps — Jeighost</title>
+<meta name="description" content="Proyectos web de Jeighost: ClauClone (plataforma de IA), Eso Va (invitaciones digitales), El Rincón del Conocimiento, Ebenezer Stereo y SOALL.">
+<meta name="author" content="Jeison Gonzalez — Jeighost">
+<meta name="theme-color" content="#080808">
+<link rel="canonical" href="https://jeighost.art/webs/">
+<meta property="og:title" content="Webs & apps — Jeighost">
+<meta property="og:description" content="Proyectos web de Jeighost: ClauClone (plataforma de IA), Eso Va (invitaciones digitales), El Rincón del Conocimiento, Ebenezer Stereo y SOALL.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://jeighost.art/webs/">
+<meta property="og:image" content="https://jeighost.art/assets/images/previews/clauclone.webp">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16.png">
+<link rel="apple-touch-icon" sizes="48x48" href="/assets/images/favicon-48.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
 </head>
-<body><p>Redirigiendo… <a href="/#webs">Continuar</a></p></body>
+<body>
+<a href="#main" class="skip-link">Saltar al contenido</a>
+<div class="progress" id="progress" aria-hidden="true"></div>
+
+<header class="nav solid" id="main-nav">
+  <div class="wrap nav-inner">
+    <a href="/" class="nav-logo" aria-label="Jeighost, inicio"><span class="nav-logo-mark">J</span>Jeighost</a>
+    <nav aria-label="Principal"><ul class="nav-links"><li><a href="/">Inicio</a></li><li><a href="/webs/" class="active" aria-current="page">Webs</a></li><li><a href="/beats/">Música</a></li><li><a href="/video/">Video</a></li></ul></nav>
+    <div class="nav-right">
+      <a href="#contacto" class="nav-cta">Hablemos</a>
+      <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu"><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="menu" id="menu" aria-hidden="true">
+  <a class="menu-link" href="/"><span>01</span>Inicio</a><a class="menu-link active" href="/webs/"><span>02</span>Webs</a><a class="menu-link" href="/beats/"><span>03</span>Música</a><a class="menu-link" href="/video/"><span>04</span>Video</a>
+  <a class="menu-link" href="#contacto"><span>05</span>Contacto</a>
+  <div class="menu-foot mono"><a href="https://www.instagram.com/jeig59s" target="_blank" rel="noopener noreferrer">Instagram</a><a href="https://x.com/Jeighost" target="_blank" rel="noopener noreferrer">X</a><a href="https://www.tiktok.com/@elfantasmag59" target="_blank" rel="noopener noreferrer">TikTok</a></div>
+</div>
+
+<main id="main">
+<header class="page-head">
+  <div class="wrap">
+    <div class="crumbs mono fade-in"><a href="/">Inicio</a><span>/</span><span class="gold">Webs</span></div>
+    <h1 class="h-display fade-in" style="animation-delay:.1s">Webs &amp; apps</h1>
+    <p class="lead fade-in" style="animation-delay:.2s">Productos reales, en producción, usados por personas reales. Del concepto y la identidad al código y el despliegue.</p>
+    <div class="page-meta fade-in" style="animation-delay:.3s">
+      <div><strong>5</strong><span class="mono">Proyectos en línea</span></div>
+      <div><strong>2</strong><span class="mono">Productos propios</span></div>
+      <div><strong>100%</strong><span class="mono">Diseño y desarrollo</span></div>
+    </div>
+  </div>
+</header>
+<section class="wrap" aria-label="Proyectos">
+    <article class="project" id="clauclone">
+      <div class="project-info">
+        <div class="project-index mono reveal"><span class="n">01</span><span class="line"></span><span class="badge mono">★ Producto insignia</span></div>
+        <h2 class="h-1 reveal d1">ClauClone</h2>
+        <p class="project-tagline reveal d1">Los mejores modelos de IA, en una sola cuenta — pensado para Latinoamérica.</p>
+        <p class="body reveal d2">Claude, GPT, Gemini, DeepSeek y GLM en la misma conversación. Pagos en pesos, sin tarjeta internacional, y el costo de cada respuesta visible antes de enviarla.</p>
+        <ul class="facts reveal d2"><li><span class="mono">Rol</span><span>Fundador · Producto · Full-stack</span></li><li><span class="mono">Modelos</span><span>Claude · GPT · Gemini · DeepSeek · GLM</span></li><li><span class="mono">Negocio</span><span>Planes Pro y Max · 100 créditos gratis al día</span></li><li><span class="mono">Plataforma</span><span>Web + app instalable (PWA)</span></li></ul>
+        <div class="chips reveal d3"><span class="chip">React</span><span class="chip">Vite</span><span class="chip">SSR</span><span class="chip">APIs de IA</span><span class="chip">Auth Google</span><span class="chip">PWA</span><span class="chip">Vercel</span></div>
+        <div class="actions reveal d3"><a href="https://www.clauclone.lat" class="btn btn-gold" target="_blank" rel="noopener noreferrer">Visitar clauclone.lat <svg class="ne" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H6M12 4v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+      </div>
+      <a class="devices reveal d1" href="https://www.clauclone.lat" target="_blank" rel="noopener noreferrer" aria-label="Abrir ClauClone">
+        <div class="browser"><div class="browser-bar"><div class="dots"><i></i><i></i><i></i></div><div class="url"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 1a3.5 3.5 0 0 0-3.5 3.5V6H4a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V7a1 1 0 0 0-1-1h-.5V4.5A3.5 3.5 0 0 0 8 1zm2 5H6V4.5a2 2 0 1 1 4 0V6z"/></svg>clauclone.lat</div></div><div class="browser-view"><img src="/assets/images/previews/clauclone.webp" alt="Vista previa de ClauClone" width="1280" height="800"></div></div>
+        <div class="phone" aria-hidden="true"><div class="phone-screen"><img src="/assets/images/previews/clauclone-mobile.webp" alt="" loading="lazy" width="390" height="844"></div></div>
+      </a>
+    </article>
+    <article class="project flip" id="esova">
+      <div class="project-info">
+        <div class="project-index mono reveal"><span class="n">02</span><span class="line"></span><span>App · Invitaciones digitales</span></div>
+        <h2 class="h-1 reveal d1">Eso Va</h2>
+        <p class="project-tagline reveal d1">Invitaciones digitales que se sienten de papel fino.</p>
+        <p class="body reveal d2">Un estudio para diseñar invitaciones de boda, XV años o cualquier evento en minutos. Los invitados confirman asistencia, sugieren canciones y comparten fotos — todo desde un solo enlace.</p>
+        <ul class="facts reveal d2"><li><span class="mono">Estudio</span><span>10 plantillas de autor · 14 tipografías · vista previa en vivo</span></li><li><span class="mono">Invitados</span><span>RSVP, playlist colaborativa y galería de fotos</span></li><li><span class="mono">Panel</span><span>Métricas, lista de invitados, CSV, QR y WhatsApp</span></li><li><span class="mono">Alcance</span><span>5 idiomas · imagen para compartir generada al vuelo</span></li></ul>
+        <div class="chips reveal d3"><span class="chip">Next.js 16</span><span class="chip">React 19</span><span class="chip">Tailwind 4</span><span class="chip">Supabase</span><span class="chip">Vercel</span></div>
+        <div class="actions reveal d3"><a href="https://eso-va.vercel.app" class="btn btn-gold" target="_blank" rel="noopener noreferrer">Ver Eso Va <svg class="ne" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H6M12 4v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+      </div>
+      <a class="devices reveal d1" href="https://eso-va.vercel.app" target="_blank" rel="noopener noreferrer" aria-label="Abrir Eso Va">
+        <div class="browser"><div class="browser-bar"><div class="dots"><i></i><i></i><i></i></div><div class="url"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 1a3.5 3.5 0 0 0-3.5 3.5V6H4a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V7a1 1 0 0 0-1-1h-.5V4.5A3.5 3.5 0 0 0 8 1zm2 5H6V4.5a2 2 0 1 1 4 0V6z"/></svg>eso-va.vercel.app</div></div><div class="browser-view"><img src="/assets/images/previews/esova.webp" alt="Vista previa de Eso Va" width="1280" height="800" loading="lazy"></div></div>
+        <div class="phone" aria-hidden="true"><div class="phone-screen"><img src="/assets/images/previews/esova-mobile.webp" alt="" loading="lazy" width="390" height="844"></div></div>
+      </a>
+    </article>
+    <article class="project" id="rincon">
+      <div class="project-info">
+        <div class="project-index mono reveal"><span class="n">03</span><span class="line"></span><span>Editorial · Poesía</span></div>
+        <h2 class="h-1 reveal d1">El Rincón del Conocimiento</h2>
+        <p class="project-tagline reveal d1">Pensamientos que la voz silenció, ahora convertidos en palabras.</p>
+        <p class="body reveal d2">Mi espacio de reflexiones y poemas: lectura cuidada, audios, videos y un editor propio para publicar nuevas reflexiones.</p>
+        <ul class="facts reveal d2"><li><span class="mono">Rol</span><span>Autor · Diseño · Desarrollo</span></li><li><span class="mono">Funciones</span><span>Reflexiones, audios, videos y notificaciones</span></li><li><span class="mono">Extras</span><span>Modo claro/oscuro · app instalable (PWA)</span></li></ul>
+        <div class="chips reveal d3"><span class="chip">Jekyll</span><span class="chip">GitHub Pages</span><span class="chip">PWA</span><span class="chip">SEO</span></div>
+        <div class="actions reveal d3"><a href="https://jeighost.lat" class="btn btn-gold" target="_blank" rel="noopener noreferrer">Visitar jeighost.lat <svg class="ne" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H6M12 4v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+      </div>
+      <a class="devices reveal d1" href="https://jeighost.lat" target="_blank" rel="noopener noreferrer" aria-label="Abrir El Rincón del Conocimiento">
+        <div class="browser"><div class="browser-bar"><div class="dots"><i></i><i></i><i></i></div><div class="url"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 1a3.5 3.5 0 0 0-3.5 3.5V6H4a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V7a1 1 0 0 0-1-1h-.5V4.5A3.5 3.5 0 0 0 8 1zm2 5H6V4.5a2 2 0 1 1 4 0V6z"/></svg>jeighost.lat</div></div><div class="browser-view"><img src="/assets/images/previews/rincon.webp" alt="Vista previa de El Rincón del Conocimiento" width="1280" height="800" loading="lazy"></div></div>
+        <div class="phone" aria-hidden="true"><div class="phone-screen"><img src="/assets/images/previews/rincon-mobile.webp" alt="" loading="lazy" width="390" height="844"></div></div>
+      </a>
+    </article>
+    <article class="project flip" id="ebenezer">
+      <div class="project-info">
+        <div class="project-index mono reveal"><span class="n">04</span><span class="line"></span><span>Medios · Radio</span></div>
+        <h2 class="h-1 reveal d1">Ebenezer Stereo</h2>
+        <p class="project-tagline reveal d1">Sitio oficial de la emisora 88.2 FM / Online.</p>
+        <p class="body reveal d2">Identidad digital para una emisora: transmisión en vivo con reproductor persistente, programación, podcast y contacto directo por WhatsApp.</p>
+        <ul class="facts reveal d2"><li><span class="mono">Rol</span><span>Diseño · Desarrollo</span></li><li><span class="mono">Funciones</span><span>Radio en vivo · programación · podcast</span></li><li><span class="mono">Extras</span><span>Modo claro/oscuro · contacto por WhatsApp</span></li></ul>
+        <div class="chips reveal d3"><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span><span class="chip">Audio streaming</span></div>
+        <div class="actions reveal d3"><a href="https://jeighost.github.io/Ebenezer-Stereo" class="btn btn-gold" target="_blank" rel="noopener noreferrer">Visitar sitio <svg class="ne" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H6M12 4v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+      </div>
+      <a class="devices reveal d1" href="https://jeighost.github.io/Ebenezer-Stereo" target="_blank" rel="noopener noreferrer" aria-label="Abrir Ebenezer Stereo">
+        <div class="browser"><div class="browser-bar"><div class="dots"><i></i><i></i><i></i></div><div class="url"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 1a3.5 3.5 0 0 0-3.5 3.5V6H4a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V7a1 1 0 0 0-1-1h-.5V4.5A3.5 3.5 0 0 0 8 1zm2 5H6V4.5a2 2 0 1 1 4 0V6z"/></svg>ebenezer-stereo</div></div><div class="browser-view"><img src="/assets/images/previews/ebenezer.webp" alt="Vista previa de Ebenezer Stereo" width="1280" height="800" loading="lazy"></div></div>
+        <div class="phone" aria-hidden="true"><div class="phone-screen"><img src="/assets/images/previews/ebenezer-mobile.webp" alt="" loading="lazy" width="390" height="844"></div></div>
+      </a>
+    </article>
+    <article class="project" id="soall">
+      <div class="project-info">
+        <div class="project-index mono reveal"><span class="n">05</span><span class="line"></span><span>E-commerce · Moda</span></div>
+        <h2 class="h-1 reveal d1">SOALL</h2>
+        <p class="project-tagline reveal d1">Moda que te define.</p>
+        <p class="body reveal d2">Tienda virtual de moda para dama, caballero, accesorios y calzado: catálogo por categorías, lista de deseos y una experiencia de compra clara.</p>
+        <ul class="facts reveal d2"><li><span class="mono">Rol</span><span>Diseño · Desarrollo</span></li><li><span class="mono">Catálogo</span><span>Dama · caballero · accesorios · calzado</span></li><li><span class="mono">Extras</span><span>Lista de deseos · panel de administración</span></li></ul>
+        <div class="chips reveal d3"><span class="chip">HTML</span><span class="chip">Tailwind CSS</span><span class="chip">JavaScript</span></div>
+        <div class="actions reveal d3"><a href="https://jeighost.github.io/SOALL/" class="btn btn-gold" target="_blank" rel="noopener noreferrer">Visitar tienda <svg class="ne" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H6M12 4v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+      </div>
+      <a class="devices reveal d1" href="https://jeighost.github.io/SOALL/" target="_blank" rel="noopener noreferrer" aria-label="Abrir SOALL">
+        <div class="browser"><div class="browser-bar"><div class="dots"><i></i><i></i><i></i></div><div class="url"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 1a3.5 3.5 0 0 0-3.5 3.5V6H4a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V7a1 1 0 0 0-1-1h-.5V4.5A3.5 3.5 0 0 0 8 1zm2 5H6V4.5a2 2 0 1 1 4 0V6z"/></svg>soall</div></div><div class="browser-view"><img src="/assets/images/previews/soall.webp" alt="Vista previa de SOALL" width="1280" height="800" loading="lazy"></div></div>
+        <div class="phone" aria-hidden="true"><div class="phone-screen"><img src="/assets/images/previews/soall-mobile.webp" alt="" loading="lazy" width="390" height="844"></div></div>
+      </a>
+    </article>
+</section>
+
+<div class="wrap">
+  <div class="next reveal">
+    <span class="mono dim">Siguiente sección</span>
+    <a href="/beats/"><span class="h-1">Música</span><span class="portal-go"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+  </div>
+</div>
+
+
+<section class="section-tight" id="contacto">
+  <div class="wrap">
+    <div class="cta reveal">
+      <div>
+        <span class="eyebrow mono">Contacto</span>
+        <h2 class="h-1">¿Tienes un proyecto? <span class="gold">Hagámoslo real.</span></h2>
+        <p class="lead">Apps, sitios web, video o música. Cuéntame la idea y te respondo con una propuesta clara, tiempos y el siguiente paso.</p>
+      </div>
+      <div>
+        <div class="mail">
+          <div><small class="mono">Correo</small><a href="mailto:prodjeighost@gmail.com">prodjeighost@gmail.com</a></div>
+          <button class="copy mono" type="button" data-copy="prodjeighost@gmail.com">Copiar</button>
+        </div>
+        <div class="socials"><a class="social" href="https://www.instagram.com/jeig59s" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>Instagram</a><a class="social" href="https://x.com/Jeighost" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>X</a><a class="social" href="https://www.tiktok.com/@elfantasmag59" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>TikTok</a><a class="social" href="https://www.facebook.com/Jeig59" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>Facebook</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <span class="mono">© <span class="year">2026</span> Jeighost · Jeison Gonzalez</span>
+    <nav class="footer-links" aria-label="Pie de página"><a href="/">Inicio</a><a href="/webs/">Webs</a><a href="/beats/">Música</a><a href="/video/">Video</a><a href="https://jeighost.lat" target="_blank" rel="noopener noreferrer">Poesía</a></nav>
+    <span class="mono">Barranquilla, Colombia</span>
+  </div>
+</footer>
+
+<script src="/js/main.js"></script>
+</body>
 </html>
